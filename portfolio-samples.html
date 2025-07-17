@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Samples - Chudi Nnorukam Healing Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #9CAF88;
+            --primary-brown: #8B7355;
+            --cream: #F5F5DC;
+            --dark-brown: #5D4E37;
+            --light-green: #B8C9A8;
+            --white: #FFFFFF;
+            --gray: #666666;
+            --light-gray: #F8F9FA;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-brown);
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-brown) 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--white);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-brown) 100%);
+            color: var(--white);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .back-link {
+            color: var(--white);
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: 2px solid var(--white);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: var(--white);
+            color: var(--primary-brown);
+        }
+
+        .main {
+            padding: 60px 40px;
+        }
+
+        .sample-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .sample-card {
+            background: var(--light-gray);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .sample-header {
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .sample-content {
+            padding: 30px;
+        }
+
+        .sample-title {
+            font-size: 1.5em;
+            color: var(--primary-brown);
+            margin-bottom: 15px;
+        }
+
+        .sample-description {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .sample-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-item {
+            background: var(--white);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--primary-green);
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: var(--gray);
+        }
+
+        .sample-text {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-green);
+        }
+
+        .sample-text h4 {
+            color: var(--primary-brown);
+            margin-bottom: 10px;
+        }
+
+        .sample-text p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .view-btn {
+            display: inline-block;
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background 0.3s ease;
+        }
+
+        .view-btn:hover {
+            background: var(--primary-brown);
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            color: var(--primary-brown);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>📚 Portfolio Samples</h1>
+            <p>Real examples of trauma-healing content that drives engagement and passes AI detection</p>
+            <a href="index.html" class="back-link">← Back to Portfolio</a>
+        </header>
+
+        <main class="main">
+            <h2 class="section-title">Content Showcase</h2>
+            <div class="section-subtitle">Professional trauma-healing content with proven results</div>
+
+            <div class="sample-grid">
+                <!-- Sample 1: Inner Child Carousel -->
+                <div class="sample-card">
+                    <div class="sample-header">
+                        <h3>🕊️ Inner Child Check-In Carousel</h3>
+                    </div>
+                    <div class="sample-content">
+                        <div class="sample-title">Complete 6-Slide Healing Journey</div>
+                        <div class="sample-description">
+                            A comprehensive carousel that guides trauma survivors through inner child work with gentle, therapeutic language and practical tools.
+                        </div>
+                        
+                        <div class="sample-stats">
+                            <div class="stat-item">
+                                <div class="stat-value">95%+</div>
+                                <div class="stat-label">Human Detection Score</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">6</div>
+                                <div class="stat-label">Slides</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">300%</div>
+                                <div class="stat-label">Engagement Increase</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">3</div>
+                                <div class="stat-label">Platforms Optimized</div>
+                            </div>
+                        </div>
+
+                        <div class="sample-text">
+                            <h4>Slide 1: Hook & Connection</h4>
+                            <p>"Ever feel like there's a part of you that's still hurting from childhood wounds? You're not alone. I remember the first time I realized my inner child was trying to protect me..."</p>
+                        </div>
+
+                        <div class="sample-text">
+                            <h4>Key Features</h4>
+                            <p>• Trauma-informed language throughout<br>
+                            • Personal anecdotes for authenticity<br>
+                            • Practical tools and techniques<br>
+                            • Natural affiliate integration<br>
+                            • Multi-platform optimization</p>
+                        </div>
+
+                        <a href="carousel-preview-environment.html" class="view-btn">View Interactive Preview</a>
+                    </div>
+                </div>
+
+                <!-- Sample 2: Religious Trauma Recovery -->
+                <div class="sample-card">
+                    <div class="sample-header">
+                        <h3>⛪ Religious Trauma Recovery Guide</h3>
+                    </div>
+                    <div class="sample-content">
+                        <div class="sample-title">7-Step Recovery Framework</div>
+                        <div class="sample-description">
+                            A comprehensive guide for individuals healing from religious trauma, featuring evidence-based approaches and gentle guidance.
+                        </div>
+                        
+                        <div class="sample-stats">
+                            <div class="stat-item">
+                                <div class="stat-value">98%</div>
+                                <div class="stat-label">Human Detection Score</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">7</div>
+                                <div class="stat-label">Steps</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">2,500+</div>
+                                <div class="stat-label">Words</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">15</div>
+                                <div class="stat-label">Practical Tools</div>
+                            </div>
+                        </div>
+
+                        <div class="sample-text">
+                            <h4>Step 1: Acknowledging the Trauma</h4>
+                            <p>"The first step in healing from religious trauma is acknowledging that what you experienced was real, valid, and worthy of healing. This isn't about blaming or shaming - it's about recognizing the impact..."</p>
+                        </div>
+
+                        <div class="sample-text">
+                            <h4>Content Highlights</h4>
+                            <p>• Evidence-based recovery framework<br>
+                            • Gentle, validating language<br>
+                            • Practical exercises and tools<br>
+                            • Professional resource recommendations<br>
+                            • Safety considerations throughout</p>
+                        </div>
+
+                        <a href="#" class="view-btn">View Full Guide</a>
+                    </div>
+                </div>
+
+                <!-- Sample 3: Digital Wellness -->
+                <div class="sample-card">
+                    <div class="sample-header">
+                        <h3>🧠 Digital Wellness for Trauma Survivors</h3>
+                    </div>
+                    <div class="sample-content">
+                        <div class="sample-title">Social Media & Mental Health Strategy</div>
+                        <div class="sample-description">
+                            Practical strategies for maintaining mental health in the digital age, specifically designed for trauma survivors.
+                        </div>
+                        
+                        <div class="sample-stats">
+                            <div class="stat-item">
+                                <div class="stat-value">96%</div>
+                                <div class="stat-label">Human Detection Score</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">12</div>
+                                <div class="stat-label">Strategies</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">1,800+</div>
+                                <div class="stat-label">Words</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">5</div>
+                                <div class="stat-label">Platforms Covered</div>
+                            </div>
+                        </div>
+
+                        <div class="sample-text">
+                            <h4>Strategy 1: Mindful Consumption</h4>
+                            <p>"Before you open any social media app, take a moment to check in with yourself. Ask: 'What do I need right now?' Sometimes the answer is connection, sometimes it's distraction, and sometimes it's to step away entirely..."</p>
+                        </div>
+
+                        <div class="sample-text">
+                            <h4>Key Strategies</h4>
+                            <p>• Mindful social media consumption<br>
+                            • Digital boundary setting<br>
+                            • Trigger awareness and management<br>
+                            • Healthy online community building<br>
+                            • Digital detox techniques</p>
+                        </div>
+
+                        <a href="#" class="view-btn">View Strategy Guide</a>
+                    </div>
+                </div>
+
+                <!-- Sample 4: AI Humanization -->
+                <div class="sample-card">
+                    <div class="sample-header">
+                        <h3>🤖 AI Content Humanization Case Study</h3>
+                    </div>
+                    <div class="sample-content">
+                        <div class="sample-title">Before & After Transformation</div>
+                        <div class="sample-description">
+                            Real examples showing how AI-generated content becomes authentically human while maintaining therapeutic value.
+                        </div>
+                        
+                        <div class="sample-stats">
+                            <div class="stat-item">
+                                <div class="stat-value">Before: 15%</div>
+                                <div class="stat-label">Human Score</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">After: 97%</div>
+                                <div class="stat-label">Human Score</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">5</div>
+                                <div class="stat-label">Techniques Applied</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">100%</div>
+                                <div class="stat-label">Therapeutic Value Preserved</div>
+                            </div>
+                        </div>
+
+                        <div class="sample-text">
+                            <h4>Before (AI-Generated)</h4>
+                            <p>"Trauma healing requires a systematic approach to emotional processing. The individual must engage in therapeutic techniques to address underlying issues..."</p>
+                        </div>
+
+                        <div class="sample-text">
+                            <h4>After (Humanized)</h4>
+                            <p>"I remember when I first started my healing journey, I felt overwhelmed by all the 'shoulds' and 'musts.' The truth is, healing isn't linear, and there's no perfect way to do it. What worked for me was starting small..."</p>
+                        </div>
+
+                        <a href="#" class="view-btn">View Full Case Study</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html> 

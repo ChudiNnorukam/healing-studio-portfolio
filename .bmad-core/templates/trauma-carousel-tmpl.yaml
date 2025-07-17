@@ -1,0 +1,362 @@
+template:
+  id: trauma-carousel-template
+  name: Trauma Healing Carousel Template
+  version: 1.0
+  output:
+    format: markdown
+    filename: content/carousels/{{carousel_title_slug}}.md
+    title: "{{carousel_title}} - Trauma Healing Carousel"
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+
+sections:
+  - id: carousel-overview
+    title: Carousel Overview
+    instruction: |
+      Define the core carousel concept and healing focus. This section establishes the emotional foundation and therapeutic approach for the entire carousel.
+    sections:
+      - id: carousel-title
+        title: Carousel Title
+        type: text
+        instruction: Create an emotionally resonant, SEO-optimized title that speaks directly to trauma survivors
+        examples:
+          - "5 Signs You're More Resilient Than You Think"
+          - "Inner Child Check-In: A Gentle Guide to Self-Connection"
+          - "Religious Trauma Recovery: Your Path to Spiritual Freedom"
+          - "Digital Wellness for Trauma Survivors: Finding Balance Online"
+      
+      - id: healing-focus
+        title: Healing Focus
+        type: select
+        choices:
+          - Inner Child Work
+          - Religious Trauma Recovery
+          - Digital Wellness
+          - Trauma-Informed Self-Care
+          - Building Resilience
+          - Emotional Regulation
+          - Boundary Setting
+          - Spiritual Abuse Recovery
+        instruction: Select the primary healing focus for this carousel
+      
+      - id: target-audience
+        title: Target Audience
+        type: multi-select
+        choices:
+          - Trauma survivors
+          - Mental health professionals
+          - Healing coaches
+          - Faith communities
+          - Wellness entrepreneurs
+          - Self-help seekers
+        instruction: Select the primary audience(s) for this carousel
+      
+      - id: emotional-tone
+        title: Emotional Tone
+        type: select
+        choices:
+          - Gentle and nurturing
+          - Professional and educational
+          - Raw and authentic
+          - Hopeful and inspiring
+          - Validating and supportive
+        instruction: Choose the emotional tone that will resonate most with your audience
+
+  - id: slide-content
+    title: Slide Content (5-7 slides)
+    instruction: |
+      Create 5-7 slides that follow a healing journey progression. Each slide should build on the previous one and lead naturally to the next.
+    sections:
+      - id: slide-1
+        title: Slide 1 - Hook & Connection
+        type: structured-content
+        instruction: |
+          Create an emotionally engaging opening that immediately connects with trauma survivors. This should validate their experience and create a safe space for the journey ahead.
+        sections:
+          - id: hook-text
+            title: Hook Text (1-2 sentences)
+            type: text
+            instruction: Write a powerful opening that speaks directly to the pain point
+          - id: emotional-connection
+            title: Emotional Connection
+            type: text
+            instruction: Add 1-2 sentences that validate and connect with the audience's experience
+          - id: visual-elements
+            title: Visual Elements
+            type: text
+            instruction: Describe the visual elements (colors, imagery, layout) that support the emotional tone
+      
+      - id: slide-2
+        title: Slide 2 - Problem Identification
+        type: structured-content
+        instruction: |
+          Gently identify the specific challenges or pain points related to the healing focus. Be trauma-informed and avoid triggering language.
+        sections:
+          - id: problem-statement
+            title: Problem Statement
+            type: text
+            instruction: Identify the core challenge in trauma-informed language
+          - id: validation
+            title: Validation
+            type: text
+            instruction: Validate that these challenges are normal and understandable
+          - id: hope-seed
+            title: Hope Seed
+            type: text
+            instruction: Plant a small seed of hope that change is possible
+      
+      - id: slide-3
+        title: Slide 3 - Understanding & Education
+        type: structured-content
+        instruction: |
+          Provide gentle education about the healing topic. Use accessible language and focus on empowerment rather than pathology.
+        sections:
+          - id: educational-content
+            title: Educational Content
+            type: text
+            instruction: Share 2-3 key insights about the healing topic
+          - id: empowerment-focus
+            title: Empowerment Focus
+            type: text
+            instruction: Frame the information in terms of personal power and choice
+          - id: practical-application
+            title: Practical Application
+            type: text
+            instruction: Suggest how this understanding can be applied in daily life
+      
+      - id: slide-4
+        title: Slide 4 - Tools & Techniques
+        type: structured-content
+        instruction: |
+          Present 2-3 practical tools or techniques that support healing. Focus on simple, accessible practices.
+        sections:
+          - id: tool-1
+            title: Tool/Technique 1
+            type: text
+            instruction: Describe the first tool or technique in simple terms
+          - id: tool-2
+            title: Tool/Technique 2
+            type: text
+            instruction: Describe the second tool or technique
+          - id: tool-3
+            title: Tool/Technique 3 (Optional)
+            type: text
+            instruction: Describe a third tool if appropriate
+          - id: implementation-tips
+            title: Implementation Tips
+            type: text
+            instruction: Provide gentle guidance on how to implement these tools
+      
+      - id: slide-5
+        title: Slide 5 - Transformation & Results
+        type: structured-content
+        instruction: |
+          Show what transformation looks like. Focus on realistic, achievable outcomes rather than perfect healing.
+        sections:
+          - id: transformation-vision
+            title: Transformation Vision
+            type: text
+            instruction: Describe what healing and growth can look like
+          - id: realistic-expectations
+            title: Realistic Expectations
+            type: text
+            instruction: Set realistic expectations about the healing journey
+          - id: celebration
+            title: Celebration
+            type: text
+            instruction: Celebrate the courage and strength of the healing journey
+      
+      - id: slide-6
+        title: Slide 6 - Call to Action
+        type: structured-content
+        instruction: |
+          Create a gentle, trauma-informed call to action that offers next steps without pressure.
+        sections:
+          - id: cta-text
+            title: Call to Action Text
+            type: text
+            instruction: Write a gentle invitation to take the next step
+          - id: affiliate-integration
+            title: Affiliate Integration
+            type: text
+            instruction: Naturally integrate relevant affiliate products or resources
+          - id: safety-message
+            title: Safety Message
+            type: text
+            instruction: Include a brief safety message about professional support if needed
+
+  - id: platform-optimization
+    title: Platform Optimization
+    instruction: |
+      Create platform-specific variations and captions for maximum engagement across different social media platforms.
+    sections:
+      - id: instagram-caption
+        title: Instagram Caption
+        type: text
+        instruction: |
+          Create an Instagram caption that:
+          - Opens with a compelling hook
+          - Includes relevant hashtags for trauma healing
+          - Encourages engagement and sharing
+          - Integrates affiliate products naturally
+          - Maintains trauma-informed language
+        length: 200-300 words
+      
+      - id: pinterest-description
+        title: Pinterest Description
+        type: text
+        instruction: |
+          Create a Pinterest description that:
+          - Is SEO-optimized for trauma healing keywords
+          - Includes relevant hashtags
+          - Describes the value and benefits
+          - Encourages saving and sharing
+        length: 100-200 words
+      
+      - id: linkedin-post
+        title: LinkedIn Post
+        type: text
+        instruction: |
+          Create a LinkedIn post that:
+          - Maintains professional tone
+          - Focuses on educational value
+          - Includes relevant hashtags
+          - Encourages professional networking
+        length: 150-250 words
+      
+      - id: hashtags
+        title: Hashtag Strategy
+        type: multi-select
+        choices:
+          - #traumahealing
+          - #innerchildwork
+          - #religious trauma
+          - #digitalwellness
+          - #selfcare
+          - #resilience
+          - #mentalhealth
+          - #healingjourney
+          - #traumarecovery
+          - #emotionalwellness
+          - #boundaries
+          - #spiritualabuse
+          - #mindfulness
+          - #therapytools
+          - #mentalhealthawareness
+        instruction: Select 5-7 relevant hashtags for maximum reach
+
+  - id: affiliate-integration
+    title: Affiliate Integration
+    instruction: |
+      Strategically integrate affiliate products that support the healing journey without compromising authenticity.
+    sections:
+      - id: primary-affiliate
+        title: Primary Affiliate Product
+        type: structured-content
+        instruction: |
+          Identify the main affiliate product that aligns with this carousel's healing focus.
+        sections:
+          - id: product-name
+            title: Product Name
+            type: text
+            instruction: Name of the affiliate product
+          - id: product-description
+            title: Product Description
+            type: text
+            instruction: Brief description of how this product supports healing
+          - id: integration-point
+            title: Integration Point
+            type: text
+            instruction: Where and how to naturally integrate this product in the carousel
+          - id: tracking-link
+            title: Tracking Link
+            type: text
+            instruction: Affiliate tracking link with your unique identifier
+      
+      - id: secondary-affiliate
+        title: Secondary Affiliate Product (Optional)
+        type: structured-content
+        instruction: |
+          Identify a secondary affiliate product that complements the primary product.
+        sections:
+          - id: product-name-2
+            title: Product Name
+            type: text
+          - id: product-description-2
+            title: Product Description
+            type: text
+          - id: integration-point-2
+            title: Integration Point
+            type: text
+          - id: tracking-link-2
+            title: Tracking Link
+            type: text
+
+  - id: quality-assurance
+    title: Quality Assurance
+    instruction: |
+      Ensure the carousel meets all quality standards for trauma-informed content and AI detection bypass.
+    sections:
+      - id: trauma-informed-checklist
+        title: Trauma-Informed Checklist
+        type: checklist
+        items:
+          - "Uses trauma-informed language throughout"
+          - "Avoids triggering or retraumatizing content"
+          - "Includes safety disclaimers where appropriate"
+          - "Respects individual healing journeys"
+          - "Provides professional support resources"
+          - "Maintains professional boundaries"
+      
+      - id: ai-detection-checklist
+        title: AI Detection Bypass Checklist
+        type: checklist
+        items:
+          - "Content passes GPTZero human detection"
+          - "Uses natural, conversational language"
+          - "Includes personal voice and authenticity"
+          - "Avoids repetitive or formulaic patterns"
+          - "Incorporates emotional vulnerability"
+          - "Maintains consistent human tone"
+      
+      - id: seo-optimization
+        title: SEO Optimization
+        type: checklist
+        items:
+          - "Includes relevant trauma-healing keywords"
+          - "Optimized for platform-specific algorithms"
+          - "Uses appropriate hashtags"
+          - "Includes meta descriptions"
+          - "Optimized for engagement metrics"
+
+  - id: delivery-format
+    title: Delivery Format
+    instruction: |
+      Specify how the carousel content should be delivered to clients.
+    sections:
+      - id: file-formats
+        title: File Formats
+        type: multi-select
+        choices:
+          - Markdown (.md)
+          - PDF
+          - Canva template
+          - PowerPoint (.pptx)
+          - Google Slides
+        instruction: Select the file formats to deliver
+      
+      - id: usage-instructions
+        title: Usage Instructions
+        type: text
+        instruction: |
+          Provide clear instructions for how clients should use and customize the carousel content.
+        length: 100-200 words
+      
+      - id: customization-guidelines
+        title: Customization Guidelines
+        type: text
+        instruction: |
+          Provide guidelines for how clients can customize the content while maintaining quality and effectiveness.
+        length: 100-200 words 

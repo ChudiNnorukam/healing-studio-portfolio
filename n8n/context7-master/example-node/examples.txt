@@ -1,0 +1,13 @@
+Prompt:
+"Build a node that sends a Slack message when a Typeform form is submitted. Include dynamic fields for name and email."
+
+Output (GPT):
+{...n8n node JSON or summary here...}
+
+---
+
+Prompt:
+"Update the node to include Airtable logging."
+
+Output:
+{...}

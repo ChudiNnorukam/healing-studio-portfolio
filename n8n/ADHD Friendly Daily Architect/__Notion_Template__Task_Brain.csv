@@ -1,0 +1,9 @@
+,Type
+Task Name,Title
+Energy Level,"Select (Low, Medium, High)"
+Time Needed (min),Number
+Priority,"Select (Urgent, Normal, Optional)"
+Type,"Multi-select (Admin, Healing, Creative, Academic, etc.)"
+Ideal Time,"Select (Morning, Afternoon, Night)"
+Status,"Select (Not Started, In Progress, Done)"
+ADHD Notes,Text

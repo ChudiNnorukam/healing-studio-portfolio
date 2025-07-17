@@ -1,0 +1,28 @@
+bundle:
+  name: Trauma Healing Business Team
+  icon: 🕊️
+  description: Specialized team for trauma-healing content creation, business strategy, and affiliate marketing with AI detection avoidance capabilities
+agents:
+  - bmad-orchestrator
+  - trauma-healing-specialist
+  - business-strategist
+  - seo-automation-specialist
+  - analyst
+  - pm
+  - architect
+  - dev
+  - qa
+  - ux-expert
+  - po
+  - sm
+workflows:
+  - trauma-healing-content-creation.yaml
+  - trauma-healing-business-strategy.yaml
+  - trauma-healing-seo-optimization.yaml
+  - trauma-healing-affiliate-marketing.yaml
+  - greenfield-fullstack.yaml
+  - greenfield-service.yaml
+  - greenfield-ui.yaml
+  - brownfield-fullstack.yaml
+  - brownfield-service.yaml
+  - brownfield-ui.yaml 
