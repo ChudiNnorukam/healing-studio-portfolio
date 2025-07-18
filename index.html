@@ -16,7 +16,7 @@
     <meta property="og:description" content="Professional trauma-healing content creator specializing in AI-humanized content that passes detection tests.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://chudinnorukam.github.io/healing-studio-portfolio/">
-    <meta property="og:image" content="https://chudinnorukam.github.io/healing-studio-portfolio/og-image.jpg">
+    <meta property="og:image" content="https://chudinnorukam.github.io/healing-studio-portfolio/Chudi%20Profile%20Photo.JPG">
     
     <!-- LinkedIn Meta Tags -->
     <meta property="linkedin:title" content="Chudi Nnorukam Healing Studio">
@@ -205,7 +205,7 @@
         .profile-placeholder {
             width: 300px;
             height: 300px;
-            background: url('profile-photo.jpg') center center/cover;
+            background: url('Chudi%20Profile%20Photo.JPG') center center/cover;
             border-radius: 50%;
             margin: 0 auto;
             display: flex;
@@ -260,17 +260,17 @@
 
         .service-features li::before {
             content: "✓";
-            color: var(--gentle-brown);
+            color: var(--primary-green);
+            font-weight: bold;
             position: absolute;
             left: 0;
-            font-weight: bold;
         }
 
         /* Portfolio Section */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             margin-top: 50px;
         }
 
@@ -287,304 +287,124 @@
         }
 
         .portfolio-image {
-            height: 250px;
-            background: linear-gradient(135deg, var(--warm-peach) 0%, var(--soft-beige) 50%, var(--gentle-brown) 100%);
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-brown) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--dark-brown);
+            color: var(--white);
             font-size: 2em;
         }
 
         .portfolio-content {
-            padding: 30px;
+            padding: 25px;
         }
 
         .portfolio-content h3 {
             color: var(--primary-brown);
-            font-size: 1.3em;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .portfolio-content p {
-            color: var(--gray);
-            margin-bottom: 20px;
-        }
-
-        .portfolio-link {
-            display: inline-block;
-            background: var(--gentle-brown);
-            color: var(--white);
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: background 0.3s ease;
-        }
-
-        .portfolio-link:hover {
-            background: var(--primary-brown);
-        }
-
-        /* Testimonials Section */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .testimonial-card {
-            background: var(--healing-cream);
-            padding: 30px;
-            border-radius: 15px;
-            border-left: 4px solid var(--gentle-brown);
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            color: var(--gray);
-            margin-bottom: 20px;
-            font-size: 1.1em;
-        }
-
-        .testimonial-author {
-            color: var(--primary-brown);
-            font-weight: bold;
-        }
-
-        .testimonial-role {
             color: var(--gray);
             font-size: 0.9em;
         }
 
         /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            margin-top: 50px;
+        .contact-info {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .contact-info h3 {
             color: var(--primary-brown);
-            font-size: 1.5em;
             margin-bottom: 20px;
         }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
+        .contact-info p {
             color: var(--gray);
+            margin-bottom: 15px;
         }
 
-        .contact-item i {
-            color: var(--primary-green);
-            margin-right: 15px;
-            font-size: 1.2em;
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
         }
 
-        .contact-form {
-            background: var(--light-gray);
-            padding: 40px;
-            border-radius: 15px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--primary-brown);
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid var(--light-green);
-            border-radius: 8px;
-            font-size: 1em;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary-green);
-        }
-
-        .submit-btn {
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 25px;
             background: var(--primary-green);
             color: var(--white);
-            padding: 15px 30px;
-            border: none;
+            text-decoration: none;
             border-radius: 25px;
-            font-size: 1.1em;
-            cursor: pointer;
             transition: background 0.3s ease;
         }
 
-        .submit-btn:hover {
+        .contact-link:hover {
             background: var(--primary-brown);
-        }
-
-        /* Professional Disclaimer */
-        .disclaimer-section {
-            background: var(--light-gray);
-            padding: 40px;
-            border-radius: 15px;
-            margin-top: 40px;
-            border-left: 4px solid var(--primary-brown);
-        }
-
-        .disclaimer-title {
-            color: var(--primary-brown);
-            font-size: 1.5em;
-            margin-bottom: 20px;
-        }
-
-        .disclaimer-content {
-            color: var(--gray);
-            line-height: 1.6;
-        }
-
-        .disclaimer-content ul {
-            margin: 15px 0;
-            padding-left: 20px;
-        }
-
-        .disclaimer-content li {
-            margin-bottom: 8px;
         }
 
         /* Footer */
         .footer {
             background: var(--dark-brown);
             color: var(--white);
-            padding: 40px;
             text-align: center;
+            padding: 40px;
         }
 
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 30px;
-        }
-
-        .footer-section h3 {
-            color: var(--primary-green);
-            margin-bottom: 20px;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: var(--cream);
-            text-decoration: none;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .footer-section a:hover {
-            color: var(--primary-green);
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .social-link {
-            color: var(--cream);
-            font-size: 1.5em;
-            transition: color 0.3s ease;
-        }
-
-        .social-link:hover {
-            color: var(--primary-green);
-        }
-
-        .copyright {
-            border-top: 1px solid var(--gray);
-            padding-top: 20px;
-            color: var(--cream);
+        .footer p {
             opacity: 0.8;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
             .header h1 {
-                font-size: 2em;
+                font-size: 2.5em;
             }
 
-            .about-grid,
-            .contact-grid {
+            .about-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
             }
 
             .nav ul {
                 flex-direction: column;
                 gap: 20px;
             }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 40px 20px;
+            }
 
             .main {
                 padding: 40px 20px;
             }
 
-            .section {
-                margin-bottom: 60px;
+            .section-title {
+                font-size: 2em;
             }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        /* Loading States */
-        .loading {
-            opacity: 0.7;
-            pointer-events: none;
-        }
-
-        /* Success/Error Messages */
-        .message {
-            padding: 15px;
-            border-radius: 8px;
-            margin: 20px 0;
-            display: none;
-        }
-
-        .message.success {
-            background: var(--light-green);
-            color: var(--dark-brown);
-            border: 1px solid var(--primary-green);
-        }
-
-        .message.error {
-            background: #ffebee;
-            color: #c62828;
-            border: 1px solid #ef5350;
         }
     </style>
 </head>
@@ -592,9 +412,9 @@
     <div class="container">
         <!-- Header -->
         <header class="header">
-            <h1>🕊️ Chudi Nnorukam Healing Studio</h1>
-            <div class="subtitle">Trauma Healing Content Specialist & AI Humanization Expert</div>
-            <div class="tagline">Creating therapeutic content that feels authentically human while passing AI detection tests</div>
+            <h1>🕊️ Chudi Nnorukam</h1>
+            <div class="subtitle">Trauma Healing Content Specialist</div>
+            <div class="tagline">Transforming pain into powerful, healing narratives that resonate with authenticity and pass AI detection tests</div>
         </header>
 
         <!-- Navigation -->
@@ -603,238 +423,130 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="healing-studio-dashboard.html">Dashboard</a></li>
             </ul>
         </nav>
 
         <!-- Main Content -->
         <main class="main">
             <!-- About Section -->
-            <section id="about" class="section fade-in">
-                <h2 class="section-title">About Me</h2>
-                <div class="section-subtitle">Professional trauma-healing content creator with expertise in AI humanization and therapeutic writing</div>
+            <section id="about" class="section">
+                <h2 class="section-title">About My Healing Journey</h2>
+                <p class="section-subtitle">Specializing in trauma-informed content creation that bridges the gap between AI efficiency and human authenticity</p>
                 
                 <div class="about-grid">
                     <div class="about-text">
                         <h3>My Mission</h3>
-                        <p>I create trauma-healing content that genuinely helps people while maintaining the highest standards of therapeutic safety and authenticity. My work bridges the gap between AI efficiency and human emotional intelligence.</p>
+                        <p>I create content that doesn't just inform—it heals. Every piece I write is crafted with deep understanding of trauma recovery, inner child work, and the delicate balance between professional expertise and genuine human connection.</p>
                         
-                        <h3>My Journey</h3>
-                        <p>After experiencing my own healing journey through trauma, I discovered the power of authentic, human-centered content in the healing process. This personal experience, combined with my expertise in AI humanization, allows me to create content that truly resonates with trauma survivors.</p>
+                        <h3>My Expertise</h3>
+                        <p>With specialized knowledge in religious trauma recovery, inner child healing, and therapeutic writing, I help clients create content that resonates authentically while maintaining the highest standards of AI-humanization.</p>
                         
-                        <h3>Specializations</h3>
-                        <p>• Inner Child Work & Healing<br>
-                        • Religious Trauma Recovery<br>
-                        • Digital Wellness for Trauma Survivors<br>
-                        • AI Content Humanization<br>
-                        • Therapeutic Writing & Coaching</p>
-                        
-                        <h3>Unique Approach</h3>
-                        <p>Using advanced AI humanization techniques, I create content that consistently passes AI detection tests (95%+ human scores) while maintaining deep therapeutic value and authentic human connection.</p>
+                        <h3>My Approach</h3>
+                        <p>I blend evidence-based therapeutic techniques with cutting-edge content creation strategies, ensuring every piece passes detection tests while genuinely serving the healing journey of both creators and readers.</p>
                     </div>
                     <div class="about-image">
-                        <div class="profile-placeholder">🕊️</div>
+                        <div class="profile-placeholder"></div>
                     </div>
                 </div>
             </section>
 
             <!-- Services Section -->
-            <section id="services" class="section fade-in">
-                <h2 class="section-title">Professional Services</h2>
-                <div class="section-subtitle">Comprehensive trauma-healing content solutions for therapists, coaches, and wellness professionals</div>
+            <section id="services" class="section">
+                <h2 class="section-title">Healing Content Services</h2>
+                <p class="section-subtitle">Comprehensive trauma-informed content creation that prioritizes authenticity and healing</p>
                 
                 <div class="services-grid">
                     <div class="service-card">
-                        <h3>🎨 Carousel Content Creation</h3>
-                        <p>Professional social media carousels optimized for trauma-healing engagement across all platforms.</p>
+                        <h3>🕊️ Trauma-Informed Content Creation</h3>
+                        <p>Professional content that honors the healing journey while maintaining authenticity and passing AI detection tests.</p>
                         <ul class="service-features">
-                            <li>6-8 slide therapeutic journeys</li>
-                            <li>Multi-platform optimization (Instagram, Pinterest, LinkedIn)</li>
-                            <li>AI detection-proof content</li>
-                            <li>Affiliate integration ready</li>
-                            <li>Brand-aligned visual design</li>
+                            <li>Inner child work narratives</li>
+                            <li>Religious trauma recovery content</li>
+                            <li>Therapeutic writing and journaling</li>
+                            <li>Mental health awareness pieces</li>
                         </ul>
                     </div>
-
+                    
                     <div class="service-card">
-                        <h3>✍️ AI Content Humanization</h3>
-                        <p>Transform AI-generated content into authentically human writing that passes all detection tests.</p>
+                        <h3>🤖 AI-Humanized Content</h3>
+                        <p>Content that leverages AI efficiency while maintaining genuine human voice and emotional depth.</p>
                         <ul class="service-features">
-                            <li>95%+ human detection scores</li>
-                            <li>Variable sentence structure</li>
-                            <li>Personal anecdotes integration</li>
+                            <li>AI detection test compliance</li>
+                            <li>Human voice preservation</li>
                             <li>Emotional authenticity</li>
-                            <li>Therapeutic voice preservation</li>
+                            <li>SEO optimization</li>
                         </ul>
                     </div>
-
+                    
                     <div class="service-card">
-                        <h3>📱 Social Media Strategy</h3>
-                        <p>Complete social media content strategies for trauma-healing professionals and coaches.</p>
+                        <h3>📊 Content Strategy & Analytics</h3>
+                        <p>Strategic content planning with performance tracking and healing-focused metrics.</p>
                         <ul class="service-features">
-                            <li>Platform-specific content calendars</li>
-                            <li>Engagement optimization</li>
-                            <li>Hashtag strategy development</li>
-                            <li>Community building content</li>
+                            <li>Content strategy development</li>
                             <li>Performance analytics</li>
-                        </ul>
-                    </div>
-
-                    <div class="service-card">
-                        <h3>🔗 Affiliate Marketing Content</h3>
-                        <p>Ethical affiliate content that genuinely helps while driving conversions.</p>
-                        <ul class="service-features">
-                            <li>Natural product integration</li>
-                            <li>Honest value propositions</li>
-                            <li>Trauma-informed recommendations</li>
-                            <li>Compliance-ready content</li>
-                            <li>Conversion optimization</li>
+                            <li>Audience engagement tracking</li>
+                            <li>Healing impact measurement</li>
                         </ul>
                     </div>
                 </div>
             </section>
 
             <!-- Portfolio Section -->
-            <section id="portfolio" class="section fade-in">
-                <h2 class="section-title">Portfolio Showcase</h2>
-                <div class="section-subtitle">Real examples of trauma-healing content that drives engagement and passes AI detection</div>
+            <section id="portfolio" class="section">
+                <h2 class="section-title">Healing Portfolio</h2>
+                <p class="section-subtitle">A collection of transformative content that demonstrates the power of trauma-informed writing</p>
                 
                 <div class="portfolio-grid">
                     <div class="portfolio-item">
-                        <div class="portfolio-image">🕊️</div>
-                        <div class="portfolio-content">
-                            <h3>Inner Child Check-In Carousel</h3>
-                            <p>A comprehensive 6-slide journey through inner child work, featuring gentle guidance and practical tools for self-connection.</p>
-                            <a href="carousel-preview-environment.html" class="portfolio-link">View Interactive Preview</a>
-                        </div>
-                    </div>
-
-                    <div class="portfolio-item">
                         <div class="portfolio-image">📝</div>
                         <div class="portfolio-content">
+                            <h3>Inner Child Healing Series</h3>
+                            <p>A comprehensive 12-part series exploring inner child work techniques and healing practices.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">🕊️</div>
+                        <div class="portfolio-content">
                             <h3>Religious Trauma Recovery Guide</h3>
-                            <p>7-step recovery framework for individuals healing from religious trauma, with evidence-based approaches and gentle guidance.</p>
-                            <a href="portfolio-samples.html" class="portfolio-link">View Sample Content</a>
+                            <p>Evidence-based content helping individuals navigate religious trauma and find healing.</p>
                         </div>
                     </div>
-
+                    
                     <div class="portfolio-item">
-                        <div class="portfolio-image">🧠</div>
+                        <div class="portfolio-image">📊</div>
                         <div class="portfolio-content">
-                            <h3>Digital Wellness for Trauma Survivors</h3>
-                            <p>Practical strategies for maintaining mental health in the digital age, specifically designed for trauma survivors.</p>
-                            <a href="portfolio-samples.html" class="portfolio-link">View Content Strategy</a>
+                            <h3>Healing Studio Dashboard</h3>
+                            <p>Real-time project management system for trauma-healing content creation and client tracking.</p>
                         </div>
-                    </div>
-
-                    <div class="portfolio-item">
-                        <div class="portfolio-image">🤖</div>
-                        <div class="portfolio-content">
-                            <h3>AI Humanization Case Study</h3>
-                            <p>Before and after examples of content transformation, showing how AI-generated text becomes authentically human.</p>
-                            <a href="portfolio-samples.html" class="portfolio-link">View Transformation</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Testimonials Section -->
-            <section id="testimonials" class="section fade-in">
-                <h2 class="section-title">Client Testimonials</h2>
-                <div class="section-subtitle">What professionals in the trauma-healing space say about working with me</div>
-                
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <div class="testimonial-text">"Chudi's content consistently passes AI detection tests while maintaining deep therapeutic value. Her understanding of trauma-informed language is exceptional."</div>
-                        <div class="testimonial-author">Dr. Sarah Chen</div>
-                        <div class="testimonial-role">Licensed Trauma Therapist</div>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <div class="testimonial-text">"The carousel content Chudi created for my practice increased our social media engagement by 300%. Her work feels genuinely human and therapeutic."</div>
-                        <div class="testimonial-author">Michael Rodriguez</div>
-                        <div class="testimonial-role">Healing Coach & Content Creator</div>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <div class="testimonial-text">"Working with Chudi transformed our content strategy. Her AI humanization techniques are revolutionary for maintaining authenticity in the digital age."</div>
-                        <div class="testimonial-author">Lisa Thompson</div>
-                        <div class="testimonial-role">Wellness Business Owner</div>
                     </div>
                 </div>
             </section>
 
             <!-- Contact Section -->
-            <section id="contact" class="section fade-in">
-                <h2 class="section-title">Let's Work Together</h2>
-                <div class="section-subtitle">Ready to create trauma-healing content that genuinely helps people while driving your business forward?</div>
+            <section id="contact" class="section">
+                <h2 class="section-title">Begin Your Healing Journey</h2>
+                <p class="section-subtitle">Ready to create content that heals? Let's work together to transform your message into powerful, authentic narratives.</p>
                 
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <h3>Get In Touch</h3>
-                        <div class="contact-item">
-                            <i>📧</i>
-                            <span>chudi@healingstudio.com</span>
-                        </div>
-                        <div class="contact-item">
-                            <i>📱</i>
-                            <span>Available on LinkedIn, Fiverr, and Instagram</span>
-                        </div>
-                        <div class="contact-item">
-                            <i>⏰</i>
-                            <span>Response within 24 hours</span>
-                        </div>
-                        <div class="contact-item">
-                            <i>💼</i>
-                            <span>Professional contracts and NDAs available</span>
-                        </div>
-                    </div>
-
-                    <div class="contact-form">
-                        <form id="contactForm">
-                            <div class="form-group">
-                                <label for="name">Name *</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email *</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="service">Service Interest *</label>
-                                <select id="service" name="service" required>
-                                    <option value="">Select a service</option>
-                                    <option value="carousel">Carousel Content Creation</option>
-                                    <option value="humanization">AI Content Humanization</option>
-                                    <option value="strategy">Social Media Strategy</option>
-                                    <option value="affiliate">Affiliate Marketing Content</option>
-                                    <option value="custom">Custom Project</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Project Details *</label>
-                                <textarea id="message" name="message" rows="5" placeholder="Tell me about your project, target audience, and goals..." required></textarea>
-                            </div>
-                            <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
-                        </form>
-                        <div id="formMessage" class="message"></div>
-                    </div>
-                </div>
-
-                <!-- Professional Disclaimer -->
-                <div class="disclaimer-section">
-                    <h3 class="disclaimer-title">Professional Disclaimer</h3>
-                    <div class="disclaimer-content">
-                        <p><strong>Important Information About My Services:</strong></p>
-                        <ul>
-                            <li>I am a <strong>content creator and writer</strong>, not a licensed therapist, psychologist, or medical professional.</li>
-                            <li>My content is designed to be <strong>educational and supportive</strong>, but it is not a substitute for professional mental health treatment.</li>
-                            <li>If you are experiencing a mental health crisis, please contact a licensed mental health professional or call your local crisis hotline immediately.</li>
-                            <li>My services focus on <strong>content creation, writing, and AI humanization</strong> for trauma-healing professionals and organizations.</li>
-                            <li>I do not provide therapy, counseling, or medical advice.</li>
-                        </ul>
-                        <p><strong>Crisis Resources:</strong> If you need immediate help, please contact the National Suicide Prevention Lifeline at 988 or text HOME to 741741 to reach the Crisis Text Line.</p>
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <p>I'm here to help you create content that not only informs but truly heals. Whether you're working on personal healing projects or professional content creation, I bring expertise in trauma-informed writing and AI-humanization.</p>
+                    
+                    <div class="contact-links">
+                        <a href="https://fiverr.com/chudinnorukam" class="contact-link" target="_blank">
+                            <span>📝</span>
+                            <span>Fiverr Services</span>
+                        </a>
+                        <a href="https://linkedin.com/in/chudinnorukam" class="contact-link" target="_blank">
+                            <span>💼</span>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="healing-studio-dashboard.html" class="contact-link">
+                            <span>📊</span>
+                            <span>View Dashboard</span>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -842,144 +554,9 @@
 
         <!-- Footer -->
         <footer class="footer">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Chudi Nnorukam Healing Studio</h3>
-                    <p>Professional trauma-healing content creation with AI humanization expertise.</p>
-                    <p>Creating content that helps, heals, and converts.</p>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Services</h3>
-                    <a href="#services">Carousel Content Creation</a>
-                    <a href="#services">AI Content Humanization</a>
-                    <a href="#services">Social Media Strategy</a>
-                    <a href="#services">Affiliate Marketing Content</a>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Connect</h3>
-                    <a href="https://linkedin.com/in/chudinnorukam">LinkedIn</a>
-                    <a href="https://fiverr.com/chudinnorukam">Fiverr</a>
-                    <a href="https://instagram.com/chudinnorukam">Instagram</a>
-                    <a href="https://pinterest.com/chudinnorukam">Pinterest</a>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Resources</h3>
-                    <a href="carousel-preview-environment.html">Carousel Preview Tool</a>
-                    <a href="portfolio-samples.html">Content Samples</a>
-                    <a href="#">AI Detection Guide</a>
-                    <a href="#">Trauma-Informed Writing Tips</a>
-                </div>
-            </div>
-
-            <div class="social-links">
-                <a href="https://linkedin.com/in/chudinnorukam" class="social-link">💼</a>
-                <a href="https://fiverr.com/chudinnorukam" class="social-link">🎯</a>
-                <a href="https://instagram.com/chudinnorukam" class="social-link">📱</a>
-                <a href="https://pinterest.com/chudinnorukam" class="social-link">📌</a>
-            </div>
-
-            <div class="copyright">
-                <p>&copy; 2024 Chudi Nnorukam Healing Studio. All rights reserved. | Created with BMAD-METHOD AI Agent Framework</p>
-            </div>
+            <p>&copy; 2024 Chudi Nnorukam Healing Studio. All rights reserved.</p>
+            <p>Creating content that heals, one word at a time. 🕊️</p>
         </footer>
     </div>
-
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Form handling with validation and feedback
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const submitBtn = document.getElementById('submitBtn');
-            const formMessage = document.getElementById('formMessage');
-            
-            // Add loading state
-            submitBtn.classList.add('loading');
-            submitBtn.textContent = 'Sending...';
-            
-            // Simulate form submission (replace with actual form handling)
-            setTimeout(() => {
-                // Remove loading state
-                submitBtn.classList.remove('loading');
-                submitBtn.textContent = 'Send Message';
-                
-                // Show success message
-                formMessage.className = 'message success';
-                formMessage.textContent = 'Thank you for your message! I\'ll get back to you within 24 hours.';
-                formMessage.style.display = 'block';
-                
-                // Reset form
-                document.getElementById('contactForm').reset();
-                
-                // Hide message after 5 seconds
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
-                }, 5000);
-            }, 2000);
-        });
-
-        // Form validation
-        const form = document.getElementById('contactForm');
-        const inputs = form.querySelectorAll('input, textarea, select');
-        
-        inputs.forEach(input => {
-            input.addEventListener('blur', function() {
-                if (this.hasAttribute('required') && !this.value.trim()) {
-                    this.style.borderColor = '#ef5350';
-                } else {
-                    this.style.borderColor = '';
-                }
-            });
-        });
-
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections
-        document.querySelectorAll('.section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(30px)';
-            section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-            observer.observe(section);
-        });
-
-        // Track form submissions with Google Analytics
-        document.getElementById('contactForm').addEventListener('submit', function() {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'form_submit', {
-                    'event_category': 'engagement',
-                    'event_label': 'contact_form'
-                });
-            }
-        });
-    </script>
 </body>
 </html> 
