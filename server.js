@@ -66,8 +66,8 @@ if (process.env.NODE_ENV === 'development') {
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Static file serving
-app.use(express.static(path.join(__dirname, 'public'), {
+// Static file serving - serve files from root directory
+app.use(express.static(__dirname, {
   maxAge: '1d',
   etag: true,
   lastModified: true
@@ -168,6 +168,11 @@ app.get('/', (req, res) => {
 });
 
 app.get('/dashboard', (req, res) => {
+  res.sendFile(path.join(__dirname, 'healing-studio-dashboard.html'));
+});
+
+// Also serve dashboard at the direct HTML path for convenience
+app.get('/healing-studio-dashboard.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'healing-studio-dashboard.html'));
 });
 
