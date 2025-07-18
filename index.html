@@ -71,13 +71,17 @@
             --white: #FFFFFF;
             --gray: #666666;
             --light-gray: #F8F9FA;
+            --warm-peach: #F4E4D6;
+            --soft-beige: #F5F1EB;
+            --gentle-brown: #D4C4B7;
+            --healing-cream: #FAF7F2;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--dark-brown);
-            background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-brown) 100%);
+            background: linear-gradient(135deg, var(--warm-peach) 0%, var(--soft-beige) 50%, var(--gentle-brown) 100%);
             min-height: 100vh;
         }
 
@@ -90,8 +94,8 @@
 
         /* Header */
         .header {
-            background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-brown) 100%);
-            color: var(--white);
+            background: linear-gradient(135deg, var(--warm-peach) 0%, var(--soft-beige) 50%, var(--gentle-brown) 100%);
+            color: var(--dark-brown);
             padding: 60px 40px;
             text-align: center;
         }
@@ -201,15 +205,14 @@
         .profile-placeholder {
             width: 300px;
             height: 300px;
-            background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-brown) 100%);
+            background: url('profile-photo.jpg') center center/cover;
             border-radius: 50%;
             margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
-            font-size: 4em;
-            font-weight: 300;
+            border: 8px solid var(--warm-peach);
+            box-shadow: 0 15px 35px rgba(139, 115, 85, 0.3);
         }
 
         /* Services Section */
@@ -221,16 +224,16 @@
         }
 
         .service-card {
-            background: var(--light-gray);
+            background: var(--healing-cream);
             padding: 40px;
             border-radius: 20px;
-            border-left: 5px solid var(--primary-green);
+            border-left: 5px solid var(--gentle-brown);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .service-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 30px rgba(139, 115, 85, 0.15);
         }
 
         .service-card h3 {
@@ -257,7 +260,7 @@
 
         .service-features li::before {
             content: "✓";
-            color: var(--primary-green);
+            color: var(--gentle-brown);
             position: absolute;
             left: 0;
             font-weight: bold;
@@ -285,11 +288,11 @@
 
         .portfolio-image {
             height: 250px;
-            background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-brown) 100%);
+            background: linear-gradient(135deg, var(--warm-peach) 0%, var(--soft-beige) 50%, var(--gentle-brown) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
+            color: var(--dark-brown);
             font-size: 2em;
         }
 
@@ -310,7 +313,7 @@
 
         .portfolio-link {
             display: inline-block;
-            background: var(--primary-green);
+            background: var(--gentle-brown);
             color: var(--white);
             padding: 12px 25px;
             text-decoration: none;
@@ -331,10 +334,10 @@
         }
 
         .testimonial-card {
-            background: var(--light-gray);
+            background: var(--healing-cream);
             padding: 30px;
             border-radius: 15px;
-            border-left: 4px solid var(--primary-green);
+            border-left: 4px solid var(--gentle-brown);
         }
 
         .testimonial-text {
