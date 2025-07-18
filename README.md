@@ -1,33 +1,61 @@
-# 🕊️ Chudi Nnorukam Healing Studio - Carousel Preview Environment
+# 🕊️ Chudi Nnorukam Healing Studio - Professional Portfolio
 
 ## About This Project
 
-This is a visual testing interface for trauma-healing carousel content. It allows you to preview and test carousel slides before posting to social media platforms.
+This is the professional portfolio website for Chudi Nnorukam, a trauma-healing content specialist. The site showcases expertise in AI-humanized content creation, inner child work, religious trauma recovery, and therapeutic writing.
 
 ## Features
 
-- **Interactive Carousel**: 6 slides with trauma-healing content
-- **Auto-advance**: Slides change every 5 seconds
-- **Manual Controls**: Previous/Next buttons and dot indicators
-- **Keyboard Navigation**: Use arrow keys to navigate
-- **Image Upload**: Test DALL-E 3 generated carousel images
-- **Platform Preview**: See how content will look on Instagram, Pinterest, and LinkedIn
+- **Professional Portfolio**: Comprehensive showcase of trauma-healing content services
+- **Interactive Dashboard**: Real-time project management system with analytics
+- **Contact Form**: Functional contact form with Formspree integration
+- **Responsive Design**: Mobile-optimized layout for all devices
+- **Accessibility**: WCAG compliant with proper ARIA attributes
+- **SEO Optimized**: Meta tags, structured data, and performance optimized
+- **Social Media Integration**: LinkedIn, Fiverr, and Instagram links
 
-## How to Use
+## Services Offered
 
-1. **Navigate Slides**: Use the buttons, dots, or arrow keys
-2. **Upload Images**: Click "Upload Carousel Images" to test your visuals
-3. **Preview Content**: See how your carousel will look before posting
+- **Trauma-Informed Content Creation**: Professional content that honors healing journeys
+- **AI-Humanized Content**: Content that passes detection tests while maintaining authenticity
+- **Content Strategy & Analytics**: Strategic planning with performance tracking
+- **Inner Child Work**: Specialized content for inner child healing
+- **Religious Trauma Recovery**: Evidence-based recovery content
+- **Therapeutic Writing**: Professional therapeutic writing services
+
+## Technical Stack
+
+- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
+- **Analytics**: Google Analytics integration
+- **Forms**: Formspree for contact form handling
+- **Charts**: Chart.js for dashboard analytics
+- **Hosting**: GitHub Pages
+- **Performance**: Optimized for speed and accessibility
+
+## Pages
+
+- **Home**: Main portfolio with services and contact information
+- **Dashboard**: Interactive project management system
+- **Carousel Preview**: Visual testing interface for social media content
+- **Portfolio Samples**: Showcase of completed work
 
 ## Brand Colors
 
 - Sage Green: #9CAF88
 - Warm Brown: #8B7355
 - Cream: #F5F5DC
+- Dark Brown: #5D4E37
 
 ## Content Theme
 
 Trauma Healing & Inner Child Work - Educational, therapeutic, and affiliate-friendly content designed for trauma survivors, healing coaches, and mental health professionals.
+
+## Contact
+
+- **Email**: chudi@healingstudio.com
+- **Fiverr**: https://fiverr.com/chudinnorukam
+- **LinkedIn**: https://linkedin.com/in/chudinnorukam
+- **Instagram**: https://instagram.com/chudinnorukam
 
 ---
 
