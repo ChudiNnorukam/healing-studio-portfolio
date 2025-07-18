@@ -1,0 +1,88 @@
+{
+  "summary": {
+    "total": 7,
+    "successful": 0,
+    "failed": 7,
+    "averageLoadTime": 108.28571428571429
+  },
+  "details": [
+    {
+      "url": "https://chudinnorukam.github.io/healing-studio-portfolio/",
+      "timestamp": "2025-07-18T07:11:18.318Z",
+      "status": 404,
+      "statusText": "Not Found",
+      "loadTime": 99,
+      "contentLength": "5142",
+      "contentType": "text/html; charset=utf-8",
+      "etag": "W/\"687676aa-239b\"",
+      "success": false
+    },
+    {
+      "url": "https://chudinnorukam.github.io/healing-studio-portfolio/assets/images/profile-photo.jpg",
+      "timestamp": "2025-07-18T07:11:18.430Z",
+      "status": 404,
+      "statusText": "Not Found",
+      "loadTime": 112,
+      "contentLength": "5142",
+      "contentType": "text/html; charset=utf-8",
+      "etag": "W/\"687676ab-239b\"",
+      "success": false
+    },
+    {
+      "url": "https://chudinnorukam.github.io/healing-studio-portfolio/assets/scripts/dashboard.js",
+      "timestamp": "2025-07-18T07:11:18.529Z",
+      "status": 404,
+      "statusText": "Not Found",
+      "loadTime": 99,
+      "contentLength": "5142",
+      "contentType": "text/html; charset=utf-8",
+      "etag": "W/\"687676aa-239b\"",
+      "success": false
+    },
+    {
+      "url": "https://chudinnorukam.github.io/healing-studio-portfolio/assets/css/main.css",
+      "timestamp": "2025-07-18T07:11:18.742Z",
+      "status": 404,
+      "statusText": "Not Found",
+      "loadTime": 213,
+      "contentLength": "5142",
+      "contentType": "text/html; charset=utf-8",
+      "etag": "W/\"687676ab-239b\"",
+      "success": false
+    },
+    {
+      "url": "https://chudinnorukam.github.io/healing-studio-portfolio/healing-studio-dashboard.html",
+      "timestamp": "2025-07-18T07:11:18.855Z",
+      "status": 404,
+      "statusText": "Not Found",
+      "loadTime": 112,
+      "contentLength": "5142",
+      "contentType": "text/html; charset=utf-8",
+      "etag": "W/\"687676aa-239b\"",
+      "success": false
+    },
+    {
+      "url": "https://chudinnorukam.github.io/healing-studio-portfolio/index.html",
+      "timestamp": "2025-07-18T07:11:18.970Z",
+      "status": 404,
+      "statusText": "Not Found",
+      "loadTime": 115,
+      "contentLength": "5142",
+      "contentType": "text/html; charset=utf-8",
+      "etag": "W/\"687676aa-239b\"",
+      "success": false
+    },
+    {
+      "url": "https://chudinnorukam.github.io/healing-studio-portfolio/",
+      "timestamp": "2025-07-18T07:11:18.978Z",
+      "status": 404,
+      "statusText": "Not Found",
+      "loadTime": 8,
+      "contentLength": "5142",
+      "contentType": "text/html; charset=utf-8",
+      "etag": "W/\"687676aa-239b\"",
+      "success": false
+    }
+  ],
+  "timestamp": "2025-07-18T07:11:18.978Z"
+}
