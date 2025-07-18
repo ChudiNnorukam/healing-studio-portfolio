@@ -1,0 +1,76 @@
+<!-- Security Headers Configuration for Healing Studio Portfolio -->
+<!-- Add these meta tags to the <head> section of your HTML files -->
+
+<!-- Content Security Policy (CSP) -->
+<meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.jsdelivr.net;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src 'self' https://fonts.gstatic.com;
+    img-src 'self' data: https:;
+    connect-src 'self' https://formspree.io https://www.google-analytics.com;
+    frame-src 'none';
+    object-src 'none';
+    base-uri 'self';
+    form-action 'self' https://formspree.io;
+">
+
+<!-- X-Frame-Options -->
+<meta http-equiv="X-Frame-Options" content="DENY">
+
+<!-- X-Content-Type-Options -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+
+<!-- Referrer Policy -->
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<!-- Permissions Policy -->
+<meta http-equiv="Permissions-Policy" content="
+    camera=(),
+    microphone=(),
+    geolocation=(),
+    payment=()
+">
+
+<!-- Additional Security Headers -->
+<!-- These would be set at the server level, but included here for reference -->
+<!--
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+X-XSS-Protection: 1; mode=block
+X-Download-Options: noopen
+X-Permitted-Cross-Domain-Policies: none
+-->
+
+<!-- Security Considerations for Healing Studio Portfolio -->
+
+<!-- 1. Form Security -->
+<!-- - All forms use HTTPS endpoints (Formspree)
+   - CSRF protection via same-origin policy
+   - Input validation and sanitization
+   - Secure form submission -->
+
+<!-- 2. Analytics Security -->
+<!-- - Google Analytics uses secure endpoints
+   - No sensitive data transmitted
+   - Respects user privacy preferences
+   - GDPR compliant tracking -->
+
+<!-- 3. Content Security -->
+<!-- - External resources from trusted CDNs only
+   - No inline scripts except necessary ones
+   - Secure image loading
+   - Protected against XSS attacks -->
+
+<!-- 4. Privacy Protection -->
+<!-- - No unnecessary data collection
+   - Clear privacy policy
+   - User consent for analytics
+   - Secure data transmission -->
+
+<!-- Implementation Notes -->
+<!--
+1. Add these meta tags to the <head> section of index.html and healing-studio-dashboard.html
+2. Test thoroughly after implementation
+3. Monitor for any CSP violations
+4. Update as needed for new features
+--> 

@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formspree.io https://www.google-analytics.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io;">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+    
     <title>Chudi Nnorukam Healing Studio - Trauma Healing Content Specialist</title>
     <meta name="description" content="Professional trauma-healing content creator specializing in AI-humanized content that passes detection tests. Expert in inner child work, religious trauma recovery, and therapeutic writing.">
     <meta name="keywords" content="trauma healing, content creation, AI humanization, inner child work, religious trauma, therapeutic writing, mental health content">
@@ -202,10 +210,10 @@
             text-align: center;
         }
 
-        .profile-placeholder {
+        .profile-photo {
             width: 300px;
             height: 300px;
-            background: url('Chudi%20Profile%20Photo.JPG') center center/cover;
+            background: url('assets/images/profile-photo.jpg') center center/cover;
             border-radius: 50%;
             margin: 0 auto;
             display: flex;
@@ -213,6 +221,12 @@
             justify-content: center;
             border: 8px solid var(--warm-peach);
             box-shadow: 0 15px 35px rgba(139, 115, 85, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(139, 115, 85, 0.4);
         }
 
         /* Services Section */
@@ -560,7 +574,7 @@
                         <p>I blend evidence-based therapeutic techniques with cutting-edge content creation strategies, ensuring every piece passes detection tests while genuinely serving the healing journey of both creators and readers.</p>
                     </div>
                     <div class="about-image">
-                        <div class="profile-placeholder"></div>
+                        <div class="profile-photo" title="Chudi Nnorukam - Trauma Healing Content Specialist"></div>
                     </div>
                 </div>
             </section>
