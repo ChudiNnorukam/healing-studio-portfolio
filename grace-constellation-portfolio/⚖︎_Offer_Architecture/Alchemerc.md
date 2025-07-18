@@ -1,3 +1,0 @@
-# Alchemerc
-
-*Coming soon...*
