@@ -23,12 +23,12 @@
     <meta property="linkedin:description" content="Trauma Healing Content Specialist & AI Humanization Expert">
     
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-65WBXV2MJV"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID');
+        gtag('config', 'G-65WBXV2MJV');
     </script>
     
     <!-- Structured Data -->
@@ -793,13 +793,17 @@
             });
         });
 
-        // Google Analytics event tracking
+        // Enhanced Google Analytics event tracking
         if (typeof gtag !== 'undefined') {
-            // Track form submissions
+            // Track form submissions with service interest
             document.getElementById('contactForm').addEventListener('submit', function() {
+                const serviceSelect = document.getElementById('service');
+                const selectedService = serviceSelect ? serviceSelect.value : 'not_selected';
+                
                 gtag('event', 'form_submit', {
-                    'event_category': 'engagement',
-                    'event_label': 'contact_form'
+                    'event_category': 'conversion',
+                    'event_label': 'contact_form',
+                    'service_interest': selectedService
                 });
             });
 
@@ -808,10 +812,99 @@
                 link.addEventListener('click', function() {
                     gtag('event', 'navigation_click', {
                         'event_category': 'engagement',
-                        'event_label': this.textContent.trim()
+                        'event_label': this.textContent.trim(),
+                        'link_destination': this.getAttribute('href')
                     });
                 });
             });
+
+            // Track social media clicks
+            document.querySelectorAll('a[href*="linkedin"], a[href*="fiverr"], a[href*="instagram"]').forEach(link => {
+                link.addEventListener('click', function() {
+                    const platform = this.href.includes('linkedin') ? 'linkedin' : 
+                                   this.href.includes('fiverr') ? 'fiverr' : 'instagram';
+                    
+                    gtag('event', 'social_click', {
+                        'event_category': 'engagement',
+                        'event_label': platform,
+                        'link_text': this.textContent.trim()
+                    });
+                });
+            });
+
+            // Track service interest (when service cards are viewed)
+            const serviceCards = document.querySelectorAll('.service-card');
+            const serviceObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const serviceTitle = entry.target.querySelector('h3')?.textContent || 'Unknown';
+                        gtag('event', 'service_interest', {
+                            'event_category': 'business',
+                            'event_label': serviceTitle
+                        });
+                    }
+                });
+            }, { threshold: 0.7 });
+
+            serviceCards.forEach(card => serviceObserver.observe(card));
+
+            // Track portfolio engagement
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            const portfolioObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const itemTitle = entry.target.querySelector('h3')?.textContent || 'Unknown';
+                        gtag('event', 'portfolio_view', {
+                            'event_category': 'engagement',
+                            'event_label': itemTitle
+                        });
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            portfolioItems.forEach(item => portfolioObserver.observe(item));
+
+            // Track scroll depth
+            let maxScroll = 0;
+            const scrollThresholds = [25, 50, 75, 90];
+            const trackedThresholds = new Set();
+
+            window.addEventListener('scroll', function() {
+                const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+                
+                if (scrollPercent > maxScroll) {
+                    maxScroll = scrollPercent;
+                    
+                    scrollThresholds.forEach(threshold => {
+                        if (scrollPercent >= threshold && !trackedThresholds.has(threshold)) {
+                            trackedThresholds.add(threshold);
+                            gtag('event', 'scroll_depth', {
+                                'event_category': 'engagement',
+                                'event_label': `${threshold}%`
+                            });
+                        }
+                    });
+                }
+            });
+
+            // Track time on page
+            const startTime = Date.now();
+            const timeThresholds = [30, 60, 120, 300]; // seconds
+            const trackedTimes = new Set();
+
+            setInterval(function() {
+                const timeOnPage = Math.floor((Date.now() - startTime) / 1000);
+                
+                timeThresholds.forEach(threshold => {
+                    if (timeOnPage >= threshold && !trackedTimes.has(threshold)) {
+                        trackedTimes.add(threshold);
+                        gtag('event', 'time_on_page', {
+                            'event_category': 'engagement',
+                            'event_label': `${threshold}s`
+                        });
+                    }
+                });
+            }, 1000);
         }
     </script>
 </body>
