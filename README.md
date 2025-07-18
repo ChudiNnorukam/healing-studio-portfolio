@@ -190,7 +190,7 @@ While this is a personal portfolio, suggestions and feedback are welcome! Please
 For professional inquiries or collaboration opportunities:
 
 1. **Fill out the contact form** on the main page
-2. **Email directly**: chudi@healingstudio.com
+2. **Email directly**: nnorukamchudi@gmail.com
 3. **Connect on LinkedIn** for professional networking
 
 ---
