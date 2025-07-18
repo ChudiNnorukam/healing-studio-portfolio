@@ -1,0 +1,129 @@
+{
+  "performance": {
+    "loadTime": 0,
+    "domContentLoaded": 0,
+    "firstPaint": 142.09999990463257,
+    "firstContentfulPaint": 142.09999990463257,
+    "totalResources": 3,
+    "resourceLoadTime": 4.400000095367432
+  },
+  "seo": {
+    "title": "Chudi Nnorukam Healing Studio - Trauma Healing Content Specialist",
+    "metaDescription": "Professional trauma-healing content creator specializing in AI-humanized content that passes detection tests. Expert in inner child work, religious trauma recovery, and therapeutic writing.",
+    "headings": [
+      {
+        "level": "H1",
+        "text": "🕊️ Chudi Nnorukam"
+      },
+      {
+        "level": "H2",
+        "text": "About My Healing Journey"
+      },
+      {
+        "level": "H3",
+        "text": "My Mission"
+      },
+      {
+        "level": "H3",
+        "text": "My Expertise"
+      },
+      {
+        "level": "H3",
+        "text": "My Approach"
+      },
+      {
+        "level": "H2",
+        "text": "Healing Content Services"
+      },
+      {
+        "level": "H3",
+        "text": "🕊️ Trauma-Informed Content Creation"
+      },
+      {
+        "level": "H3",
+        "text": "🤖 AI-Humanized Content"
+      },
+      {
+        "level": "H3",
+        "text": "📊 Content Strategy & Analytics"
+      },
+      {
+        "level": "H2",
+        "text": "Healing Portfolio"
+      },
+      {
+        "level": "H3",
+        "text": "Inner Child Healing Series"
+      },
+      {
+        "level": "H3",
+        "text": "Religious Trauma Recovery Guide"
+      },
+      {
+        "level": "H3",
+        "text": "Healing Studio Dashboard"
+      },
+      {
+        "level": "H2",
+        "text": "Begin Your Healing Journey"
+      },
+      {
+        "level": "H3",
+        "text": "Let's Connect"
+      }
+    ],
+    "images": [],
+    "links": [
+      {
+        "href": "http://localhost:3000/#about",
+        "text": "About"
+      },
+      {
+        "href": "http://localhost:3000/#services",
+        "text": "Services"
+      },
+      {
+        "href": "http://localhost:3000/#portfolio",
+        "text": "Portfolio"
+      },
+      {
+        "href": "http://localhost:3000/#contact",
+        "text": "Contact"
+      },
+      {
+        "href": "http://localhost:3000/healing-studio-dashboard.html",
+        "text": "Dashboard"
+      },
+      {
+        "href": "https://fiverr.com/chudinnorukam",
+        "text": "📝\n                            Fiverr Services"
+      },
+      {
+        "href": "https://linkedin.com/in/chudinnorukam",
+        "text": "💼\n                            LinkedIn"
+      },
+      {
+        "href": "http://localhost:3000/healing-studio-dashboard.html",
+        "text": "📊\n                            View Dashboard"
+      }
+    ]
+  },
+  "accessibility": {
+    "imagesWithAlt": 0,
+    "totalImages": 0,
+    "formsWithLabels": 0,
+    "totalForms": 0,
+    "buttonsWithText": 0,
+    "totalButtons": 0,
+    "hasSkipLinks": true,
+    "hasFocusIndicators": false
+  },
+  "errors": {
+    "slowResources": [],
+    "failedResources": [],
+    "totalResources": 3
+  },
+  "timestamp": "2025-07-18T04:44:14.901Z",
+  "healthScore": 100,
+  "status": "excellent"
+}
