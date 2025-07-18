@@ -13,6 +13,7 @@ class HealingStudioDashboard {
         
         // Performance optimization: Lazy load Chart.js
         this.chartLibrary = null;
+        this.chartLibraryLoading = null; // Track loading state to prevent race conditions
         
         this.init();
     }
@@ -36,6 +37,29 @@ class HealingStudioDashboard {
     }
 
     async loadChartLibrary() {
+        // Prevent multiple simultaneous loading attempts (race condition fix)
+        if (this.chartLibrary) {
+            return this.chartLibrary; // Already loaded
+        }
+        
+        if (this.chartLibraryLoading) {
+            return this.chartLibraryLoading; // Loading in progress, return the promise
+        }
+        
+        // Start loading process
+        this.chartLibraryLoading = this._loadChartLibraryInternal();
+        
+        try {
+            const result = await this.chartLibraryLoading;
+            this.chartLibraryLoading = null; // Clear loading state
+            return result;
+        } catch (error) {
+            this.chartLibraryLoading = null; // Clear loading state on error
+            throw error;
+        }
+    }
+
+    async _loadChartLibraryInternal() {
         try {
             // Dynamic import for better performance
             const { Chart, registerables } = await import('https://cdn.jsdelivr.net/npm/chart.js@4.4.0/+esm');
@@ -55,6 +79,7 @@ class HealingStudioDashboard {
             };
             
             this.chartLibrary = Chart;
+            return Chart;
         } catch (error) {
             console.error('Failed to load Chart.js:', error);
             throw new Error('Chart library could not be loaded');
@@ -106,6 +131,9 @@ class HealingStudioDashboard {
 
     async initializeCharts() {
         try {
+            // Clear existing charts to prevent memory leaks
+            this.destroyExistingCharts();
+            
             await this.createProgressChart();
             await this.createAgentActivityChart();
             await this.createMetricsChart();
@@ -114,9 +142,28 @@ class HealingStudioDashboard {
         }
     }
 
+    destroyExistingCharts() {
+        // Properly destroy existing charts to prevent memory leaks
+        this.charts.forEach((chart, key) => {
+            if (chart && typeof chart.destroy === 'function') {
+                try {
+                    chart.destroy();
+                } catch (error) {
+                    console.warn(`Failed to destroy chart ${key}:`, error);
+                }
+            }
+        });
+        this.charts.clear();
+    }
+
     async createProgressChart() {
         const ctx = document.getElementById('progressChart');
         if (!ctx) return;
+
+        // Ensure chart library is loaded before creating chart
+        if (!this.chartLibrary) {
+            await this.loadChartLibrary();
+        }
 
         const data = {
             labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
@@ -205,6 +252,11 @@ class HealingStudioDashboard {
         const ctx = document.getElementById('agentActivityChart');
         if (!ctx) return;
 
+        // Ensure chart library is loaded before creating chart
+        if (!this.chartLibrary) {
+            await this.loadChartLibrary();
+        }
+
         const data = {
             labels: ['Aletheia', 'Kairos', 'Serena', 'Aluma'],
             datasets: [{
@@ -267,6 +319,11 @@ class HealingStudioDashboard {
     async createMetricsChart() {
         const ctx = document.getElementById('metricsChart');
         if (!ctx) return;
+
+        // Ensure chart library is loaded before creating chart
+        if (!this.chartLibrary) {
+            await this.loadChartLibrary();
+        }
 
         const data = {
             labels: ['Projects', 'Clients', 'Content', 'Sessions'],

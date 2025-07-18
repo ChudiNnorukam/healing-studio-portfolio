@@ -66,11 +66,27 @@ if (process.env.NODE_ENV === 'development') {
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Static file serving - serve files from root directory
-app.use(express.static(__dirname, {
+// Secure static file serving - serve only from designated public directory
+const publicPath = path.join(__dirname, '../../'); // Serve from project root, not script directory
+app.use(express.static(publicPath, {
   maxAge: '1d',
   etag: true,
-  lastModified: true
+  lastModified: true,
+  dotfiles: 'deny', // Prevent serving dotfiles
+  index: ['index.html'],
+  setHeaders: (res, filePath) => {
+    // Security headers for static files
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('X-Frame-Options', 'DENY');
+    
+    // Only allow specific file types to be served
+    const allowedExtensions = ['.html', '.css', '.js', '.png', '.jpg', '.jpeg', '.gif', '.svg', '.ico', '.json'];
+    const ext = path.extname(filePath).toLowerCase();
+    if (!allowedExtensions.includes(ext)) {
+      res.status(403).end('File type not allowed');
+      return;
+    }
+  }
 }));
 
 // API Routes
