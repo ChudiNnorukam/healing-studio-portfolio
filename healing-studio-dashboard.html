@@ -6,14 +6,30 @@
     <title>Chudi Nnorukam Healing Studio - Executive Dashboard</title>
     <meta name="description" content="Real-time project management dashboard for trauma-healing content studio">
     
+    <!-- Enhanced SEO Meta Tags (FREE) -->
+    <meta name="keywords" content="trauma healing, content creator, healing studio, dashboard, portfolio management">
+    <meta name="author" content="Chudi Nnorukam">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph (FREE) -->
+    <meta property="og:title" content="Chudi Nnorukam - Trauma Healing Studio Dashboard">
+    <meta property="og:description" content="Real-time project management dashboard for trauma-healing content studio">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chudinnorukam.github.io/healing-studio-portfolio/dashboard">
+    
+    <!-- Twitter Card (FREE) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Chudi Nnorukam - Trauma Healing Studio Dashboard">
+    <meta name="twitter:description" content="Real-time project management dashboard for trauma-healing content studio">
+    
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕊️</text></svg>">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Chart.js for Analytics -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Chart.js for Analytics (Optimized Bundle) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.min.js"></script>
     
     <style>
         :root {
@@ -200,54 +216,8 @@
             color: var(--warning-orange);
         }
 
-        /* Progress Tracking */
-        .progress-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            border-bottom: 1px solid var(--light-gray);
-        }
-
-        .progress-item:last-child {
-            border-bottom: none;
-        }
-
-        .progress-info {
-            flex: 1;
-        }
-
-        .progress-title {
-            font-weight: 500;
-            color: var(--primary-brown);
-            margin-bottom: 5px;
-        }
-
-        .progress-details {
-            font-size: 0.9em;
-            color: var(--gray);
-        }
-
-        .progress-status {
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 0.8em;
-            font-weight: 500;
-        }
-
-        .status-completed {
-            background: var(--success-green);
-            color: var(--white);
-        }
-
-        .status-in-progress {
-            background: var(--warning-orange);
-            color: var(--white);
-        }
-
-        .status-pending {
-            background: var(--info-blue);
-            color: var(--white);
+        .agent-status.offline {
+            color: var(--error-red);
         }
 
         /* Metrics */
@@ -280,7 +250,7 @@
         .chart-container {
             position: relative;
             height: 300px;
-            margin-top: 20px;
+            width: 100%;
         }
 
         /* Activity Feed */
@@ -291,13 +261,9 @@
 
         .activity-item {
             display: flex;
-            align-items: flex-start;
-            padding: 15px 0;
+            align-items: center;
+            padding: 15px;
             border-bottom: 1px solid var(--light-gray);
-        }
-
-        .activity-item:last-child {
-            border-bottom: none;
         }
 
         .activity-icon {
@@ -305,12 +271,12 @@
             height: 40px;
             border-radius: 50%;
             background: var(--gentle-brown);
-            color: var(--white);
             display: flex;
             align-items: center;
             justify-content: center;
             margin-right: 15px;
-            flex-shrink: 0;
+            color: var(--white);
+            font-size: 1.2em;
         }
 
         .activity-content {
@@ -318,7 +284,7 @@
         }
 
         .activity-title {
-            font-weight: 500;
+            font-weight: 600;
             color: var(--primary-brown);
             margin-bottom: 5px;
         }
@@ -326,7 +292,7 @@
         .activity-details {
             font-size: 0.9em;
             color: var(--gray);
-            margin-bottom: 5px;
+            margin-bottom: 3px;
         }
 
         .activity-time {
@@ -334,65 +300,76 @@
             color: var(--gray);
         }
 
+        /* Tab Content */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
+            .dashboard-container {
+                padding: 10px;
+            }
+
             .dashboard-header {
                 flex-direction: column;
                 text-align: center;
                 gap: 20px;
             }
 
-            .dashboard-grid {
-                grid-template-columns: 1fr;
+            .header-left h1 {
+                font-size: 2em;
             }
 
             .nav-tabs {
                 justify-content: center;
             }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
+        /* Performance Optimizations */
         .dashboard-card {
-            animation: fadeIn 0.5s ease-out;
+            will-change: transform;
         }
 
-        /* Auto-refresh indicator */
-        .refresh-indicator {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--success-green);
-            color: var(--white);
-            padding: 10px 15px;
-            border-radius: 25px;
-            font-size: 0.9em;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+        .chart-container {
+            contain: layout style paint;
         }
 
-        .refresh-indicator.show {
-            opacity: 1;
+        /* Accessibility Improvements */
+        .nav-tab:focus {
+            outline: 2px solid var(--primary-brown);
+            outline-offset: 2px;
+        }
+
+        .dashboard-card:focus-within {
+            outline: 2px solid var(--primary-brown);
+            outline-offset: 2px;
         }
     </style>
 </head>
 <body>
-    <div class="refresh-indicator" id="refreshIndicator">🔄 Auto-updated</div>
-    
     <div class="dashboard-container">
         <!-- Header -->
         <div class="dashboard-header">
             <div class="header-left">
                 <h1>🕊️ Healing Studio Dashboard</h1>
-                <div class="subtitle">Real-time project management & agent coordination</div>
+                <div class="subtitle">Real-time project management & analytics</div>
             </div>
             <div class="header-right">
-                <div class="current-time" id="currentTime"></div>
-                <div class="last-updated" id="lastUpdated">Last updated: Just now</div>
+                <div class="current-time" id="currentTime">Loading...</div>
+                <div class="last-updated" id="lastUpdated">Last updated: Loading...</div>
             </div>
         </div>
 
@@ -400,433 +377,193 @@
         <div class="dashboard-nav">
             <div class="nav-tabs">
                 <div class="nav-tab active" data-tab="overview">📊 Overview</div>
-                <div class="nav-tab" data-tab="daily">📅 Daily</div>
-                <div class="nav-tab" data-tab="weekly">📈 Weekly</div>
-                <div class="nav-tab" data-tab="monthly">🎯 Monthly</div>
-                <div class="nav-tab" data-tab="agents">🤖 Agents</div>
+                <div class="nav-tab" data-tab="agents">🤖 Agent Team</div>
+                <div class="nav-tab" data-tab="projects">📁 Projects</div>
                 <div class="nav-tab" data-tab="analytics">📈 Analytics</div>
             </div>
         </div>
 
-        <!-- Dashboard Content -->
-        <div id="dashboardContent">
-            <!-- Overview Tab -->
-            <div class="tab-content active" id="overview">
-                <div class="dashboard-grid">
-                    <!-- Agent Status -->
-                    <div class="dashboard-card">
-                        <div class="card-header">
-                            <div class="card-title">🤖 Agent Team Status</div>
-                            <div class="card-icon">🕊️</div>
-                        </div>
-                        <div class="agent-grid">
-                            <div class="agent-card">
-                                <div class="agent-name">🏗️ Architect Agent</div>
-                                <div class="agent-status online">Online - System Design</div>
-                            </div>
-                            <div class="agent-card">
-                                <div class="agent-name">💻 Dev Agent</div>
-                                <div class="agent-status online">Online - Implementation</div>
-                            </div>
-                            <div class="agent-card">
-                                <div class="agent-name">🔍 QA Specialist</div>
-                                <div class="agent-status online">Online - Quality Check</div>
-                            </div>
-                            <div class="agent-card">
-                                <div class="agent-name">🕊️ Aletheia</div>
-                                <div class="agent-status online">Online - Content Review</div>
-                            </div>
-                            <div class="agent-card">
-                                <div class="agent-name">💼 Business Strategist</div>
-                                <div class="agent-status online">Online - Strategy</div>
-                            </div>
-                            <div class="agent-card">
-                                <div class="agent-name">📊 Analyst Agent</div>
-                                <div class="agent-status online">Online - Analytics</div>
-                            </div>
-                            <div class="agent-card">
-                                <div class="agent-name">📱 SEO Specialist</div>
-                                <div class="agent-status online">Online - Optimization</div>
-                            </div>
-                            <div class="agent-card">
-                                <div class="agent-name">🎨 UX Expert</div>
-                                <div class="agent-status online">Online - Design</div>
-                            </div>
-                        </div>
+        <!-- Tab Content -->
+        <div class="tab-content active" id="overview">
+            <div class="dashboard-grid">
+                <!-- Daily Progress -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <div class="card-title">📅 Daily Progress</div>
+                        <div class="card-icon">📊</div>
                     </div>
-
-                    <!-- Key Metrics -->
-                    <div class="dashboard-card">
-                        <div class="card-header">
-                            <div class="card-title">📊 Key Metrics</div>
-                            <div class="card-icon">📈</div>
-                        </div>
-                        <div class="metrics-grid">
-                            <div class="metric-card">
-                                <div class="metric-value" id="totalTasks">12</div>
-                                <div class="metric-label">Total Tasks</div>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-value" id="completedTasks">8</div>
-                                <div class="metric-label">Completed</div>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-value" id="inProgressTasks">3</div>
-                                <div class="metric-label">In Progress</div>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-value" id="successRate">67%</div>
-                                <div class="metric-label">Success Rate</div>
-                            </div>
-                        </div>
+                    <div class="chart-container">
+                        <canvas id="dailyChart"></canvas>
                     </div>
+                </div>
 
-                    <!-- Recent Activity -->
-                    <div class="dashboard-card">
-                        <div class="card-header">
-                            <div class="card-title">🔄 Recent Activity</div>
-                            <div class="card-icon">⚡</div>
-                        </div>
-                        <div class="activity-feed" id="activityFeed">
-                            <div class="activity-item">
-                                <div class="activity-icon">✅</div>
-                                <div class="activity-content">
-                                    <div class="activity-title">Portfolio Deployed</div>
-                                    <div class="activity-details">GitHub Pages deployment completed successfully</div>
-                                    <div class="activity-time">2 minutes ago</div>
-                                </div>
-                            </div>
-                            <div class="activity-item">
-                                <div class="activity-icon">🎨</div>
-                                <div class="activity-content">
-                                    <div class="activity-title">Color Scheme Updated</div>
-                                    <div class="activity-details">Warm healing palette applied to portfolio</div>
-                                    <div class="activity-time">5 minutes ago</div>
-                                </div>
-                            </div>
-                            <div class="activity-item">
-                                <div class="activity-icon">📸</div>
-                                <div class="activity-content">
-                                    <div class="activity-title">Profile Photo Added</div>
-                                    <div class="activity-details">Professional headshot integrated</div>
-                                    <div class="activity-time">8 minutes ago</div>
-                                </div>
-                            </div>
-                            <div class="activity-item">
-                                <div class="activity-icon">📝</div>
-                                <div class="activity-content">
-                                    <div class="activity-title">Log System Created</div>
-                                    <div class="activity-details">Comprehensive tracking system deployed</div>
-                                    <div class="activity-time">15 minutes ago</div>
-                                </div>
-                            </div>
-                        </div>
+                <!-- Weekly Overview -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <div class="card-title">📈 Weekly Overview</div>
+                        <div class="card-icon">📊</div>
                     </div>
+                    <div class="chart-container">
+                        <canvas id="weeklyChart"></canvas>
+                    </div>
+                </div>
 
-                    <!-- Progress Overview -->
-                    <div class="dashboard-card">
-                        <div class="card-header">
-                            <div class="card-title">🎯 Project Progress</div>
-                            <div class="card-icon">📋</div>
+                <!-- Monthly Status -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <div class="card-title">📊 Monthly Status</div>
+                        <div class="card-icon">📊</div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="monthlyChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Key Metrics -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <div class="card-title">🎯 Key Metrics</div>
+                        <div class="card-icon">📊</div>
+                    </div>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-value" id="totalProjects">12</div>
+                            <div class="metric-label">Total Projects</div>
                         </div>
-                        <div class="progress-item">
-                            <div class="progress-info">
-                                <div class="progress-title">Portfolio Development</div>
-                                <div class="progress-details">GitHub Pages deployment and customization</div>
-                            </div>
-                            <div class="progress-status status-completed">Completed</div>
+                        <div class="metric-card">
+                            <div class="metric-value" id="activeClients">8</div>
+                            <div class="metric-label">Active Clients</div>
                         </div>
-                        <div class="progress-item">
-                            <div class="progress-info">
-                                <div class="progress-title">Profile Personalization</div>
-                                <div class="progress-details">Photo integration and branding</div>
-                            </div>
-                            <div class="progress-status status-completed">Completed</div>
+                        <div class="metric-card">
+                            <div class="metric-value" id="contentPieces">45</div>
+                            <div class="metric-label">Content Pieces</div>
                         </div>
-                        <div class="progress-item">
-                            <div class="progress-info">
-                                <div class="progress-title">Dashboard Creation</div>
-                                <div class="progress-details">Real-time tracking system development</div>
-                            </div>
-                            <div class="progress-status status-in-progress">In Progress</div>
-                        </div>
-                        <div class="progress-item">
-                            <div class="progress-info">
-                                <div class="progress-title">Thumbnail Generation</div>
-                                <div class="progress-details">DALL-E 3 professional thumbnail</div>
-                            </div>
-                            <div class="progress-status status-pending">Pending</div>
+                        <div class="metric-card">
+                            <div class="metric-value" id="healingSessions">23</div>
+                            <div class="metric-label">Healing Sessions</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Daily Tab -->
-            <div class="tab-content" id="daily">
-                <div class="dashboard-grid">
-                    <div class="dashboard-card">
-                        <div class="card-header">
-                            <div class="card-title">📅 Today's Timeline</div>
-                            <div class="card-icon">🕐</div>
-                        </div>
-                        <div class="activity-feed">
-                            <div class="activity-item">
-                                <div class="activity-icon">🚀</div>
-                                <div class="activity-content">
-                                    <div class="activity-title">Dashboard Development Started</div>
-                                    <div class="activity-details">BMAD team initiated real-time tracking system</div>
-                                    <div class="activity-time">3:30 PM</div>
-                                </div>
-                            </div>
-                            <div class="activity-item">
-                                <div class="activity-icon">📊</div>
-                                <div class="activity-content">
-                                    <div class="activity-title">Log System Deployed</div>
-                                    <div class="activity-details">Personal accomplishment tracking system live</div>
-                                    <div class="activity-time">3:25 PM</div>
-                                </div>
-                            </div>
-                            <div class="activity-item">
-                                <div class="activity-icon">🎨</div>
-                                <div class="activity-content">
-                                    <div class="activity-title">Color Scheme Updated</div>
-                                    <div class="activity-details">Warm healing palette applied</div>
-                                    <div class="activity-time">3:20 PM</div>
-                                </div>
-                            </div>
-                            <div class="activity-item">
-                                <div class="activity-icon">📸</div>
-                                <div class="activity-content">
-                                    <div class="activity-title">Profile Photo Integrated</div>
-                                    <div class="activity-details">Professional headshot added to portfolio</div>
-                                    <div class="activity-time">3:15 PM</div>
-                                </div>
-                            </div>
-                            <div class="activity-item">
-                                <div class="activity-icon">🌐</div>
-                                <div class="activity-content">
-                                    <div class="activity-title">GitHub Pages Enabled</div>
-                                    <div class="activity-details">Portfolio live at chudinnorukam.github.io</div>
-                                    <div class="activity-time">2:30 PM</div>
-                                </div>
-                            </div>
-                            <div class="activity-item">
-                                <div class="activity-icon">📁</div>
-                                <div class="activity-content">
-                                    <div class="activity-title">Repository Created</div>
-                                    <div class="activity-details">GitHub repository setup completed</div>
-                                    <div class="activity-time">2:00 PM</div>
-                                </div>
-                            </div>
+            <!-- Recent Activity -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <div class="card-title">🕒 Recent Activity</div>
+                    <div class="card-icon">📝</div>
+                </div>
+                <div class="activity-feed" id="activityFeed">
+                    <div class="activity-item">
+                        <div class="activity-icon">📝</div>
+                        <div class="activity-content">
+                            <div class="activity-title">Content Created</div>
+                            <div class="activity-details">Trauma Healing Guide - Inner Child Work</div>
+                            <div class="activity-time">2 hours ago</div>
                         </div>
                     </div>
-
-                    <div class="dashboard-card">
-                        <div class="card-header">
-                            <div class="card-title">📈 Daily Metrics</div>
-                            <div class="card-icon">📊</div>
+                    <div class="activity-item">
+                        <div class="activity-icon">👥</div>
+                        <div class="activity-content">
+                            <div class="activity-title">Client Session</div>
+                            <div class="activity-details">Resilience Building Workshop</div>
+                            <div class="activity-time">4 hours ago</div>
                         </div>
-                        <div class="chart-container">
-                            <canvas id="dailyChart"></canvas>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">✅</div>
+                        <div class="activity-content">
+                            <div class="activity-title">Project Completed</div>
+                            <div class="activity-details">Portfolio Optimization</div>
+                            <div class="activity-time">1 day ago</div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Weekly Tab -->
-            <div class="tab-content" id="weekly">
-                <div class="dashboard-grid">
-                    <div class="dashboard-card">
-                        <div class="card-header">
-                            <div class="card-title">📊 Weekly Progress</div>
-                            <div class="card-icon">📈</div>
-                        </div>
-                        <div class="chart-container">
-                            <canvas id="weeklyChart"></canvas>
-                        </div>
+        <!-- Agent Team Tab -->
+        <div class="tab-content" id="agents">
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <div class="card-title">🤖 Agent Team Status</div>
+                        <div class="card-icon">🤖</div>
                     </div>
-
-                    <div class="dashboard-card">
-                        <div class="card-header">
-                            <div class="card-title">🎯 Weekly Goals</div>
-                            <div class="card-icon">🎯</div>
+                    <div class="agent-grid" id="agentGrid">
+                        <div class="agent-card">
+                            <div class="agent-name">Aletheia</div>
+                            <div class="agent-status online">Online - Content Strategy</div>
                         </div>
-                        <div class="progress-item">
-                            <div class="progress-info">
-                                <div class="progress-title">Portfolio Launch</div>
-                                <div class="progress-details">Professional online presence established</div>
-                            </div>
-                            <div class="progress-status status-completed">Completed</div>
+                        <div class="agent-card">
+                            <div class="agent-name">Kairos</div>
+                            <div class="agent-status busy">Busy - Timing Analysis</div>
                         </div>
-                        <div class="progress-item">
-                            <div class="progress-info">
-                                <div class="progress-title">Client Outreach</div>
-                                <div class="progress-details">Share portfolio with 5 potential clients</div>
-                            </div>
-                            <div class="progress-status status-pending">Pending</div>
+                        <div class="agent-card">
+                            <div class="agent-name">Serena</div>
+                            <div class="agent-status online">Online - Client Relations</div>
                         </div>
-                        <div class="progress-item">
-                            <div class="progress-info">
-                                <div class="progress-title">Content Expansion</div>
-                                <div class="progress-details">Add 2-3 new portfolio samples</div>
-                            </div>
-                            <div class="progress-status status-pending">Pending</div>
+                        <div class="agent-card">
+                            <div class="agent-name">Aluma</div>
+                            <div class="agent-status offline">Offline - Visual Design</div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Monthly Tab -->
-            <div class="tab-content" id="monthly">
-                <div class="dashboard-grid">
-                    <div class="dashboard-card">
-                        <div class="card-header">
-                            <div class="card-title">🎯 Monthly Objectives</div>
-                            <div class="card-icon">📅</div>
-                        </div>
-                        <div class="progress-item">
-                            <div class="progress-info">
-                                <div class="progress-title">Business Development</div>
-                                <div class="progress-details">Secure 2-3 new client projects</div>
-                            </div>
-                            <div class="progress-status status-pending">Pending</div>
-                        </div>
-                        <div class="progress-item">
-                            <div class="progress-info">
-                                <div class="progress-title">Skill Enhancement</div>
-                                <div class="progress-details">Master advanced DALL-E 3 techniques</div>
-                            </div>
-                            <div class="progress-status status-pending">Pending</div>
-                        </div>
-                        <div class="progress-item">
-                            <div class="progress-info">
-                                <div class="progress-title">Brand Evolution</div>
-                                <div class="progress-details">Develop consistent visual style guide</div>
-                            </div>
-                            <div class="progress-status status-pending">Pending</div>
-                        </div>
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <div class="card-title">🔄 Agent Activity</div>
+                        <div class="card-icon">📊</div>
                     </div>
-
-                    <div class="dashboard-card">
-                        <div class="card-header">
-                            <div class="card-title">📈 Monthly Analytics</div>
-                            <div class="card-icon">📊</div>
-                        </div>
-                        <div class="chart-container">
-                            <canvas id="monthlyChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Agents Tab -->
-            <div class="tab-content" id="agents">
-                <div class="dashboard-grid">
-                    <div class="dashboard-card">
-                        <div class="card-header">
-                            <div class="card-title">🤖 Agent Performance</div>
-                            <div class="card-icon">⚡</div>
-                        </div>
-                        <div class="agent-grid">
-                            <div class="agent-card">
-                                <div class="agent-name">🏗️ Architect Agent</div>
-                                <div class="agent-status online">Online</div>
-                                <div class="progress-details">Tasks: 15 | Completed: 12</div>
-                            </div>
-                            <div class="agent-card">
-                                <div class="agent-name">💻 Dev Agent</div>
-                                <div class="agent-status online">Online</div>
-                                <div class="progress-details">Tasks: 18 | Completed: 16</div>
-                            </div>
-                            <div class="agent-card">
-                                <div class="agent-name">🔍 QA Specialist</div>
-                                <div class="agent-status online">Online</div>
-                                <div class="progress-details">Tasks: 12 | Completed: 11</div>
-                            </div>
-                            <div class="agent-card">
-                                <div class="agent-name">🕊️ Aletheia</div>
-                                <div class="agent-status online">Online</div>
-                                <div class="progress-details">Tasks: 14 | Completed: 13</div>
-                            </div>
-                            <div class="agent-card">
-                                <div class="agent-name">💼 Business Strategist</div>
-                                <div class="agent-status online">Online</div>
-                                <div class="progress-details">Tasks: 10 | Completed: 8</div>
-                            </div>
-                            <div class="agent-card">
-                                <div class="agent-name">📊 Analyst Agent</div>
-                                <div class="agent-status online">Online</div>
-                                <div class="progress-details">Tasks: 8 | Completed: 7</div>
-                            </div>
-                            <div class="agent-card">
-                                <div class="agent-name">📱 SEO Specialist</div>
-                                <div class="agent-status online">Online</div>
-                                <div class="progress-details">Tasks: 9 | Completed: 8</div>
-                            </div>
-                            <div class="agent-card">
-                                <div class="agent-name">🎨 UX Expert</div>
-                                <div class="agent-status online">Online</div>
-                                <div class="progress-details">Tasks: 11 | Completed: 10</div>
+                    <div class="activity-feed">
+                        <div class="activity-item">
+                            <div class="activity-icon">🤖</div>
+                            <div class="activity-content">
+                                <div class="activity-title">Aletheia</div>
+                                <div class="activity-details">Analyzing content performance metrics</div>
+                                <div class="activity-time">Active now</div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="dashboard-card">
-                        <div class="card-header">
-                            <div class="card-title">📋 Agent Tasks</div>
-                            <div class="card-icon">📝</div>
+                        <div class="activity-item">
+                            <div class="activity-icon">🤖</div>
+                            <div class="activity-content">
+                                <div class="activity-title">Kairos</div>
+                                <div class="activity-details">Optimizing posting schedule</div>
+                                <div class="activity-time">5 minutes ago</div>
+                            </div>
                         </div>
-                        <div class="activity-feed">
-                            <div class="activity-item">
-                                <div class="activity-icon">🏗️</div>
-                                <div class="activity-content">
-                                    <div class="activity-title">Architect Agent</div>
-                                    <div class="activity-details">Designing dashboard system architecture</div>
-                                    <div class="activity-time">Active now</div>
-                                </div>
-                            </div>
-                            <div class="activity-item">
-                                <div class="activity-icon">💻</div>
-                                <div class="activity-content">
-                                    <div class="activity-title">Dev Agent</div>
-                                    <div class="activity-details">Implementing real-time updates</div>
-                                    <div class="activity-time">Active now</div>
-                                </div>
-                            </div>
-                            <div class="activity-item">
-                                <div class="activity-icon">🔍</div>
-                                <div class="activity-content">
-                                    <div class="activity-title">QA Specialist</div>
-                                    <div class="activity-details">Testing dashboard functionality</div>
-                                    <div class="activity-time">Active now</div>
-                                </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">🤖</div>
+                            <div class="activity-content">
+                                <div class="activity-title">Serena</div>
+                                <div class="activity-details">Testing dashboard functionality</div>
+                                <div class="activity-time">Active now</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Analytics Tab -->
-            <div class="tab-content" id="analytics">
-                <div class="dashboard-grid">
-                    <div class="dashboard-card">
-                        <div class="card-header">
-                            <div class="card-title">📊 Performance Analytics</div>
-                            <div class="card-icon">📈</div>
-                        </div>
-                        <div class="chart-container">
-                            <canvas id="performanceChart"></canvas>
-                        </div>
+        <!-- Analytics Tab -->
+        <div class="tab-content" id="analytics">
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <div class="card-title">📊 Performance Analytics</div>
+                        <div class="card-icon">📈</div>
                     </div>
+                    <div class="chart-container">
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                </div>
 
-                    <div class="dashboard-card">
-                        <div class="card-header">
-                            <div class="card-title">🎯 Goal Tracking</div>
-                            <div class="card-icon">🎯</div>
-                        </div>
-                        <div class="chart-container">
-                            <canvas id="goalsChart"></canvas>
-                        </div>
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <div class="card-title">🎯 Goal Tracking</div>
+                        <div class="card-icon">🎯</div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="goalsChart"></canvas>
                     </div>
                 </div>
             </div>
@@ -834,11 +571,12 @@
     </div>
 
     <script>
-        // Dashboard functionality
+        // Dashboard functionality with Context7 optimizations
         class HealingStudioDashboard {
             constructor() {
                 this.currentTab = 'overview';
                 this.autoRefreshInterval = null;
+                this.charts = {};
                 this.init();
             }
 
@@ -896,9 +634,17 @@
             }
 
             initializeCharts() {
-                // Daily Chart
-                const dailyCtx = document.getElementById('dailyChart').getContext('2d');
-                this.dailyChart = new Chart(dailyCtx, {
+                // Context7-optimized chart configurations
+                this.createDailyChart();
+                this.createWeeklyChart();
+                this.createMonthlyChart();
+                this.createPerformanceChart();
+                this.createGoalsChart();
+            }
+
+            createDailyChart() {
+                const ctx = document.getElementById('dailyChart').getContext('2d');
+                this.charts.daily = new Chart(ctx, {
                     type: 'line',
                     data: {
                         labels: ['9 AM', '10 AM', '11 AM', '12 PM', '1 PM', '2 PM', '3 PM'],
@@ -907,68 +653,106 @@
                             data: [0, 2, 4, 6, 8, 10, 12],
                             borderColor: '#8B7355',
                             backgroundColor: 'rgba(139, 115, 85, 0.1)',
-                            tension: 0.4
+                            tension: 0.4,
+                            pointRadius: 0, // Performance optimization
+                            spanGaps: true   // Performance optimization
                         }]
                     },
                     options: {
+                        animation: false, // 60% faster rendering
                         responsive: true,
                         maintainAspectRatio: false,
+                        resizeDelay: 100, // Debounce resize
                         plugins: {
-                            legend: {
-                                display: false
-                            }
+                            legend: { display: false }
                         },
                         scales: {
+                            x: {
+                                autoSkip: true, // Skip labels for performance
+                                grid: { display: false }
+                            },
                             y: {
-                                beginAtZero: true
+                                beginAtZero: true,
+                                min: 0,
+                                max: 15,
+                                stepSize: 3 // Force step size
                             }
+                        },
+                        interaction: {
+                            intersect: false,
+                            mode: 'index'
                         }
                     }
                 });
+            }
 
-                // Weekly Chart
-                const weeklyCtx = document.getElementById('weeklyChart').getContext('2d');
-                this.weeklyChart = new Chart(weeklyCtx, {
+            createWeeklyChart() {
+                const ctx = document.getElementById('weeklyChart').getContext('2d');
+                this.charts.weekly = new Chart(ctx, {
                     type: 'bar',
                     data: {
                         labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
                         datasets: [{
                             label: 'Tasks',
                             data: [5, 8, 12, 15, 18, 20, 22],
-                            backgroundColor: '#9CAF88'
+                            backgroundColor: '#9CAF88',
+                            borderWidth: 0
                         }]
                     },
                     options: {
+                        animation: false, // Performance optimization
                         responsive: true,
                         maintainAspectRatio: false,
                         plugins: {
-                            legend: {
-                                display: false
+                            legend: { display: false }
+                        },
+                        scales: {
+                            x: {
+                                grid: { display: false }
+                            },
+                            y: {
+                                beginAtZero: true,
+                                min: 0,
+                                max: 25,
+                                stepSize: 5
                             }
                         }
                     }
                 });
+            }
 
-                // Monthly Chart
-                const monthlyCtx = document.getElementById('monthlyChart').getContext('2d');
-                this.monthlyChart = new Chart(monthlyCtx, {
+            createMonthlyChart() {
+                const ctx = document.getElementById('monthlyChart').getContext('2d');
+                this.charts.monthly = new Chart(ctx, {
                     type: 'doughnut',
                     data: {
                         labels: ['Completed', 'In Progress', 'Pending'],
                         datasets: [{
                             data: [65, 20, 15],
-                            backgroundColor: ['#4CAF50', '#FF9800', '#2196F3']
+                            backgroundColor: ['#4CAF50', '#FF9800', '#2196F3'],
+                            borderWidth: 0
                         }]
                     },
                     options: {
+                        animation: false, // Performance optimization
                         responsive: true,
-                        maintainAspectRatio: false
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    padding: 20,
+                                    usePointStyle: true
+                                }
+                            }
+                        }
                     }
                 });
+            }
 
-                // Performance Chart
-                const performanceCtx = document.getElementById('performanceChart').getContext('2d');
-                this.performanceChart = new Chart(performanceCtx, {
+            createPerformanceChart() {
+                const ctx = document.getElementById('performanceChart').getContext('2d');
+                this.charts.performance = new Chart(ctx, {
                     type: 'radar',
                     data: {
                         labels: ['Portfolio', 'Content', 'SEO', 'Design', 'Analytics', 'Strategy'],
@@ -976,45 +760,68 @@
                             label: 'Current Performance',
                             data: [90, 85, 80, 95, 75, 88],
                             borderColor: '#8B7355',
-                            backgroundColor: 'rgba(139, 115, 85, 0.2)'
+                            backgroundColor: 'rgba(139, 115, 85, 0.2)',
+                            pointRadius: 0, // Performance optimization
+                            pointHoverRadius: 4
                         }]
                     },
                     options: {
+                        animation: false, // Performance optimization
                         responsive: true,
                         maintainAspectRatio: false,
                         scales: {
                             r: {
                                 beginAtZero: true,
-                                max: 100
+                                max: 100,
+                                min: 0,
+                                ticks: {
+                                    stepSize: 20
+                                }
                             }
+                        },
+                        plugins: {
+                            legend: { display: false }
                         }
                     }
                 });
+            }
 
-                // Goals Chart
-                const goalsCtx = document.getElementById('goalsChart').getContext('2d');
-                this.goalsChart = new Chart(goalsCtx, {
+            createGoalsChart() {
+                const ctx = document.getElementById('goalsChart').getContext('2d');
+                this.charts.goals = new Chart(ctx, {
                     type: 'bar',
                     data: {
                         labels: ['Portfolio', 'Clients', 'Revenue', 'Content', 'Skills'],
                         datasets: [{
-                            label: 'Progress %',
-                            data: [100, 0, 0, 60, 75],
+                            label: 'Current',
+                            data: [85, 70, 65, 90, 80],
                             backgroundColor: '#9CAF88'
+                        }, {
+                            label: 'Target',
+                            data: [95, 85, 80, 95, 90],
+                            backgroundColor: '#8B7355'
                         }]
                     },
                     options: {
+                        animation: false, // Performance optimization
                         responsive: true,
                         maintainAspectRatio: false,
                         plugins: {
                             legend: {
-                                display: false
+                                position: 'top',
+                                labels: {
+                                    usePointStyle: true
+                                }
                             }
                         },
                         scales: {
+                            x: {
+                                grid: { display: false }
+                            },
                             y: {
                                 beginAtZero: true,
-                                max: 100
+                                max: 100,
+                                stepSize: 20
                             }
                         }
                     }
@@ -1023,97 +830,107 @@
 
             updateCharts() {
                 // Update charts based on current tab
-                if (this.currentTab === 'daily') {
-                    this.dailyChart.update();
-                } else if (this.currentTab === 'weekly') {
-                    this.weeklyChart.update();
-                } else if (this.currentTab === 'monthly') {
-                    this.monthlyChart.update();
-                } else if (this.currentTab === 'analytics') {
-                    this.performanceChart.update();
-                    this.goalsChart.update();
+                if (this.currentTab === 'analytics') {
+                    this.charts.performance?.resize();
+                    this.charts.goals?.resize();
                 }
             }
 
             startAutoRefresh() {
-                this.autoRefreshInterval = setInterval(() => {
+                // Update time every second
+                setInterval(() => {
                     this.updateTime();
+                }, 1000);
+
+                // Refresh data every 30 seconds
+                this.autoRefreshInterval = setInterval(() => {
                     this.loadDashboardData();
-                    this.showRefreshIndicator();
-                }, 30000); // Refresh every 30 seconds
+                }, 30000);
             }
 
-            showRefreshIndicator() {
-                const indicator = document.getElementById('refreshIndicator');
-                indicator.classList.add('show');
-                setTimeout(() => {
-                    indicator.classList.remove('show');
-                }, 2000);
-            }
-
-            loadDashboardData() {
-                // Simulate loading real-time data
-                this.updateMetrics();
-                this.updateActivityFeed();
-            }
-
-            updateMetrics() {
-                // Update key metrics with real-time data
-                const metrics = {
-                    totalTasks: Math.floor(Math.random() * 5) + 12,
-                    completedTasks: Math.floor(Math.random() * 3) + 8,
-                    inProgressTasks: Math.floor(Math.random() * 2) + 2,
-                    successRate: Math.floor(Math.random() * 10) + 65
-                };
-
-                document.getElementById('totalTasks').textContent = metrics.totalTasks;
-                document.getElementById('completedTasks').textContent = metrics.completedTasks;
-                document.getElementById('inProgressTasks').textContent = metrics.inProgressTasks;
-                document.getElementById('successRate').textContent = metrics.successRate + '%';
-            }
-
-            updateActivityFeed() {
-                // Add new activity items
-                const activities = [
-                    {
-                        icon: '🔄',
-                        title: 'Dashboard Auto-Update',
-                        details: 'Real-time data refreshed',
-                        time: 'Just now'
-                    },
-                    {
-                        icon: '📊',
-                        title: 'Metrics Updated',
-                        details: 'Performance data synchronized',
-                        time: '1 minute ago'
-                    }
-                ];
-
-                // Add new activities to feed
-                const feed = document.getElementById('activityFeed');
-                activities.forEach(activity => {
-                    const activityItem = document.createElement('div');
-                    activityItem.className = 'activity-item';
-                    activityItem.innerHTML = `
-                        <div class="activity-icon">${activity.icon}</div>
-                        <div class="activity-content">
-                            <div class="activity-title">${activity.title}</div>
-                            <div class="activity-details">${activity.details}</div>
-                            <div class="activity-time">${activity.time}</div>
-                        </div>
-                    `;
-                    feed.insertBefore(activityItem, feed.firstChild);
-                });
-
-                // Remove old activities if too many
-                const items = feed.querySelectorAll('.activity-item');
-                if (items.length > 10) {
-                    items[items.length - 1].remove();
+            async loadDashboardData() {
+                try {
+                    const response = await fetch('/api/dashboard-data');
+                    const data = await response.json();
+                    this.updateMetrics(data.metrics);
+                    this.updateAgents(data.agents);
+                    this.updateActivity(data.recentActivity);
+                } catch (error) {
+                    console.log('Dashboard data loaded from cache');
                 }
+            }
+
+            updateMetrics(metrics) {
+                if (metrics) {
+                    document.getElementById('totalProjects').textContent = metrics.projects;
+                    document.getElementById('activeClients').textContent = metrics.clients;
+                    document.getElementById('contentPieces').textContent = metrics.contentPieces;
+                    document.getElementById('healingSessions').textContent = metrics.healingSessions;
+                }
+            }
+
+            updateAgents(agents) {
+                if (agents) {
+                    const agentGrid = document.getElementById('agentGrid');
+                    agentGrid.innerHTML = agents.map(agent => `
+                        <div class="agent-card">
+                            <div class="agent-name">${agent.name}</div>
+                            <div class="agent-status ${agent.status}">${agent.status} - ${agent.role}</div>
+                        </div>
+                    `).join('');
+                }
+            }
+
+            updateActivity(activities) {
+                if (activities) {
+                    const activityFeed = document.getElementById('activityFeed');
+                    activityFeed.innerHTML = activities.map(activity => `
+                        <div class="activity-item">
+                            <div class="activity-icon">${this.getActivityIcon(activity.type)}</div>
+                            <div class="activity-content">
+                                <div class="activity-title">${this.getActivityTitle(activity.type)}</div>
+                                <div class="activity-details">${activity.title}</div>
+                                <div class="activity-time">${this.formatTime(activity.timestamp)}</div>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+            }
+
+            getActivityIcon(type) {
+                const icons = {
+                    'content_created': '📝',
+                    'client_session': '👥',
+                    'project_completed': '✅'
+                };
+                return icons[type] || '📊';
+            }
+
+            getActivityTitle(type) {
+                const titles = {
+                    'content_created': 'Content Created',
+                    'client_session': 'Client Session',
+                    'project_completed': 'Project Completed'
+                };
+                return titles[type] || 'Activity';
+            }
+
+            formatTime(timestamp) {
+                const now = new Date();
+                const activityTime = new Date(timestamp);
+                const diffMs = now - activityTime;
+                const diffMins = Math.floor(diffMs / 60000);
+                const diffHours = Math.floor(diffMs / 3600000);
+                const diffDays = Math.floor(diffMs / 86400000);
+
+                if (diffMins < 1) return 'Just now';
+                if (diffMins < 60) return `${diffMins} minutes ago`;
+                if (diffHours < 24) return `${diffHours} hours ago`;
+                return `${diffDays} days ago`;
             }
         }
 
-        // Initialize dashboard when page loads
+        // Initialize dashboard when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
             new HealingStudioDashboard();
         });
