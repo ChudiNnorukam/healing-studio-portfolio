@@ -1,0 +1,229 @@
+{
+  "name": "30-Day Content Schedule Generator",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "30-day-schedule",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "schedule-webhook",
+      "name": "Content Schedule Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "webhookId": "30-day-schedule"
+    },
+    {
+      "parameters": {
+        "jsCode": "// 30-Day Content Schedule Generator with Cost Optimization\nconst input = $input.first().json;\n\n// Input processing and defaults\nconst topic = input.topic || 'inner child healing';\nconst niche = input.niche || 'trauma healing';\nconst platforms = input.platforms || ['pinterest', 'instagram', 'linkedin'];\nconst contentTypes = input.contentTypes || ['quote', 'infographic', 'exercise', 'worksheet', 'affirmation'];\nconst monthlyBudget = input.monthlyBudget || 30;\nconst startDate = input.startDate || new Date().toISOString().split('T')[0];\nconst audience = input.audience || 'trauma survivors seeking healing';\n\n// Cost optimization settings\nconst MODEL_COSTS = {\n  'gpt-4o-mini': { input: 0.15, output: 0.60 }, // per 1M tokens\n  'gpt-3.5-turbo': { input: 0.50, output: 1.50 },\n  'gpt-4': { input: 30.00, output: 60.00 }\n};\n\nconst SELECTED_MODEL = 'gpt-4o-mini'; // Most cost-effective\n\n// Platform-specific settings\nconst PLATFORM_SETTINGS = {\n  pinterest: {\n    format: '2:3 (1000x1500px)',\n    optimalTimes: {\n      weekday: '8:00 PM EST',\n      weekend: '2:00 PM EST'\n    },\n    contentFocus: 'visual storytelling',\n    hashtagCount: 10,\n    descriptionLength: 500,\n    keywordDensity: 'high'\n  },\n  instagram: {\n    format: '1:1 (1080x1080px)',\n    optimalTimes: {\n      weekday: '12:00 PM EST',\n      weekend: '1:00 PM EST'\n    },\n    contentFocus: 'emotional connection',\n    hashtagCount: 15,\n    descriptionLength: 250,\n    keywordDensity: 'medium'\n  },\n  linkedin: {\n    format: '1.91:1 (1200x630px)',\n    optimalTimes: {\n      weekday: '9:00 AM EST',\n      weekend: 'skip'\n    },\n    contentFocus: 'professional insight',\n    hashtagCount: 5,\n    descriptionLength: 300,\n    keywordDensity: 'low'\n  },\n  facebook: {\n    format: '1.91:1 (1200x630px)',\n    optimalTimes: {\n      weekday: '3:00 PM EST',\n      weekend: '12:00 PM EST'\n    },\n    contentFocus: 'community building',\n    hashtagCount: 8,\n    descriptionLength: 400,\n    keywordDensity: 'medium'\n  }\n};\n\n// Content type templates for trauma healing niche\nconst CONTENT_TEMPLATES = {\n  quote: {\n    structure: 'Inspirational quote + context + call-to-action',\n    examples: ['healing affirmations', 'recovery mantras', 'self-compassion quotes'],\n    visualElements: ['calming colors', 'soft typography', 'nature backgrounds'],\n    engagement: 'high',\n    costEfficiency: 'high'\n  },\n  infographic: {\n    structure: 'Educational data + visual hierarchy + actionable tips',\n    examples: ['trauma symptoms guide', 'healing timeline', 'coping strategies'],\n    visualElements: ['charts', 'icons', 'step-by-step layout'],\n    engagement: 'very high',\n    costEfficiency: 'medium'\n  },\n  exercise: {\n    structure: 'Guided activity + instructions + benefits',\n    examples: ['breathing techniques', 'grounding exercises', 'self-reflection prompts'],\n    visualElements: ['step illustrations', 'progress trackers', 'calming imagery'],\n    engagement: 'high',\n    costEfficiency: 'high'\n  },\n  worksheet: {\n    structure: 'Interactive template + prompts + guidance',\n    examples: ['emotion mapping', 'trigger identification', 'progress tracking'],\n    visualElements: ['form layouts', 'writing spaces', 'instructional text'],\n    engagement: 'very high',\n    costEfficiency: 'low'\n  },\n  affirmation: {\n    structure: 'Positive statement + explanation + practice guide',\n    examples: ['self-worth affirmations', 'safety affirmations', 'growth mindset'],\n    visualElements: ['beautiful typography', 'soft backgrounds', 'meaningful symbols'],\n    engagement: 'high',\n    costEfficiency: 'very high'\n  },\n  meditation: {\n    structure: 'Guided practice + duration + benefits',\n    examples: ['body scan', 'loving-kindness', 'inner child connection'],\n    visualElements: ['peaceful imagery', 'timer elements', 'instruction cards'],\n    engagement: 'medium',\n    costEfficiency: 'medium'\n  }\n};\n\n// Generate 30-day schedule\nfunction generate30DaySchedule(startDate, platforms, contentTypes, topic) {\n  const schedule = [];\n  const start = new Date(startDate);\n  \n  for (let day = 0; day < 30; day++) {\n    const currentDate = new Date(start);\n    currentDate.setDate(start.getDate() + day);\n    \n    const dayOfWeek = currentDate.getDay();\n    const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;\n    const dayName = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][dayOfWeek];\n    \n    // Smart platform rotation (skip LinkedIn on weekends)\n    let availablePlatforms = [...platforms];\n    if (isWeekend && availablePlatforms.includes('linkedin')) {\n      availablePlatforms = availablePlatforms.filter(p => p !== 'linkedin');\n    }\n    \n    const platform = availablePlatforms[day % availablePlatforms.length];\n    const contentType = contentTypes[day % contentTypes.length];\n    \n    // Get platform settings\n    const platformSettings = PLATFORM_SETTINGS[platform];\n    const contentTemplate = CONTENT_TEMPLATES[contentType];\n    \n    // Determine optimal posting time\n    const optimalTime = isWeekend ? \n      platformSettings.optimalTimes.weekend : \n      platformSettings.optimalTimes.weekday;\n    \n    // Skip if platform doesn't post on weekends\n    if (optimalTime === 'skip') {\n      continue;\n    }\n    \n    // Generate content topic variation\n    const topicVariations = [\n      `${topic} - ${contentType}`,\n      `${contentType} for ${topic}`,\n      `Daily ${contentType}: ${topic}`,\n      `${topic} journey: ${contentType}`,\n      `Healing through ${contentType}`,\n      `${contentType} practice for ${topic}`\n    ];\n    \n    const topicVariation = topicVariations[day % topicVariations.length];\n    \n    // Priority system\n    let priority = 'medium';\n    if (day < 7) priority = 'high';              // First week\n    else if (day < 14) priority = 'high';        // Second week\n    else if (day < 21) priority = 'medium';      // Third week\n    else priority = 'low';                       // Fourth week\n    \n    // Content difficulty and engagement prediction\n    const engagementScore = {\n      'very high': 95,\n      'high': 85,\n      'medium': 70,\n      'low': 50\n    }[contentTemplate.engagement];\n    \n    schedule.push({\n      day: day + 1,\n      date: currentDate.toISOString().split('T')[0],\n      dayName: dayName,\n      platform: platform,\n      contentType: contentType,\n      topic: topicVariation,\n      optimalTime: optimalTime,\n      priority: priority,\n      \n      // Platform specifications\n      imageFormat: platformSettings.format,\n      contentFocus: platformSettings.contentFocus,\n      hashtagCount: platformSettings.hashtagCount,\n      descriptionLength: platformSettings.descriptionLength,\n      \n      // Content specifications\n      structure: contentTemplate.structure,\n      visualElements: contentTemplate.visualElements,\n      expectedEngagement: engagementScore,\n      \n      // SEO and optimization\n      keywordDensity: platformSettings.keywordDensity,\n      seoFocus: `${topic} ${contentType} ${platform}`,\n      \n      // Production notes\n      estimatedCreationTime: getCreationTime(contentType),\n      difficultyLevel: getDifficultyLevel(contentType),\n      costEfficiency: contentTemplate.costEfficiency,\n      \n      // Engagement strategy\n      callToAction: generateCTA(contentType, platform),\n      hashtagStrategy: generateHashtagStrategy(topic, contentType, platform),\n      \n      // Analytics tracking\n      trackingGoals: ['engagement', 'reach', 'saves', 'shares'],\n      kpiTargets: {\n        engagement: `${engagementScore}%`,\n        reach: '1000+',\n        saves: '50+',\n        comments: '10+'\n      }\n    });\n  }\n  \n  return schedule;\n}\n\n// Helper functions\nfunction getCreationTime(contentType) {\n  const times = {\n    quote: '15 minutes',\n    affirmation: '10 minutes',\n    exercise: '25 minutes',\n    infographic: '45 minutes',\n    worksheet: '60 minutes',\n    meditation: '30 minutes'\n  };\n  return times[contentType] || '20 minutes';\n}\n\nfunction getDifficultyLevel(contentType) {\n  const difficulty = {\n    quote: 'Easy',\n    affirmation: 'Easy',\n    exercise: 'Medium',\n    infographic: 'Hard',\n    worksheet: 'Hard',\n    meditation: 'Medium'\n  };\n  return difficulty[contentType] || 'Medium';\n}\n\nfunction generateCTA(contentType, platform) {\n  const ctas = {\n    pinterest: {\n      quote: 'Save this for daily inspiration 📌',\n      exercise: 'Try this healing exercise today 💚',\n      infographic: 'Pin this guide for reference 📚',\n      worksheet: 'Download and start your healing journey 📝',\n      affirmation: 'Save and repeat daily 🌟',\n      meditation: 'Practice this meditation tonight 🧘‍♀️'\n    },\n    instagram: {\n      quote: 'Double tap if this resonates 💕',\n      exercise: 'Try this and share your experience! 🌈',\n      infographic: 'Save this post for later reference 💾',\n      worksheet: 'Comment if you want the full worksheet! 📋',\n      affirmation: 'Repeat this affirmation with me ✨',\n      meditation: 'Practice this tonight and let me know how it goes 🌙'\n    },\n    linkedin: {\n      quote: 'What resonates with you most?',\n      exercise: 'How do you practice self-care at work?',\n      infographic: 'Which tip will you implement first?',\n      worksheet: 'Share your thoughts on trauma-informed workplaces',\n      affirmation: 'How do you build resilience professionally?',\n      meditation: 'Do you practice mindfulness at work?'\n    }\n  };\n  \n  return ctas[platform]?.[contentType] || 'Share your thoughts below 💬';\n}\n\nfunction generateHashtagStrategy(topic, contentType, platform) {\n  const baseHashtags = {\n    pinterest: ['#TraumaHealing', '#InnerChildWork', '#MentalHealthAwareness', '#SelfCare', '#HealingJourney'],\n    instagram: ['#TraumaRecovery', '#HealingCommunity', '#MentalHealthMatters', '#SelfLove', '#InnerChildHealing'],\n    linkedin: ['#MentalHealthAtWork', '#TraumaInformed', '#WorkplaceWellness', '#Resilience', '#ProfessionalGrowth']\n  };\n  \n  const contentHashtags = {\n    quote: ['#Inspiration', '#Motivation', '#Quotes', '#Wisdom'],\n    exercise: ['#SelfCareExercise', '#Mindfulness', '#Wellness', '#Practice'],\n    infographic: ['#Education', '#Awareness', '#Guide', '#Tips'],\n    worksheet: ['#SelfReflection', '#Growth', '#Journaling', '#Tool'],\n    affirmation: ['#Affirmations', '#PositiveVibes', '#Mindset', '#Empowerment'],\n    meditation: ['#Meditation', '#Mindfulness', '#Peace', '#Relaxation']\n  };\n  \n  const platformBase = baseHashtags[platform] || baseHashtags.instagram;\n  const contentSpecific = contentHashtags[contentType] || [];\n  \n  return [...platformBase, ...contentSpecific].slice(0, PLATFORM_SETTINGS[platform].hashtagCount);\n}\n\n// Cost calculation\nfunction calculateScheduleCost(schedule, model = SELECTED_MODEL) {\n  const tokensPerPost = 200; // Conservative estimate for content generation\n  const totalTokens = schedule.length * tokensPerPost;\n  const costs = MODEL_COSTS[model];\n  \n  const inputCost = (totalTokens / 1000000) * costs.input;\n  const outputCost = (totalTokens / 1000000) * costs.output;\n  const totalCost = inputCost + outputCost;\n  \n  return {\n    totalPosts: schedule.length,\n    estimatedTokens: totalTokens,\n    inputCost: inputCost.toFixed(4),\n    outputCost: outputCost.toFixed(4),\n    totalCost: totalCost.toFixed(4),\n    costPerPost: (totalCost / schedule.length).toFixed(4),\n    model: model\n  };\n}\n\n// Generate the schedule\nconst contentSchedule = generate30DaySchedule(startDate, platforms, contentTypes, topic);\nconst costAnalysis = calculateScheduleCost(contentSchedule);\n\n// Budget validation\nconst withinBudget = parseFloat(costAnalysis.totalCost) <= monthlyBudget;\nconst budgetUtilization = (parseFloat(costAnalysis.totalCost) / monthlyBudget * 100).toFixed(1);\n\n// Analytics and insights\nconst platformDistribution = {};\nconst contentTypeDistribution = {};\nconst weeklyBreakdown = [];\n\ncontentSchedule.forEach(post => {\n  // Platform distribution\n  platformDistribution[post.platform] = (platformDistribution[post.platform] || 0) + 1;\n  \n  // Content type distribution\n  contentTypeDistribution[post.contentType] = (contentTypeDistribution[post.contentType] || 0) + 1;\n  \n  // Weekly breakdown\n  const weekNumber = Math.ceil(post.day / 7);\n  if (!weeklyBreakdown[weekNumber - 1]) {\n    weeklyBreakdown[weekNumber - 1] = {\n      week: weekNumber,\n      posts: 0,\n      platforms: new Set(),\n      contentTypes: new Set(),\n      priorities: { high: 0, medium: 0, low: 0 }\n    };\n  }\n  \n  weeklyBreakdown[weekNumber - 1].posts++;\n  weeklyBreakdown[weekNumber - 1].platforms.add(post.platform);\n  weeklyBreakdown[weekNumber - 1].contentTypes.add(post.contentType);\n  weeklyBreakdown[weekNumber - 1].priorities[post.priority]++;\n});\n\n// Convert Sets to Arrays for JSON serialization\nweeklyBreakdown.forEach(week => {\n  week.platforms = Array.from(week.platforms);\n  week.contentTypes = Array.from(week.contentTypes);\n});\n\nconst result = {\n  success: true,\n  metadata: {\n    topic: topic,\n    niche: niche,\n    audience: audience,\n    startDate: startDate,\n    generatedAt: new Date().toISOString(),\n    totalDays: 30,\n    totalPosts: contentSchedule.length,\n    platforms: platforms,\n    contentTypes: contentTypes\n  },\n  \n  costAnalysis: {\n    ...costAnalysis,\n    monthlyBudget: monthlyBudget,\n    withinBudget: withinBudget,\n    budgetUtilization: `${budgetUtilization}%`,\n    remainingBudget: (monthlyBudget - parseFloat(costAnalysis.totalCost)).toFixed(2),\n    costEfficiencyRating: withinBudget ? 'Excellent' : 'Over Budget'\n  },\n  \n  schedule: contentSchedule,\n  \n  analytics: {\n    platformDistribution: platformDistribution,\n    contentTypeDistribution: contentTypeDistribution,\n    weeklyBreakdown: weeklyBreakdown,\n    averageEngagementScore: (contentSchedule.reduce((sum, post) => sum + post.expectedEngagement, 0) / contentSchedule.length).toFixed(1),\n    totalEstimatedCreationTime: calculateTotalCreationTime(contentSchedule),\n    difficultyDistribution: getDifficultyDistribution(contentSchedule)\n  },\n  \n  optimizationTips: [\n    'Batch create similar content types to save time',\n    'Use templates for consistent branding',\n    'Schedule posts during optimal times',\n    'Monitor engagement and adjust strategy',\n    'Repurpose high-performing content across platforms',\n    'Plan content themes weekly for coherence'\n  ],\n  \n  nextSteps: [\n    'Review the complete 30-day schedule',\n    'Create content templates for each type',\n    'Set up social media scheduling tools',\n    'Track performance metrics',\n    'Adjust posting times based on audience engagement',\n    'Prepare backup content for low-performing posts'\n  ]\n};\n\n// Helper functions for analytics\nfunction calculateTotalCreationTime(schedule) {\n  const timeInMinutes = schedule.reduce((total, post) => {\n    const time = parseInt(post.estimatedCreationTime.split(' ')[0]);\n    return total + time;\n  }, 0);\n  \n  const hours = Math.floor(timeInMinutes / 60);\n  const minutes = timeInMinutes % 60;\n  \n  return `${hours}h ${minutes}m`;\n}\n\nfunction getDifficultyDistribution(schedule) {\n  const distribution = { Easy: 0, Medium: 0, Hard: 0 };\n  schedule.forEach(post => {\n    distribution[post.difficultyLevel]++;\n  });\n  return distribution;\n}\n\nreturn [{ json: result }];"
+      },
+      "id": "schedule-engine",
+      "name": "30-Day Schedule Engine",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "budget_check",
+              "leftValue": "={{ $json.costAnalysis.withinBudget }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "budget-validation",
+      "name": "Budget Validation",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "options": {
+          "maxTokens": 1000,
+          "temperature": 0.2
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "Enhance this 30-day content schedule with detailed content suggestions. For each post, provide:\n\n1. Specific content idea\n2. Compelling headline/title\n3. Key points to cover\n4. Visual description\n5. Engagement hooks\n\nFocus on {{ $('30-Day Schedule Engine').first().json.metadata.topic }} for {{ $('30-Day Schedule Engine').first().json.metadata.audience }}.\n\nSchedule data:\n{{ JSON.stringify($('30-Day Schedule Engine').first().json.schedule.slice(0, 7), null, 2) }}\n\nProvide detailed suggestions for the first week (7 days) in this format:\nDay X: [Specific content idea with headline and details]\n\nKeep responses practical and actionable.",
+              "role": "user"
+            }
+          ]
+        },
+        "resource": "text",
+        "operation": "message"
+      },
+      "id": "content-enhancer",
+      "name": "Content Detail Enhancer",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [900, 240]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "options": {
+          "maxTokens": 800,
+          "temperature": 0.1
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "Create SEO-optimized hashtag sets for this 30-day content schedule.\n\nTopic: {{ $('30-Day Schedule Engine').first().json.metadata.topic }}\nNiche: {{ $('30-Day Schedule Engine').first().json.metadata.niche }}\nPlatforms: {{ $('30-Day Schedule Engine').first().json.metadata.platforms.join(', ') }}\n\nGenerate 5 hashtag sets for each platform that can be rotated throughout the month:\n\nFormat:\nPlatform - Set 1: #hashtag1 #hashtag2...\nPlatform - Set 2: #hashtag1 #hashtag2...\n\nFocus on trauma healing, inner child work, and mental health awareness.\nInclude trending and niche-specific hashtags.\nOptimize for discoverability and engagement.",
+              "role": "user"
+            }
+          ]
+        },
+        "resource": "text",
+        "operation": "message"
+      },
+      "id": "hashtag-generator",
+      "name": "Hashtag Strategy Generator",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [900, 360]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Process and combine all schedule data with AI enhancements\nconst scheduleData = $('30-Day Schedule Engine').first().json;\nconst contentEnhancement = $('Content Detail Enhancer').first().json.choices[0].message.content;\nconst hashtagStrategies = $('Hashtag Strategy Generator').first().json.choices[0].message.content;\n\n// Parse content enhancements\nconst enhancedContent = {};\nconst contentLines = contentEnhancement.split('\\n').filter(line => line.trim());\n\ncontentLines.forEach(line => {\n  if (line.match(/^Day \\d+:/)) {\n    const dayMatch = line.match(/^Day (\\d+):(.+)/);\n    if (dayMatch) {\n      const dayNum = parseInt(dayMatch[1]);\n      const content = dayMatch[2].trim();\n      enhancedContent[dayNum] = content;\n    }\n  }\n});\n\n// Parse hashtag strategies\nconst hashtagSets = {};\nconst hashtagLines = hashtagStrategies.split('\\n').filter(line => line.trim());\n\nhashtagLines.forEach(line => {\n  const match = line.match(/^([^-]+)\\s*-\\s*Set\\s*(\\d+):\\s*(.+)/);\n  if (match) {\n    const platform = match[1].trim().toLowerCase();\n    const setNumber = parseInt(match[2]);\n    const hashtags = match[3].trim();\n    \n    if (!hashtagSets[platform]) {\n      hashtagSets[platform] = {};\n    }\n    hashtagSets[platform][setNumber] = hashtags;\n  }\n});\n\n// Enhance schedule with AI-generated content\nconst enhancedSchedule = scheduleData.schedule.map(post => {\n  const enhancement = enhancedContent[post.day] || `Create ${post.contentType} about ${post.topic}`;\n  \n  // Assign hashtag set (rotate through available sets)\n  const platformHashtags = hashtagSets[post.platform] || {};\n  const hashtagSetKeys = Object.keys(platformHashtags);\n  const setIndex = ((post.day - 1) % hashtagSetKeys.length) + 1;\n  const assignedHashtags = platformHashtags[setIndex] || post.hashtagStrategy.join(' ');\n  \n  return {\n    ...post,\n    contentIdea: enhancement,\n    optimizedHashtags: assignedHashtags,\n    \n    // Add production checklist\n    productionChecklist: {\n      research: `Research ${post.topic} for authentic insights`,\n      design: `Create ${post.imageFormat} image with ${post.visualElements.join(', ')}`,\n      copy: `Write ${post.descriptionLength} char description with ${post.contentFocus} focus`,\n      hashtags: `Use optimized hashtag set: ${assignedHashtags}`,\n      schedule: `Post at ${post.optimalTime} on ${post.date}`,\n      engage: `Respond to comments within 2 hours`,\n      analyze: `Track ${post.kpiTargets.engagement} engagement rate`\n    },\n    \n    // Content brief\n    contentBrief: {\n      objective: `Create ${post.contentType} that resonates with ${scheduleData.metadata.audience}`,\n      keyMessage: post.topic,\n      visualStyle: post.visualElements.join(', '),\n      tone: getToneForContent(post.contentType),\n      mustInclude: [`${post.contentFocus}`, 'trauma-informed language', 'hope and healing'],\n      avoid: ['triggering language', 'medical advice', 'overpromising quick fixes']\n    },\n    \n    // Performance predictions\n    predictions: {\n      bestTimeToPost: post.optimalTime,\n      expectedReach: post.kpiTargets.reach,\n      engagementRate: post.kpiTargets.engagement,\n      contentLifespan: getContentLifespan(post.platform, post.contentType),\n      viralPotential: getViralPotential(post.contentType, post.expectedEngagement)\n    }\n  };\n});\n\n// Helper functions\nfunction getToneForContent(contentType) {\n  const tones = {\n    quote: 'Inspirational and empowering',\n    affirmation: 'Gentle and nurturing', \n    exercise: 'Instructional and supportive',\n    infographic: 'Educational and clear',\n    worksheet: 'Structured and helpful',\n    meditation: 'Calming and peaceful'\n  };\n  return tones[contentType] || 'Supportive and authentic';\n}\n\nfunction getContentLifespan(platform, contentType) {\n  const lifespans = {\n    pinterest: { quote: '6 months', infographic: '1 year', exercise: '3 months' },\n    instagram: { quote: '24 hours', infographic: '3 days', exercise: '48 hours' },\n    linkedin: { quote: '48 hours', infographic: '1 week', exercise: '3 days' }\n  };\n  return lifespans[platform]?.[contentType] || '1 week';\n}\n\nfunction getViralPotential(contentType, engagement) {\n  if (engagement > 90 && ['quote', 'infographic'].includes(contentType)) return 'High';\n  if (engagement > 80) return 'Medium';\n  return 'Low';\n}\n\n// Calculate weekly summaries\nconst weeklySummaries = [];\nfor (let week = 1; week <= 4; week++) {\n  const weekStart = (week - 1) * 7 + 1;\n  const weekEnd = Math.min(week * 7, enhancedSchedule.length);\n  const weekPosts = enhancedSchedule.slice(weekStart - 1, weekEnd);\n  \n  weeklySummaries.push({\n    week: week,\n    dateRange: `${weekPosts[0].date} to ${weekPosts[weekPosts.length - 1].date}`,\n    postCount: weekPosts.length,\n    platforms: [...new Set(weekPosts.map(p => p.platform))],\n    contentTypes: [...new Set(weekPosts.map(p => p.contentType))],\n    totalCreationTime: weekPosts.reduce((sum, p) => sum + parseInt(p.estimatedCreationTime), 0),\n    highPriorityPosts: weekPosts.filter(p => p.priority === 'high').length,\n    avgEngagementPrediction: (weekPosts.reduce((sum, p) => sum + p.expectedEngagement, 0) / weekPosts.length).toFixed(1),\n    focus: getWeeklyFocus(week),\n    goals: getWeeklyGoals(week)\n  });\n}\n\nfunction getWeeklyFocus(week) {\n  const focuses = {\n    1: 'Introduction and awareness building',\n    2: 'Deep healing and practical tools', \n    3: 'Community building and engagement',\n    4: 'Integration and future planning'\n  };\n  return focuses[week];\n}\n\nfunction getWeeklyGoals(week) {\n  const goals = {\n    1: ['Build initial audience', 'Establish expertise', 'Create engagement'],\n    2: ['Provide valuable resources', 'Increase saves/shares', 'Build trust'],\n    3: ['Foster community interaction', 'Encourage user-generated content', 'Build relationships'],\n    4: ['Showcase transformation', 'Plan future content', 'Gather feedback']\n  };\n  return goals[week];\n}\n\n// Generate content creation timeline\nconst creationTimeline = enhancedSchedule.map(post => ({\n  day: post.day,\n  date: post.date,\n  contentType: post.contentType,\n  platform: post.platform,\n  creationDeadline: getCreationDeadline(post.date),\n  estimatedTime: post.estimatedCreationTime,\n  difficulty: post.difficultyLevel,\n  dependencies: getContentDependencies(post.contentType),\n  tools: getRequiredTools(post.contentType, post.platform)\n}));\n\nfunction getCreationDeadline(postDate) {\n  const date = new Date(postDate);\n  date.setDate(date.getDate() - 1); // Create 1 day before posting\n  return date.toISOString().split('T')[0];\n}\n\nfunction getContentDependencies(contentType) {\n  const deps = {\n    quote: ['Source quote', 'Background image'],\n    infographic: ['Research data', 'Visual elements', 'Icons'],\n    exercise: ['Instructions', 'Step illustrations'],\n    worksheet: ['Template design', 'Content prompts'],\n    affirmation: ['Affirmation text', 'Typography'],\n    meditation: ['Script', 'Audio (optional)', 'Visual guide']\n  };\n  return deps[contentType] || ['Content', 'Visual'];\n}\n\nfunction getRequiredTools(contentType, platform) {\n  const baseTools = ['Canva/Figma', 'Image editing'];\n  const specific = {\n    infographic: ['Data visualization', 'Icon library'],\n    worksheet: ['PDF creation', 'Form design'],\n    meditation: ['Audio editing (optional)']\n  };\n  return [...baseTools, ...(specific[contentType] || [])];\n}\n\n// Generate final comprehensive report\nconst finalResult = {\n  success: true,\n  summary: {\n    title: '30-Day Content Schedule with AI Enhancement',\n    topic: scheduleData.metadata.topic,\n    audience: scheduleData.metadata.audience,\n    totalPosts: enhancedSchedule.length,\n    totalCost: scheduleData.costAnalysis.totalCost,\n    costPerPost: scheduleData.costAnalysis.costPerPost,\n    budgetStatus: scheduleData.costAnalysis.withinBudget ? '✅ Within Budget' : '❌ Over Budget',\n    estimatedROI: 'High (trauma healing niche has strong engagement)',\n    generatedAt: new Date().toISOString()\n  },\n  \n  costAnalysis: scheduleData.costAnalysis,\n  \n  schedule: enhancedSchedule,\n  \n  weeklySummaries: weeklySummaries,\n  \n  creationTimeline: creationTimeline,\n  \n  hashtagStrategies: hashtagSets,\n  \n  analytics: scheduleData.analytics,\n  \n  actionPlan: {\n    preparation: [\n      'Set up content creation tools (Canva, scheduling platform)',\n      'Create brand templates for each content type',\n      'Research trauma healing keywords for each week',\n      'Set up analytics tracking for all platforms'\n    ],\n    execution: [\n      'Batch create Week 1 content (2-3 hours)',\n      'Schedule first week of posts',\n      'Monitor engagement and adjust timing',\n      'Prepare Week 2 content based on performance'\n    ],\n    optimization: [\n      'Track which content types perform best',\n      'Adjust posting times based on audience activity',\n      'Expand on high-performing topics',\n      'Build email list from engaged followers'\n    ]\n  },\n  \n  recommendations: {\n    immediate: [\n      'Start with highest-priority posts (Week 1)',\n      'Create 3-5 post templates for efficiency', \n      'Set up automated hashtag rotation',\n      'Schedule posts 1 week in advance'\n    ],\n    ongoing: [\n      'Monitor trauma healing trends and adjust content',\n      'Engage with community posts for 30 min daily',\n      'Share user success stories (with permission)',\n      'Create monthly themes for content cohesion'\n    ],\n    advanced: [\n      'Develop signature content series',\n      'Launch email course for lead generation',\n      'Partner with other trauma healing creators',\n      'Create premium content offerings'\n    ]\n  },\n  \n  nextSteps: [\n    '1. Review and approve the 30-day schedule',\n    '2. Set up content creation workspace and tools',\n    '3. Create first week of content (start with easy posts)',\n    '4. Schedule posts and monitor engagement',\n    '5. Adjust strategy based on performance data',\n    '6. Plan month 2 content based on successful themes'\n  ]\n};\n\nreturn [{ json: finalResult }];"
+      },
+      "id": "final-processor",
+      "name": "Final Schedule Processor",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 300]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "final-response",
+      "name": "Schedule Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1340, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Budget exceeded handler\nconst scheduleData = $('30-Day Schedule Engine').first().json;\n\nconst budgetSolutions = {\n  error: 'Monthly budget exceeded',\n  currentBudget: scheduleData.costAnalysis.monthlyBudget,\n  estimatedCost: scheduleData.costAnalysis.totalCost,\n  overage: (parseFloat(scheduleData.costAnalysis.totalCost) - scheduleData.costAnalysis.monthlyBudget).toFixed(2),\n  \n  solutions: {\n    reduceFrequency: {\n      description: 'Post every other day instead of daily',\n      newPostCount: Math.floor(scheduleData.schedule.length / 2),\n      estimatedCost: (parseFloat(scheduleData.costAnalysis.totalCost) / 2).toFixed(2),\n      savings: '50%'\n    },\n    focusHighROI: {\n      description: 'Focus on high-engagement content types only',\n      recommendedTypes: ['quote', 'affirmation', 'exercise'],\n      estimatedSavings: '40%'\n    },\n    weeklyBatches: {\n      description: 'Generate content weekly instead of monthly',\n      weeklyBudget: (scheduleData.costAnalysis.monthlyBudget / 4).toFixed(2),\n      postsPerWeek: Math.floor(scheduleData.schedule.length / 4)\n    },\n    manualCreation: {\n      description: 'Use AI for planning only, create content manually',\n      estimatedCost: (parseFloat(scheduleData.costAnalysis.totalCost) * 0.1).toFixed(2),\n      savings: '90%'\n    }\n  },\n  \n  freeAlternatives: [\n    'Use ChatGPT web interface for content ideas',\n    'Create simple quote graphics with Canva free plan',\n    'Use scheduling tools like Buffer free tier',\n    'Focus on text-based posts initially'\n  ],\n  \n  quickFix: {\n    action: 'Generate only Week 1 content (7 posts)',\n    cost: (parseFloat(scheduleData.costAnalysis.totalCost) / 4.3).toFixed(2),\n    description: 'Start with first week, assess performance, then continue'\n  },\n  \n  timestamp: new Date().toISOString()\n};\n\nreturn [{ json: budgetSolutions }];"
+      },
+      "id": "budget-handler",
+      "name": "Budget Solutions Generator",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 420]
+    }
+  ],
+  "connections": {
+    "Content Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "30-Day Schedule Engine",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "30-Day Schedule Engine": {
+      "main": [
+        [
+          {
+            "node": "Budget Validation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Budget Validation": {
+      "main": [
+        [
+          {
+            "node": "Content Detail Enhancer",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Hashtag Strategy Generator",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Budget Solutions Generator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Content Detail Enhancer": {
+      "main": [
+        [
+          {
+            "node": "Final Schedule Processor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Hashtag Strategy Generator": {
+      "main": [
+        [
+          {
+            "node": "Final Schedule Processor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Final Schedule Processor": {
+      "main": [
+        [
+          {
+            "node": "Schedule Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Budget Solutions Generator": {
+      "main": [
+        [
+          {
+            "node": "Schedule Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {},
+  "versionId": "1"
+} 
