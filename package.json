@@ -1,0 +1,45 @@
+{
+  "name": "chudi-healing-studio-automation",
+  "version": "1.0.0",
+  "description": "Automated content creation and portfolio management system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:github-pages": "node github-pages-tester.js",
+    "test:web": "node web-testing-agent.js",
+    "monitor:web": "node web-monitor.js",
+    "test:all": "npm run test:github-pages",
+    "improve:report": "node recursive-improvement-tracker.js report",
+    "improve:actions": "node recursive-improvement-tracker.js actions",
+    "improve:update": "node recursive-improvement-tracker.js update",
+    "improve:metric": "node recursive-improvement-tracker.js metric",
+    "carousel:generate": "node carousel-automation-system.js",
+    "carousel:preview": "node carousel-preview-generator.js",
+    "cursor:tools": "node cursor-integration.js",
+    "cursor:scrape": "node cursor-integration.js web_scrape",
+    "cursor:content": "node cursor-integration.js generate_content",
+    "cursor:analyze": "node cursor-integration.js analyze_website",
+    "cursor:carousel": "node cursor-integration.js create_carousel",
+    "cursor:monitor": "node cursor-integration.js monitor_portfolio",
+    "track:start": "node automation/tool-tracking/start-tracking.js",
+    "track:demo": "node automation/tool-tracking/demo-tracking.js",
+    "track:report": "node -e \"require('./automation/tool-tracking/auto-tracker').quickReport()\"",
+    "track:full": "node -e \"require('./automation/tool-tracking/auto-tracker').generateFullReport()\"",
+    "track:analyze": "node -e \"const { analyzeToolUsage } = require('./automation/tool-tracking/auto-tracker'); analyzeToolUsage()\"",
+    "organize:portfolio": "node organize-portfolio.js",
+    "organize:plan": "node portfolio-organization-audit.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.16.0",
+    "axios": "^1.10.0",
+    "cheerio": "^1.1.0",
+    "openai": "^5.10.1",
+    "puppeteer": "^24.14.0"
+  },
+  "devDependencies": {
+    "dotenv": "^17.2.0"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  }
+}
