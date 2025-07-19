@@ -55,10 +55,10 @@ Based on extensive research of OpenAI API cost optimization techniques, this wor
    - **Temperature**: 0.3
 
 2. **Second OpenAI Node**:
-   - **Name**: "30-Day Schedule Generator"  
+   - **Name**: "Visual & Copy Enhancer"  
    - **Model**: `gpt-4o-mini`
-   - **Max Tokens**: 500
-   - **Temperature**: 0.1
+   - **Max Tokens**: 600
+   - **Temperature**: 0.2
 
 ### Step 6: Add Content Processing Node
 1. **Add Node**: Search "Code"
@@ -164,17 +164,19 @@ curl -X POST http://localhost:5678/webhook/carousel-content-planner \
 
 ## 🎨 **WHAT YOU GET:**
 
-### **Carousel Content:**
-- ✅ **5-10 optimized slides** per carousel
+### **Enhanced Carousel Content:**
+- ✅ **5-10 optimized slides** with detailed content
+- ✅ **Visual descriptions** for each slide (colors, imagery, layout)
+- ✅ **Copy suggestions** with engaging text overlays
+- ✅ **Call-to-action ideas** for maximum engagement
 - ✅ **Platform-specific formatting** (Pinterest, Instagram, LinkedIn)
-- ✅ **SEO-optimized titles and descriptions**
-- ✅ **Trauma healing-focused content**
+- ✅ **Production checklists** with step-by-step tasks
 
-### **30-Day Content Schedule:**
-- ✅ **Complete posting calendar**
-- ✅ **Optimal posting times** for each platform
-- ✅ **Content type rotation** (quotes, exercises, worksheets)
-- ✅ **Platform-specific optimization**
+### **Creation Support:**
+- ✅ **Design guidelines** and trauma-informed tips
+- ✅ **Hashtag recommendations** by category
+- ✅ **Content strategy** with engagement tactics
+- ✅ **Timeline estimation** for each slide
 
 ### **Cost Management:**
 - ✅ **Real-time budget tracking**
