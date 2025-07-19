@@ -1,0 +1,24 @@
+{
+  "budget": {
+    "monthly": 50,
+    "current": 7.125,
+    "remaining": 42.875,
+    "percentage": 14.249999999999998
+  },
+  "status": {
+    "icon": "🟢",
+    "message": "HEALTHY - On track",
+    "healthy": true
+  },
+  "projections": {
+    "dayOfMonth": 19,
+    "daysInMonth": 31,
+    "currentSpend": 7.125,
+    "projectedSpend": 11.625,
+    "dailyAverage": 0.375
+  },
+  "recommendations": [
+    "Safe to continue current automation workflows",
+    "Consider expanding content generation"
+  ]
+}
