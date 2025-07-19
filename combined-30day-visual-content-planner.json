@@ -1,0 +1,276 @@
+{
+  "name": "Combined 30-Day Visual Content Planner",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "combined-content-planner",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Content Planning Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Combined 30-Day Content Planner with Visual Enhancement Engine\nconst input = $('Content Planning Webhook').first().json;\n\n// Input validation and optimization\nconst topic = input.topic || 'trauma healing and inner child work';\nconst audience = input.audience || 'trauma survivors seeking healing';\nconst platforms = input.platforms || ['pinterest', 'instagram', 'linkedin'];\nconst contentTypes = input.contentTypes || ['carousel', 'quote', 'exercise', 'worksheet', 'affirmation'];\nconst monthlyBudget = parseFloat(input.monthlyBudget) || 50;\nconst dailyPostCount = parseInt(input.dailyPostCount) || 1;\nconst focusAreas = input.focusAreas || ['inner child healing', 'trauma recovery', 'self-compassion', 'emotional regulation'];\n\n// Platform specifications for visual guidance\nconst platformSpecs = {\n  pinterest: {\n    format: '2:3 ratio (1000x1500px)',\n    textOverlay: 'Large, readable text with high contrast',\n    colors: 'Soft pastels, earth tones, calming blues',\n    engagement: 'Save-worthy content, DIY elements',\n    keywords: ['healing', 'selflove', 'traumarecovery', 'innerchild'],\n    optimalTime: '8:00 PM EST'\n  },\n  instagram: {\n    format: '1:1 square (1080x1080px) for feed, 9:16 for stories',\n    textOverlay: 'Bold, mobile-friendly fonts',\n    colors: 'Bright, vibrant colors with brand consistency',\n    engagement: 'Questions, polls, interactive elements',\n    keywords: ['mentalhealthawareness', 'healing', 'selfcare', 'traumainformed'],\n    optimalTime: '12:00 PM EST'\n  },\n  linkedin: {\n    format: '1.91:1 landscape (1200x628px)',\n    textOverlay: 'Professional, clean design',\n    colors: 'Professional blues, whites, minimal accent colors',\n    engagement: 'Educational content, professional insights',\n    keywords: ['mentalhealthatwork', 'traumainformedcare', 'wellness', 'leadership'],\n    optimalTime: '9:00 AM EST'\n  },\n  facebook: {\n    format: '1.91:1 landscape (1200x630px)',\n    textOverlay: 'Clear, family-friendly fonts',\n    colors: 'Warm, welcoming colors',\n    engagement: 'Community building, sharing experiences',\n    keywords: ['familyhealing', 'traumarecovery', 'parentinghealing', 'community'],\n    optimalTime: '3:00 PM EST'\n  }\n};\n\n// Content type specifications for visual guidance\nconst contentTypeSpecs = {\n  carousel: {\n    slideCount: '5-10 slides',\n    visualStyle: 'Consistent theme across slides',\n    textStrategy: 'Progressive storytelling',\n    engagement: 'High - encourages swipe-through'\n  },\n  quote: {\n    slideCount: '1 slide',\n    visualStyle: 'Text-focused with decorative elements',\n    textStrategy: 'Inspirational, shareable',\n    engagement: 'Save and share focused'\n  },\n  exercise: {\n    slideCount: '3-5 slides',\n    visualStyle: 'Step-by-step visual progression',\n    textStrategy: 'Clear instructions, actionable',\n    engagement: 'Try-it-yourself motivation'\n  },\n  worksheet: {\n    slideCount: '4-6 slides',\n    visualStyle: 'Clean, printable design',\n    textStrategy: 'Educational, guided reflection',\n    engagement: 'Download and complete'\n  },\n  affirmation: {\n    slideCount: '1-3 slides',\n    visualStyle: 'Calming, supportive imagery',\n    textStrategy: 'Positive, empowering language',\n    engagement: 'Daily practice encouragement'\n  }\n};\n\n// Budget analysis and optimization\nconst estimatedTokensPerPost = 800; // Conservative estimate for combined generation\nconst gptMiniCostPer1KTokens = 0.75; // $0.15 input + $0.60 output per 1K tokens\nconst totalDays = 30;\nconst totalPosts = totalDays * dailyPostCount;\nconst estimatedTotalTokens = totalPosts * estimatedTokensPerPost;\nconst estimatedMonthlyCost = (estimatedTotalTokens / 1000) * gptMiniCostPer1KTokens;\n\nconst budgetAnalysis = {\n  monthlyBudget: monthlyBudget,\n  estimatedCost: estimatedMonthlyCost.toFixed(2),\n  withinBudget: estimatedMonthlyCost <= monthlyBudget,\n  costPerPost: (estimatedMonthlyCost / totalPosts).toFixed(3),\n  overage: estimatedMonthlyCost > monthlyBudget ? (estimatedMonthlyCost - monthlyBudget).toFixed(2) : 0\n};\n\n// Generate 30-day content strategy with weekly themes\nconst weeklyThemes = {\n  week1: {\n    theme: 'Understanding Trauma',\n    focus: 'Education and awareness',\n    platforms: platforms.slice(0, 2),\n    contentTypes: ['carousel', 'quote', 'exercise']\n  },\n  week2: {\n    theme: 'Inner Child Connection',\n    focus: 'Self-discovery and compassion',\n    platforms: platforms,\n    contentTypes: ['worksheet', 'affirmation', 'carousel']\n  },\n  week3: {\n    theme: 'Healing Practices',\n    focus: 'Practical tools and techniques',\n    platforms: platforms.slice(0, 2),\n    contentTypes: ['exercise', 'carousel', 'quote']\n  },\n  week4: {\n    theme: 'Integration and Growth',\n    focus: 'Moving forward with healing',\n    platforms: platforms,\n    contentTypes: ['affirmation', 'worksheet', 'carousel']\n  }\n};\n\n// Generate optimized batch configuration\nconst batchConfig = {\n  totalBatches: budgetAnalysis.withinBudget ? 4 : 2,\n  postsPerBatch: budgetAnalysis.withinBudget ? Math.ceil(totalPosts / 4) : Math.ceil(totalPosts / 2),\n  batchFrequency: budgetAnalysis.withinBudget ? 'weekly' : 'bi-weekly',\n  priorityContent: ['carousel', 'worksheet', 'exercise']\n};\n\nconst result = {\n  planningConfig: {\n    topic: topic,\n    audience: audience,\n    platforms: platforms,\n    contentTypes: contentTypes,\n    focusAreas: focusAreas,\n    duration: '30 days',\n    dailyPostCount: dailyPostCount,\n    totalPosts: totalPosts\n  },\n  \n  budgetAnalysis: budgetAnalysis,\n  \n  weeklyThemes: weeklyThemes,\n  \n  batchConfiguration: batchConfig,\n  \n  platformSpecs: platformSpecs,\n  \n  contentTypeSpecs: contentTypeSpecs,\n  \n  optimizationSettings: {\n    useGPT4Mini: true,\n    structuredOutput: true,\n    batchProcessing: true,\n    visualEnhancement: true,\n    traumaInformed: true,\n    maxTokensPerGeneration: 1200,\n    temperature: 0.3\n  },\n  \n  generationInstructions: {\n    contentGeneration: 'Create detailed content with trauma-informed language',\n    visualGuidance: 'Provide specific visual descriptions for each piece',\n    copyEnhancement: 'Include engaging copy suggestions and CTAs',\n    platformOptimization: 'Optimize for each platform\\'s best practices',\n    engagementStrategy: 'Include community-building elements'\n  },\n  \n  timestamp: new Date().toISOString()\n};\n\nreturn [{ json: result }];"
+      },
+      "id": "planning-engine",
+      "name": "Advanced Planning & Budget Engine",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.budgetAnalysis.withinBudget }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equal"
+              }
+            }
+          ],
+          "combineOperation": "all"
+        },
+        "options": {}
+      },
+      "id": "budget-gate",
+      "name": "Budget Validation Gate",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "options": {
+          "maxTokens": 1000,
+          "temperature": 0.3
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "Generate 30-day content schedule for {{ $('Advanced Planning & Budget Engine').first().json.planningConfig.topic }}.\n\nConfig:\n- Platforms: {{ $('Advanced Planning & Budget Engine').first().json.planningConfig.platforms.join(', ') }}\n- Content types: {{ $('Advanced Planning & Budget Engine').first().json.planningConfig.contentTypes.join(', ') }}\n- Daily posts: {{ $('Advanced Planning & Budget Engine').first().json.planningConfig.dailyPostCount }}\n- Focus areas: {{ $('Advanced Planning & Budget Engine').first().json.planningConfig.focusAreas.join(', ') }}\n\nWeekly themes:\nWeek 1: {{ $('Advanced Planning & Budget Engine').first().json.weeklyThemes.week1.theme }} ({{ $('Advanced Planning & Budget Engine').first().json.weeklyThemes.week1.focus }})\nWeek 2: {{ $('Advanced Planning & Budget Engine').first().json.weeklyThemes.week2.theme }} ({{ $('Advanced Planning & Budget Engine').first().json.weeklyThemes.week2.focus }})\nWeek 3: {{ $('Advanced Planning & Budget Engine').first().json.weeklyThemes.week3.theme }} ({{ $('Advanced Planning & Budget Engine').first().json.weeklyThemes.week3.focus }})\nWeek 4: {{ $('Advanced Planning & Budget Engine').first().json.weeklyThemes.week4.theme }} ({{ $('Advanced Planning & Budget Engine').first().json.weeklyThemes.week4.focus }})\n\nFormat each day as:\nDay X: [Platform] | [Content Type] | [Specific Topic] | [Optimal Time] | [Engagement Hook]\n\nExample:\nDay 1: pinterest | carousel | Understanding trauma responses | 8:00 PM | Ask: What trauma response do you recognize in yourself?\n\nGenerate all 30 days following weekly themes. Keep trauma-informed and healing-focused.",
+              "role": "user"
+            }
+          ]
+        },
+        "resource": "text",
+        "operation": "message"
+      },
+      "id": "schedule-generator",
+      "name": "30-Day Schedule Generator",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [900, 240]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "options": {
+          "maxTokens": 1200,
+          "temperature": 0.2
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "Create detailed visual and copy guidance for {{ $('Advanced Planning & Budget Engine').first().json.planningConfig.topic }} content.\n\nSchedule from previous node:\n{{ $('30-Day Schedule Generator').first().json.choices[0].message.content }}\n\nFor the first 7 days of content, provide detailed specifications:\n\nFor each day, include:\n1. **Visual Description**: Specific colors, imagery, layout, fonts\n2. **Copy Suggestions**: 3-5 engaging text options for overlays\n3. **Call-to-Action Ideas**: Platform-optimized CTAs\n4. **Engagement Strategy**: Questions, polls, community elements\n5. **Hashtag Recommendations**: Primary, secondary, and niche tags\n6. **Production Notes**: Design tips, accessibility considerations\n\nPlatform specs to follow:\n- Pinterest: {{ $('Advanced Planning & Budget Engine').first().json.platformSpecs.pinterest.format }}, {{ $('Advanced Planning & Budget Engine').first().json.platformSpecs.pinterest.colors }}\n- Instagram: {{ $('Advanced Planning & Budget Engine').first().json.platformSpecs.instagram.format }}, {{ $('Advanced Planning & Budget Engine').first().json.platformSpecs.instagram.colors }}\n- LinkedIn: {{ $('Advanced Planning & Budget Engine').first().json.platformSpecs.linkedin.format }}, {{ $('Advanced Planning & Budget Engine').first().json.platformSpecs.linkedin.colors }}\n\nFormat:\nDay X - [Topic]:\n🎨 Visual: [detailed description]\n📝 Copy Options: [3 options]\n🎯 CTA: [specific call-to-action]\n🔥 Engagement: [strategy]\n#️⃣ Hashtags: [categorized list]\n📋 Production: [creation notes]\n\nKeep trauma-informed, accessible, and visually appealing.",
+              "role": "user"
+            }
+          ]
+        },
+        "resource": "text",
+        "operation": "message"
+      },
+      "id": "visual-copy-enhancer",
+      "name": "Visual & Copy Enhancement Engine",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [900, 360]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "options": {
+          "maxTokens": 800,
+          "temperature": 0.1
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "Analyze the content plan and provide strategic recommendations.\n\nContent Schedule:\n{{ $('30-Day Schedule Generator').first().json.choices[0].message.content }}\n\nVisual Guidelines:\n{{ $('Visual & Copy Enhancement Engine').first().json.choices[0].message.content }}\n\nProvide:\n1. **Content Quality Assessment**: Rate the plan's effectiveness\n2. **Engagement Optimization**: Specific tactics to increase interaction\n3. **Platform Performance Predictions**: Expected engagement by platform\n4. **Content Calendar Improvements**: Suggestions for better flow\n5. **Budget Optimization**: Ways to reduce costs while maintaining quality\n6. **Scaling Strategies**: How to expand successful content\n7. **Risk Assessment**: Potential challenges and solutions\n\nFormat as structured recommendations with specific, actionable advice.\n\nFocus on trauma-informed content that builds authentic community engagement.",
+              "role": "user"
+            }
+          ]
+        },
+        "resource": "text",
+        "operation": "message"
+      },
+      "id": "strategy-optimizer",
+      "name": "Content Strategy Optimizer",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [900, 480]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Process and combine all AI outputs into comprehensive content plan\nconst planningData = $('Advanced Planning & Budget Engine').first().json;\nconst scheduleRaw = $('30-Day Schedule Generator').first().json.choices[0].message.content;\nconst visualGuidanceRaw = $('Visual & Copy Enhancement Engine').first().json.choices[0].message.content;\nconst strategyRaw = $('Content Strategy Optimizer').first().json.choices[0].message.content;\n\n// Parse 30-day schedule\nconst schedule = [];\nconst scheduleLines = scheduleRaw.split('\\n').filter(line => line.trim() && line.includes('Day'));\n\nscheduleLines.forEach(line => {\n  const dayMatch = line.match(/Day (\\d+):\\s*(.+?)\\s*\\|\\s*(.+?)\\s*\\|\\s*(.+?)\\s*\\|\\s*(.+?)\\s*\\|\\s*(.+)/);\n  if (dayMatch) {\n    schedule.push({\n      day: parseInt(dayMatch[1]),\n      platform: dayMatch[2].trim(),\n      contentType: dayMatch[3].trim(),\n      topic: dayMatch[4].trim(),\n      optimalTime: dayMatch[5].trim(),\n      engagementHook: dayMatch[6].trim(),\n      week: Math.ceil(parseInt(dayMatch[1]) / 7),\n      theme: planningData.weeklyThemes[`week${Math.ceil(parseInt(dayMatch[1]) / 7)}`]?.theme || 'General Healing'\n    });\n  }\n});\n\n// Parse visual guidance (first 7 days detailed)\nconst visualGuidance = {};\nconst guidanceLines = visualGuidanceRaw.split('\\n');\nlet currentDay = null;\nlet currentSection = null;\n\nguidanceLines.forEach(line => {\n  const dayMatch = line.match(/Day (\\d+)\\s*-\\s*(.+):/); \n  if (dayMatch) {\n    currentDay = parseInt(dayMatch[1]);\n    visualGuidance[currentDay] = {\n      topic: dayMatch[2].trim(),\n      visual: '',\n      copyOptions: [],\n      cta: '',\n      engagement: '',\n      hashtags: [],\n      production: ''\n    };\n  } else if (currentDay && line.includes('🎨 Visual:')) {\n    visualGuidance[currentDay].visual = line.replace('🎨 Visual:', '').trim();\n  } else if (currentDay && line.includes('📝 Copy Options:')) {\n    const copyText = line.replace('📝 Copy Options:', '').trim();\n    visualGuidance[currentDay].copyOptions = copyText.split(',').map(opt => opt.trim());\n  } else if (currentDay && line.includes('🎯 CTA:')) {\n    visualGuidance[currentDay].cta = line.replace('🎯 CTA:', '').trim();\n  } else if (currentDay && line.includes('🔥 Engagement:')) {\n    visualGuidance[currentDay].engagement = line.replace('🔥 Engagement:', '').trim();\n  } else if (currentDay && line.includes('#️⃣ Hashtags:')) {\n    const hashtagText = line.replace('#️⃣ Hashtags:', '').trim();\n    visualGuidance[currentDay].hashtags = hashtagText.split(',').map(tag => tag.trim());\n  } else if (currentDay && line.includes('📋 Production:')) {\n    visualGuidance[currentDay].production = line.replace('📋 Production:', '').trim();\n  }\n});\n\n// Enhance schedule with visual guidance\nconst enhancedSchedule = schedule.map(day => {\n  const guidance = visualGuidance[day.day] || {};\n  return {\n    ...day,\n    visualDescription: guidance.visual || `Follow ${planningData.platformSpecs[day.platform]?.colors} color scheme`,\n    copyOptions: guidance.copyOptions || ['Engaging text overlay needed'],\n    callToAction: guidance.cta || 'Engage with this post',\n    engagementStrategy: guidance.engagement || 'Encourage comments and shares',\n    hashtags: guidance.hashtags || planningData.platformSpecs[day.platform]?.keywords || [],\n    productionNotes: guidance.production || 'Standard platform formatting',\n    platformSpecs: planningData.platformSpecs[day.platform] || {},\n    contentSpecs: planningData.contentTypeSpecs[day.contentType] || {},\n    estimatedCreationTime: day.contentType === 'carousel' ? '45-60 minutes' : \n                          day.contentType === 'worksheet' ? '30-45 minutes' : '15-30 minutes',\n    priority: day.day <= 7 ? 'High' : day.day <= 14 ? 'Medium' : 'Standard',\n    productionReady: day.day <= 7 ? true : false\n  };\n});\n\n// Cost tracking\nconst tokenUsage = {\n  scheduleGeneration: $('30-Day Schedule Generator').first().json.usage?.total_tokens || 0,\n  visualEnhancement: $('Visual & Copy Enhancement Engine').first().json.usage?.total_tokens || 0,\n  strategyOptimization: $('Content Strategy Optimizer').first().json.usage?.total_tokens || 0\n};\n\nconst totalTokens = Object.values(tokenUsage).reduce((sum, tokens) => sum + tokens, 0);\nconst actualCost = (totalTokens / 1000) * 0.75; // GPT-4o-mini pricing\n\n// Generate weekly content batches\nconst weeklyBatches = {};\nfor (let week = 1; week <= 4; week++) {\n  const weekContent = enhancedSchedule.filter(day => day.week === week);\n  weeklyBatches[`week${week}`] = {\n    theme: planningData.weeklyThemes[`week${week}`].theme,\n    focus: planningData.weeklyThemes[`week${week}`].focus,\n    contentCount: weekContent.length,\n    platforms: [...new Set(weekContent.map(c => c.platform))],\n    contentTypes: [...new Set(weekContent.map(c => c.contentType))],\n    estimatedCreationTime: weekContent.reduce((total, content) => {\n      const time = parseInt(content.estimatedCreationTime.split('-')[0]);\n      return total + time;\n    }, 0) + ' minutes',\n    priorityContent: weekContent.filter(c => c.priority === 'High'),\n    content: weekContent\n  };\n}\n\n// Generate production timeline\nconst productionTimeline = {\n  week1: {\n    preparation: 'Days 1-2: Gather brand assets, create templates',\n    production: 'Days 3-5: Create priority content (carousels, worksheets)',\n    refinement: 'Days 6-7: Review, optimize, and schedule',\n    estimatedHours: '8-12 hours total'\n  },\n  week2: {\n    preparation: 'Day 8: Review week 1 performance, adjust strategy',\n    production: 'Days 9-12: Batch create week 2 content',\n    refinement: 'Days 13-14: Polish and schedule',\n    estimatedHours: '6-10 hours total'\n  },\n  ongoing: {\n    pattern: 'Batch create 1 week ahead, review and optimize weekly',\n    maintenance: '2-3 hours weekly after initial setup',\n    optimization: 'Monthly strategy review and adjustment'\n  }\n};\n\nconst result = {\n  success: true,\n  \n  planSummary: {\n    topic: planningData.planningConfig.topic,\n    totalPosts: enhancedSchedule.length,\n    platforms: [...new Set(enhancedSchedule.map(s => s.platform))],\n    contentTypes: [...new Set(enhancedSchedule.map(s => s.contentType))],\n    duration: '30 days',\n    readyToProduceCount: enhancedSchedule.filter(s => s.productionReady).length\n  },\n  \n  costAnalysis: {\n    plannedBudget: planningData.budgetAnalysis.monthlyBudget,\n    actualPlanningCost: actualCost.toFixed(4),\n    estimatedTotalCost: planningData.budgetAnalysis.estimatedCost,\n    budgetRemaining: (planningData.budgetAnalysis.monthlyBudget - actualCost).toFixed(2),\n    costPerPost: (parseFloat(planningData.budgetAnalysis.estimatedCost) / enhancedSchedule.length).toFixed(3),\n    efficiency: 'Excellent - combined planning with visual guidance',\n    tokenBreakdown: tokenUsage\n  },\n  \n  contentCalendar: {\n    schedule: enhancedSchedule,\n    weeklyBatches: weeklyBatches,\n    productionTimeline: productionTimeline\n  },\n  \n  visualCreationGuide: {\n    platformSpecs: planningData.platformSpecs,\n    contentTypeSpecs: planningData.contentTypeSpecs,\n    detailedGuidance: visualGuidance,\n    generalGuidelines: {\n      traumaInformed: [\n        'Use calming, safe imagery',\n        'Avoid triggering content',\n        'Include content warnings when needed',\n        'Focus on empowerment and hope'\n      ],\n      accessibility: [\n        'High contrast text',\n        'Readable fonts (minimum 16px)',\n        'Alt text for images',\n        'Color-blind friendly palettes'\n      ],\n      brandConsistency: [\n        'Consistent color palette',\n        'Recognizable font choices',\n        'Logo placement standards',\n        'Voice and tone guidelines'\n      ]\n    }\n  },\n  \n  engagementStrategy: {\n    communityBuilding: [\n      'Ask meaningful questions',\n      'Share personal experiences appropriately',\n      'Create safe spaces for discussion',\n      'Respond authentically to comments'\n    ],\n    contentOptimization: [\n      'Post at optimal times for each platform',\n      'Use platform-specific hashtags',\n      'Cross-promote between platforms',\n      'Analyze performance and adapt'\n    ],\n    growthTactics: [\n      'Collaborate with other trauma-informed creators',\n      'Share user-generated content',\n      'Create shareable resources',\n      'Host live sessions or workshops'\n    ]\n  },\n  \n  strategyInsights: strategyRaw,\n  \n  nextSteps: [\n    '1. Review and approve the 30-day content plan',\n    '2. Gather visual assets and brand materials',\n    '3. Start with Week 1 priority content creation',\n    '4. Set up content scheduling tools',\n    '5. Create tracking system for engagement metrics',\n    '6. Establish weekly review and optimization process'\n  ],\n  \n  qualityAssurance: {\n    traumaInformedCheck: 'All content reviewed for safety and appropriateness',\n    platformOptimization: 'Each post optimized for target platform',\n    engagementFocus: 'CTAs and hooks designed for community building',\n    visualGuidance: 'Detailed creative direction provided',\n    strategicAlignment: 'Content supports overall healing and growth mission'\n  },\n  \n  timestamp: new Date().toISOString()\n};\n\nreturn [{ json: result }];"
+      },
+      "id": "content-processor",
+      "name": "Content Processor & Combiner",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 360]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Budget exceeded - provide optimization recommendations\nconst planningData = $('Advanced Planning & Budget Engine').first().json;\n\nconst recommendations = {\n  error: 'Budget exceeded for full 30-day plan',\n  currentBudget: planningData.budgetAnalysis.monthlyBudget,\n  estimatedCost: planningData.budgetAnalysis.estimatedCost,\n  overage: planningData.budgetAnalysis.overage,\n  \n  budgetOptimizedOptions: {\n    option1: {\n      name: '14-Day Focused Plan',\n      description: 'Create 14 days of high-priority content',\n      estimatedCost: (parseFloat(planningData.budgetAnalysis.estimatedCost) * 0.47).toFixed(2),\n      contentReduction: 'Focus on carousels and worksheets only',\n      platforms: planningData.planningConfig.platforms.slice(0, 2)\n    },\n    option2: {\n      name: 'Weekly Batch Plan',\n      description: 'Create one week at a time, 4 separate runs',\n      estimatedCost: (parseFloat(planningData.budgetAnalysis.estimatedCost) * 0.25).toFixed(2),\n      contentReduction: '7-8 posts per batch',\n      platforms: planningData.planningConfig.platforms\n    },\n    option3: {\n      name: 'Template-Based Plan',\n      description: 'Create 10 template designs, reuse with different content',\n      estimatedCost: (parseFloat(planningData.budgetAnalysis.estimatedCost) * 0.33).toFixed(2),\n      contentReduction: 'Template approach reduces custom creation',\n      platforms: planningData.planningConfig.platforms\n    }\n  },\n  \n  freeAlternatives: [\n    'Use ChatGPT web interface for content ideation',\n    'Create content calendar in Google Sheets',\n    'Use Canva free templates for visual consistency',\n    'Manual hashtag research using platform tools',\n    'Weekly planning sessions instead of monthly'\n  ],\n  \n  costSavingStrategies: [\n    'Implement content templates to reduce generation needs',\n    'Focus on highest-performing content types',\n    'Create evergreen content that can be reused',\n    'Use user-generated content when appropriate',\n    'Batch creation to reduce setup costs'\n  ],\n  \n  quickStart: {\n    action: 'Generate Week 1 priority content only',\n    cost: (parseFloat(planningData.budgetAnalysis.estimatedCost) * 0.25).toFixed(2),\n    includes: [\n      '7 days of detailed content',\n      'Visual specifications for each post',\n      'Engagement strategies',\n      'Platform-optimized formatting'\n    ],\n    withinBudget: (parseFloat(planningData.budgetAnalysis.estimatedCost) * 0.25) <= planningData.budgetAnalysis.monthlyBudget\n  },\n  \n  timestamp: new Date().toISOString()\n};\n\nreturn [{ json: recommendations }];"
+      },
+      "id": "budget-handler",
+      "name": "Budget Optimization Handler",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 480]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "final-response",
+      "name": "Final Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1340, 360]
+    }
+  ],
+  "connections": {
+    "Content Planning Webhook": {
+      "main": [
+        [
+          {
+            "node": "Advanced Planning & Budget Engine",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Advanced Planning & Budget Engine": {
+      "main": [
+        [
+          {
+            "node": "Budget Validation Gate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Budget Validation Gate": {
+      "main": [
+        [
+          {
+            "node": "30-Day Schedule Generator",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Visual & Copy Enhancement Engine",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Content Strategy Optimizer",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Budget Optimization Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "30-Day Schedule Generator": {
+      "main": [
+        [
+          {
+            "node": "Content Processor & Combiner",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Visual & Copy Enhancement Engine": {
+      "main": [
+        [
+          {
+            "node": "Content Processor & Combiner",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Content Strategy Optimizer": {
+      "main": [
+        [
+          {
+            "node": "Content Processor & Combiner",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Content Processor & Combiner": {
+      "main": [
+        [
+          {
+            "node": "Final Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Budget Optimization Handler": {
+      "main": [
+        [
+          {
+            "node": "Final Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "1",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "combined-visual-content-planner"
+  },
+  "id": "combined-visual-content-planner",
+  "tags": []
+} 
