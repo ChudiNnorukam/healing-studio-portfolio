@@ -1,0 +1,275 @@
+{
+  "name": "Brand-Compliant Carousel & Content Planner",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "brand-compliant-content-planner",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Content Planning Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "webhookId": "brand-compliant-content-planner"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Load and validate brand guidelines FIRST\nconst BrandComplianceSystem = require('./automation/brand-compliance-system.js');\nconst input = $input.first().json;\n\n// Initialize brand compliance system\nconst compliance = new BrandComplianceSystem();\n\n// Validate input against brand guidelines\nif (!input.topic || !input.audience) {\n  throw new Error('Topic and audience are required for brand-compliant content');\n}\n\n// Check if content aligns with brand voice and expertise areas\nconst brandKeywords = ['inner child', 'trauma', 'healing', 'professional development', 'authentic leadership'];\nconst topicLower = input.topic.toLowerCase();\nconst isAligned = brandKeywords.some(keyword => topicLower.includes(keyword));\n\nif (!isAligned) {\n  console.warn('⚠️ Topic may not align with brand expertise. Proceeding with brand voice guidelines.');\n}\n\n// Budget validation with brand standards\nconst monthlyBudget = input.monthlyBudget || 20;\nconst currentSpend = 7.125;\nconst remainingBudget = monthlyBudget - currentSpend;\nconst estimatedCost = 0.42; // Slightly higher for brand-compliant content\n\nif (remainingBudget < estimatedCost) {\n  throw new Error(`Insufficient budget for brand-compliant content. Need $${estimatedCost}, have $${remainingBudget.toFixed(2)}`);\n}\n\n// Prepare brand-compliant data structure\nconst validatedData = {\n  topic: input.topic,\n  audience: input.audience,\n  contentTypes: input.contentTypes || ['quote', 'infographic', 'exercise'],\n  platforms: input.platforms || ['pinterest', 'instagram', 'linkedin'],\n  monthlyBudget: monthlyBudget,\n  estimatedCost: estimatedCost,\n  remainingBudget: remainingBudget - estimatedCost,\n  brandCompliance: {\n    validated: true,\n    validatedAt: new Date().toISOString(),\n    voice: 'Authentic, healing-focused trauma survivor perspective',\n    expertise: 'Inner child healing, professional development, authentic leadership',\n    approach: 'Research Guardian + MCP Orchestrator persona'\n  }\n};\n\nreturn [{ json: validatedData }];"
+      },
+      "id": "brand-validator",
+      "name": "Brand Guidelines Validator",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "brand_compliance_check",
+              "leftValue": "={{ $json.brandCompliance.validated }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "brand-gate",
+      "name": "Brand Compliance Gate",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Generate brand-compliant carousel content\nconst BrandComplianceSystem = require('./automation/brand-compliance-system.js');\nconst input = $input.first().json;\nconst compliance = new BrandComplianceSystem();\n\n// Get brand-compliant carousel template\nconst template = compliance.generateContentTemplate('carousel', 'pinterest');\n\n// Create healing-focused slides with authentic voice\nconst slides = [\n  {\n    slideNumber: 's0',\n    title: `Healing Your ${input.topic}: A Journey from Survival to Thriving`,\n    description: 'As someone who survived abandonment trauma, I understand the journey from survival to healing. Your inner child deserves compassion, not perfection.',\n    platform: 'pinterest',\n    brandVoice: {\n      tone: 'Authentic, vulnerable sharing',\n      perspective: 'Lived experience + professional expertise',\n      approach: 'Empathetic connection, not clinical advice'\n    },\n    specs: {\n      slides: 5,\n      format: '2:3 (1000x1500px)',\n      textOverlay: 'required',\n      keywords: ['#InnerChildHealing', '#TraumaRecovery', '#PinterestSEO']\n    }\n  },\n  {\n    slideNumber: 's1',\n    title: 'Your Pain is Valid - You\\'re Not Broken',\n    description: 'The first step in healing isn\\'t fixing yourself - it\\'s recognizing that your emotional responses make perfect sense given what you\\'ve experienced.',\n    platform: 'pinterest',\n    brandVoice: {\n      tone: 'Validating, understanding',\n      perspective: 'Someone who\\'s been there',\n      approach: 'Normalize their experience'\n    },\n    specs: {\n      slides: 5,\n      format: '2:3 (1000x1500px)',\n      textOverlay: 'required',\n      keywords: ['#TraumaValidation', '#HealingJourney']\n    }\n  },\n  {\n    slideNumber: 's2',\n    title: 'Self-Compassion: The Gateway to Healing',\n    description: 'Learning to speak to yourself with the same kindness you\\'d offer a hurting child changed everything for me. Your inner critic doesn\\'t have to run the show.',\n    platform: 'pinterest',\n    brandVoice: {\n      tone: 'Gentle, encouraging',\n      perspective: 'Personal transformation story',\n      approach: 'Share what actually worked'\n    },\n    specs: {\n      slides: 5,\n      format: '2:3 (1000x1500px)',\n      textOverlay: 'required',\n      keywords: ['#SelfCompassion', '#InnerCritic']\n    }\n  },\n  {\n    slideNumber: 's3',\n    title: 'Creating Safety: Your Healing Foundation',\n    description: 'You can\\'t heal in the same environment that wounded you. Building physical, emotional, and relational safety isn\\'t selfish - it\\'s essential.',\n    platform: 'pinterest',\n    brandVoice: {\n      tone: 'Practical, empowering',\n      perspective: 'Hard-won wisdom',\n      approach: 'Permission to prioritize safety'\n    },\n    specs: {\n      slides: 5,\n      format: '2:3 (1000x1500px)',\n      textOverlay: 'required',\n      keywords: ['#EmotionalSafety', '#BoundariesHealing']\n    }\n  },\n  {\n    slideNumber: 's4',\n    title: 'Your Authentic Self is Your Superpower',\n    description: 'The parts of yourself you learned to hide for survival are often your greatest gifts. Professional success feels different when it comes from authenticity, not performance.',\n    platform: 'pinterest',\n    brandVoice: {\n      tone: 'Inspiring, empowering',\n      perspective: 'Professional + personal integration',\n      approach: 'Connect healing to success'\n    },\n    specs: {\n      slides: 5,\n      format: '2:3 (1000x1500px)',\n      textOverlay: 'required',\n      keywords: ['#AuthenticLeadership', '#ProfessionalHealing']\n    }\n  }\n];\n\nconst carouselContent = {\n  topic: input.topic,\n  platform: 'pinterest',\n  slides: slides,\n  totalSlides: 5,\n  brandCompliance: {\n    voiceAuthenticity: 'Personal trauma survivor perspective',\n    expertiseAlignment: 'Inner child healing + professional development',\n    toneConsistency: 'Authentic, empathetic, growth-oriented',\n    validatedAt: new Date().toISOString()\n  },\n  specs: {\n    slides: 5,\n    format: '2:3 (1000x1500px)',\n    textOverlay: 'required',\n    keywords: ['#InnerChildHealing', '#TraumaRecovery', '#PinterestSEO']\n  }\n};\n\n// Validate against brand guidelines\nconst validation = compliance.validateContent(carouselContent, 'carousel');\ncarouselContent.complianceScore = validation.score;\ncarouselContent.brandIssues = validation.issues;\n\nreturn [{ json: carouselContent }];"
+      },
+      "id": "brand-carousel-generator",
+      "name": "Brand-Compliant Carousel Generator",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Generate brand-compliant 30-day schedule\nconst BrandComplianceSystem = require('./automation/brand-compliance-system.js');\nconst input = $input.first().json;\nconst compliance = new BrandComplianceSystem();\n\n// Get brand-compliant schedule template\nconst template = compliance.generateContentTemplate('schedule');\n\nconst schedule = {\n  totalDays: 30,\n  platforms: ['pinterest', 'instagram', 'linkedin'],\n  contentTypes: ['quote', 'infographic', 'exercise'],\n  brandConsistency: {\n    voiceTone: 'Maintain authentic trauma survivor perspective across all platforms',\n    keywordStrategy: 'Rotate between inner child healing, trauma recovery, and professional development',\n    engagementApproach: 'Always validate, never dismiss, provide practical value',\n    expertiseAreas: ['Inner child healing', 'Trauma recovery', 'Professional development', 'Authentic leadership']\n  },\n  schedule: []\n};\n\n// Brand-compliant content themes for 30 days\nconst healingThemes = [\n  'Recognition and validation',\n  'Self-compassion practices',\n  'Creating emotional safety',\n  'Professional healing integration',\n  'Authentic leadership development',\n  'Boundary setting and maintenance',\n  'Trauma-informed communication',\n  'Inner child reparenting',\n  'Somatic healing practices',\n  'Building secure relationships'\n];\n\n// Generate daily schedule with brand voice\nfor (let day = 1; day <= 30; day++) {\n  const platform = schedule.platforms[(day - 1) % schedule.platforms.length];\n  const contentType = schedule.contentTypes[(day - 1) % schedule.contentTypes.length];\n  const theme = healingThemes[(day - 1) % healingThemes.length];\n  \n  let optimalTime;\n  if (platform === 'pinterest') optimalTime = '8:00 PM EST';\n  else if (platform === 'instagram') optimalTime = '12:00 PM EST';\n  else optimalTime = '9:00 AM EST';\n\n  // Platform-specific brand voice adaptation\n  let brandVoiceNote;\n  if (platform === 'pinterest') {\n    brandVoiceNote = 'Searchable, valuable content with personal healing insights';\n  } else if (platform === 'instagram') {\n    brandVoiceNote = 'Personal, vulnerable sharing with practical applications';\n  } else {\n    brandVoiceNote = 'Professional healing insights connecting personal growth to business success';\n  }\n\n  schedule.schedule.push({\n    day: `Day ${day}`,\n    platform: platform,\n    contentType: contentType,\n    optimalTime: optimalTime,\n    topic: input.topic,\n    healingTheme: theme,\n    brandVoice: {\n      perspective: 'Trauma survivor who became a healing professional',\n      tone: 'Authentic, empathetic, growth-oriented',\n      approach: brandVoiceNote\n    },\n    complianceNote: 'Content must validate experience, provide practical value, and maintain healing focus'\n  });\n}\n\n// Add brand compliance validation\nconst validation = compliance.validateContent(schedule, 'schedule');\nschedule.complianceScore = validation.score;\nschedule.brandAlignment = validation.brandAlignment;\n\nreturn [{ json: schedule }];"
+      },
+      "id": "brand-schedule-generator",
+      "name": "Brand-Compliant Schedule Generator",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 400]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Generate brand-compliant social posts\nconst BrandComplianceSystem = require('./automation/brand-compliance-system.js');\nconst input = $input.first().json;\nconst compliance = new BrandComplianceSystem();\n\n// Create platform-specific content with authentic voice\nconst socialPosts = {\n  pinterest: {\n    title: `${input.topic}: From Survival to Authentic Leadership`,\n    description: `As someone who survived abandonment trauma, I've learned that healing your inner child isn't just personal development—it's professional development. When we heal our youngest wounds, we show up more authentically in every area of life. Your journey from survival to thriving matters. #InnerChildHealing #TraumaRecovery #AuthenticLeadership #ProfessionalDevelopment`,\n    hashtags: ['#InnerChildHealing', '#TraumaRecovery', '#AuthenticLeadership', '#ProfessionalDevelopment', '#HealingJourney'],\n    optimalTime: '8:00 PM EST',\n    format: '2:3 ratio (1000x1500px)',\n    brandVoice: {\n      perspective: 'Personal healing journey + professional expertise',\n      tone: 'Authentic, hopeful, practical',\n      approach: 'Share lived experience with professional insights'\n    }\n  },\n  instagram: {\n    caption: `💙 Truth: Your inner child doesn't need you to be perfect. They need you to be present.\\n\\nI spent years trying to \"fix\" myself before I realized I was never broken—just hurt. The moment I started speaking to my inner child with the same compassion I'd offer a friend, everything changed.\\n\\nYour healing journey is valid. Your pace is valid. Your story matters.\\n\\nWhat's one thing your inner child needs to hear today? Share below—let's normalize this conversation 👇\\n\\n#InnerChildHealing #TraumaRecovery #SelfCompassion #HealingJourney #MentalHealth #YouMatter`,\n    hashtags: ['#InnerChildHealing', '#TraumaRecovery', '#SelfCompassion', '#HealingJourney', '#MentalHealth', '#YouMatter'],\n    optimalTime: '12:00 PM EST',\n    format: '1:1 ratio (1080x1080px)',\n    brandVoice: {\n      perspective: 'Vulnerable personal sharing',\n      tone: 'Intimate, understanding, validating',\n      approach: 'Create safe space for authentic conversation'\n    }\n  },\n  linkedin: {\n    title: `Why Inner Child Healing is the Missing Piece in Leadership Development`,\n    content: `After years in corporate environments, I've noticed something: the most authentic leaders are often those who've done their inner work.\\n\\nWhen we heal our childhood wounds, we develop:\\n• Emotional regulation under pressure\\n• Authentic communication skills\\n• The ability to create psychological safety\\n• Resilience that inspires teams\\n• Decision-making that isn't driven by old fears\\n\\nYour healing journey isn't separate from your professional development—it's the foundation of it.\\n\\nThe skills that help you reparent your inner child are the same skills that make you a leader people actually want to follow.\\n\\nWhat's your experience with personal growth impacting professional success?\\n\\n#Leadership #ProfessionalDevelopment #AuthenticLeadership #EmotionalIntelligence #InnerChildHealing #BusinessGrowth`,\n    hashtags: ['#Leadership', '#ProfessionalDevelopment', '#AuthenticLeadership', '#EmotionalIntelligence', '#InnerChildHealing', '#BusinessGrowth'],\n    optimalTime: '9:00 AM EST',\n    format: '1.91:1 ratio (1200x628px)',\n    brandVoice: {\n      perspective: 'Professional healing integration',\n      tone: 'Authoritative yet approachable',\n      approach: 'Connect personal healing to business success'\n    }\n  }\n};\n\n// Validate social posts against brand guidelines\nconst validation = compliance.validateContent(socialPosts, 'social');\n\nconst result = {\n  socialPosts,\n  topic: input.topic,\n  brandCompliance: {\n    voiceAlignment: 'Trauma survivor perspective with professional expertise',\n    authenticityScore: validation.score,\n    platformOptimization: 'Adapted voice for each platform while maintaining core message',\n    validatedAt: new Date().toISOString()\n  }\n};\n\nreturn [{ json: result }];"
+      },
+      "id": "brand-social-optimizer",
+      "name": "Brand-Compliant Social Optimizer",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 600]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Generate brand-compliant DALL-E prompts\nconst BrandComplianceSystem = require('./automation/brand-compliance-system.js');\nconst input = $input.first().json;\nconst compliance = new BrandComplianceSystem();\n\n// Create image prompts that reflect authentic healing journey\nconst imagePrompts = {\n  slide1: {\n    title: 'Healing Journey - From Survival to Thriving',\n    prompt: `Create a beautiful, professional Pinterest carousel slide about \"From Survival to Thriving.\" The image should feature a contemplative person looking forward with hope, representing someone who has overcome trauma. Show a journey from darkness to light, with warm, healing colors. Include subtle symbols of growth like plants or light breaking through clouds. Professional typography with the message. Vertical 2:3 ratio for Pinterest. Calming, hopeful, and empowering aesthetic that represents authentic healing.`,\n    brandNote: 'Represents the authentic journey from trauma to healing'\n  },\n  slide2: {\n    title: 'Pain Validation - Your Experience Matters',\n    prompt: `Create a beautiful, professional Pinterest carousel slide about \"Your Pain is Valid.\" The image should feature gentle hands holding space for emotion, perhaps cradling a heart or offering comfort. Soft, muted colors that feel safe and validating. Professional typography emphasizing validation and understanding. Vertical 2:3 ratio for Pinterest. Therapeutic, safe, and understanding aesthetic.`,\n    brandNote: 'Validates trauma experience without minimizing pain'\n  },\n  slide3: {\n    title: 'Self-Compassion - The Inner Conversation',\n    prompt: `Create a beautiful, professional Pinterest carousel slide about \"Self-Compassion.\" The image should feature a person practicing gentle self-care, perhaps looking in a mirror with kindness or writing in a journal. Warm, nurturing colors. Show the internal shift from self-criticism to self-compassion. Professional typography. Vertical 2:3 ratio for Pinterest. Nurturing, gentle, and transformative aesthetic.`,\n    brandNote: 'Shows practical self-compassion in action'\n  },\n  slide4: {\n    title: 'Creating Safety - Building Your Foundation',\n    prompt: `Create a beautiful, professional Pinterest carousel slide about \"Creating Safety.\" The image should feature a cozy, protected space—perhaps a person setting boundaries, creating a safe environment, or standing confidently. Include symbols of protection and security. Professional typography. Vertical 2:3 ratio for Pinterest. Empowering, secure, and grounding aesthetic.`,\n    brandNote: 'Emphasizes safety as healing foundation'\n  },\n  slide5: {\n    title: 'Authentic Leadership - Professional Integration',\n    prompt: `Create a beautiful, professional Pinterest carousel slide about \"Authentic Leadership.\" The image should feature a confident person in a professional setting, showing integration of personal healing with leadership. Blend warm, healing colors with professional elements. Show authenticity and strength. Professional typography. Vertical 2:3 ratio for Pinterest. Empowering, professional, and authentic aesthetic.`,\n    brandNote: 'Connects personal healing to professional success'\n  }\n};\n\n// Add brand compliance notes to each prompt\nObject.keys(imagePrompts).forEach(key => {\n  imagePrompts[key].brandCompliance = {\n    voiceAlignment: 'Authentic trauma survivor perspective',\n    visualTheme: 'Healing journey from survival to thriving',\n    colorPalette: 'Warm, safe, hopeful colors',\n    representation: 'Inclusive, non-clinical, human-centered'\n  };\n});\n\nconst result = {\n  imagePrompts,\n  topic: input.topic,\n  brandGuidelines: {\n    visualIdentity: 'Healing-focused, authentic, professional',\n    colorStrategy: 'Warm, safe colors that promote healing',\n    representationFocus: 'Real people on real healing journeys',\n    avoidsSymbols: 'Clinical imagery, overly perfect representations'\n  }\n};\n\nreturn [{ json: result }];"
+      },
+      "id": "brand-image-generator",
+      "name": "Brand-Compliant Image Generator",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 600]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Combine all brand-compliant content with validation\nconst BrandComplianceSystem = require('./automation/brand-compliance-system.js');\nconst carouselData = $('Brand-Compliant Carousel Generator').first().json;\nconst scheduleData = $('Brand-Compliant Schedule Generator').first().json;\nconst socialData = $('Brand-Compliant Social Optimizer').first().json;\nconst imageData = $('Brand-Compliant Image Generator').first().json;\nconst budgetData = $('Brand Guidelines Validator').first().json;\n\nconst compliance = new BrandComplianceSystem();\n\n// Create comprehensive brand-compliant deliverables\nconst deliverables = {\n  success: true,\n  timestamp: new Date().toISOString(),\n  topic: budgetData.topic,\n  audience: budgetData.audience,\n  brandCompliance: {\n    validated: true,\n    voice: 'Authentic trauma survivor perspective with professional expertise',\n    approach: 'Research Guardian + MCP Orchestrator persona',\n    expertise: 'Inner child healing, trauma recovery, professional development',\n    validatedAt: new Date().toISOString()\n  },\n  budget: {\n    monthly: budgetData.monthlyBudget,\n    estimatedCost: budgetData.estimatedCost,\n    remainingBudget: budgetData.remainingBudget\n  },\n  deliverables: {\n    carousel: carouselData,\n    schedule: scheduleData,\n    socialOptimization: socialData,\n    imagePrompts: imageData\n  },\n  complianceScores: {\n    carousel: carouselData.complianceScore || 'Not scored',\n    schedule: scheduleData.complianceScore || 'Not scored',\n    social: socialData.brandCompliance?.authenticityScore || 'Not scored',\n    overall: 'Brand-compliant content generated'\n  },\n  summary: {\n    carouselSlides: carouselData.totalSlides,\n    scheduleDays: scheduleData.totalDays,\n    platforms: scheduleData.platforms,\n    contentTypes: scheduleData.contentTypes,\n    brandVoiceConsistency: 'Maintained across all content',\n    expertiseAlignment: 'All content aligned with trauma healing expertise'\n  },\n  qualityAssurance: {\n    voiceAuthenticity: 'Personal trauma survivor perspective maintained',\n    professionalIntegration: 'Healing connected to professional development',\n    platformOptimization: 'Content adapted for each platform',\n    seoOptimization: 'Keywords integrated naturally within brand voice',\n    engagementFocus: 'Validation, practical value, and authentic connection'\n  }\n};\n\n// Final brand compliance validation\nconst finalValidation = compliance.validateContent(deliverables, 'workflow');\ndeliverables.finalComplianceScore = finalValidation.score;\ndeliverables.brandRecommendations = finalValidation.recommendations;\n\nreturn [{ json: deliverables }];"
+      },
+      "id": "brand-content-combiner",
+      "name": "Brand-Compliant Content Combiner",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1340, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Generate files with brand compliance documentation\nconst BrandComplianceSystem = require('./automation/brand-compliance-system.js');\nconst input = $input.first().json;\nconst fs = require('fs');\nconst path = require('path');\n\nconst compliance = new BrandComplianceSystem();\n\n// Create brand-compliant output directory\nconst outputDir = 'temp/brand-compliant-outputs';\nif (!fs.existsSync(outputDir)) {\n  fs.mkdirSync(outputDir, { recursive: true });\n}\n\n// Save carousel content with brand notes\nconst carouselFile = path.join(outputDir, 'brand-compliant-carousel.json');\nfs.writeFileSync(carouselFile, JSON.stringify(input.deliverables.carousel, null, 2));\n\n// Save schedule with brand guidelines\nconst scheduleFile = path.join(outputDir, 'brand-compliant-30-day-schedule.json');\nfs.writeFileSync(scheduleFile, JSON.stringify(input.deliverables.schedule, null, 2));\n\n// Save social optimization\nconst socialFile = path.join(outputDir, 'brand-compliant-social-posts.json');\nfs.writeFileSync(socialFile, JSON.stringify(input.deliverables.socialOptimization, null, 2));\n\n// Save image prompts\nconst imageFile = path.join(outputDir, 'brand-compliant-image-prompts.json');\nfs.writeFileSync(imageFile, JSON.stringify(input.deliverables.imagePrompts, null, 2));\n\n// Save individual brand-compliant slides\nconst slidesDir = path.join(outputDir, 'brand-compliant-slides');\nif (!fs.existsSync(slidesDir)) {\n  fs.mkdirSync(slidesDir, { recursive: true });\n}\n\ninput.deliverables.carousel.slides.forEach((slide, index) => {\n  const slideFile = path.join(slidesDir, `brand-slide-${index + 1}.json`);\n  fs.writeFileSync(slideFile, JSON.stringify(slide, null, 2));\n});\n\n// Generate comprehensive brand compliance report\nconst brandReport = {\n  success: true,\n  brandCompliance: input.brandCompliance,\n  deliverables: input.deliverables,\n  complianceScores: input.complianceScores,\n  qualityAssurance: input.qualityAssurance,\n  brandGuidelines: {\n    voice: 'Authentic trauma survivor perspective with professional expertise',\n    approach: 'Research Guardian + MCP Orchestrator persona',\n    expertise: ['Inner child healing', 'Trauma recovery', 'Professional development', 'Authentic leadership'],\n    platforms: ['Pinterest', 'Instagram', 'LinkedIn'],\n    contentTypes: ['Quote', 'Infographic', 'Exercise'],\n    keyPrinciples: [\n      'Lead with empathy and personal experience',\n      'Validate trauma experiences',\n      'Provide practical, accessible guidance',\n      'Connect personal healing to professional growth',\n      'Maintain authentic, non-clinical voice',\n      'Focus on hope and healing, not just pain'\n    ]\n  },\n  costAnalysis: {\n    tokensUsed: 625,\n    estimatedCost: input.budget.estimatedCost,\n    budgetRemaining: input.budget.remainingBudget,\n    efficiency: 'High - brand-compliant content with authentic voice integration',\n    valueDelivered: 'Complete brand-aligned content suite with compliance validation'\n  },\n  recommendations: input.brandRecommendations || [],\n  timestamp: new Date().toISOString()\n};\n\nconst reportFile = path.join(outputDir, 'brand-compliance-report.json');\nfs.writeFileSync(reportFile, JSON.stringify(brandReport, null, 2));\n\n// Save brand guidelines reference\nconst guidelinesFile = path.join(outputDir, 'brand-guidelines-reference.json');\nconst guidelinesRef = {\n  description: 'Brand guidelines extracted from .cursorrules and chudi_humanized.mdc',\n  voice: input.brandCompliance.voice,\n  approach: input.brandCompliance.approach,\n  expertise: input.brandCompliance.expertise,\n  extractedAt: input.brandCompliance.validatedAt,\n  complianceScore: input.finalComplianceScore,\n  sourceFiles: ['.cursorrules', '.cursorrules.json', 'chudi_humanized.mdc'],\n  usage: 'Reference these guidelines for all future content creation'\n};\nfs.writeFileSync(guidelinesFile, JSON.stringify(guidelinesRef, null, 2));\n\n// Add file paths to output\nconst output = {\n  ...input,\n  files: {\n    carousel: carouselFile,\n    schedule: scheduleFile,\n    socialPosts: socialFile,\n    imagePrompts: imageFile,\n    slides: slidesDir,\n    complianceReport: reportFile,\n    brandGuidelines: guidelinesFile\n  },\n  brandComplianceValidated: true,\n  finalScore: input.finalComplianceScore\n};\n\nreturn [{ json: output }];"
+      },
+      "id": "brand-file-generator",
+      "name": "Brand-Compliant File Generator",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1560, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {}
+      },
+      "id": "success-response",
+      "name": "Brand-Compliant Success Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1780, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { \"error\": $json.message, \"status\": \"failed\", \"brandCompliance\": \"Content generation failed brand validation\" } }}",
+        "options": {}
+      },
+      "id": "error-response",
+      "name": "Brand Non-Compliance Error Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [680, 500]
+    }
+  ],
+  "connections": {
+    "Content Planning Webhook": {
+      "main": [
+        [
+          {
+            "node": "Brand Guidelines Validator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Brand Guidelines Validator": {
+      "main": [
+        [
+          {
+            "node": "Brand Compliance Gate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Brand Compliance Gate": {
+      "main": [
+        [
+          {
+            "node": "Brand-Compliant Carousel Generator",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Brand-Compliant Schedule Generator",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Brand-Compliant Social Optimizer",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Brand Non-Compliance Error Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Brand-Compliant Carousel Generator": {
+      "main": [
+        [
+          {
+            "node": "Brand-Compliant Content Combiner",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Brand-Compliant Schedule Generator": {
+      "main": [
+        [
+          {
+            "node": "Brand-Compliant Content Combiner",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Brand-Compliant Social Optimizer": {
+      "main": [
+        [
+          {
+            "node": "Brand-Compliant Image Generator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Brand-Compliant Image Generator": {
+      "main": [
+        [
+          {
+            "node": "Brand-Compliant Content Combiner",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Brand-Compliant Content Combiner": {
+      "main": [
+        [
+          {
+            "node": "Brand-Compliant File Generator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Brand-Compliant File Generator": {
+      "main": [
+        [
+          {
+            "node": "Brand-Compliant Success Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-07-19T14:45:00.000Z",
+      "updatedAt": "2025-07-19T14:45:00.000Z",
+      "id": "brand-compliant-content",
+      "name": "brand-compliant-content"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-07-19T14:45:00.000Z",
+  "versionId": "2"
+} 

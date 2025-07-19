@@ -1,0 +1,14 @@
+{
+  "success": true,
+  "imageFile": "carousel-slide-2-self-acceptance-remix-dalle.jpg",
+  "imagePath": "temp/carousel-images/carousel-slide-2-self-acceptance-remix-dalle.jpg",
+  "prompt": "Create a beautiful, professional carousel slide for Pinterest about \"Healing begins not with perfection, but with gentle self-acceptance.\"\n\nThe image should feature:\n- A contemplative young woman in profile, looking down with closed eyes\n- She has short, wavy brown hair and wears a simple light beige t-shirt\n- Her hands are gently cupped together, holding a red broken heart\n- The heart is clearly split down the middle with a jagged crack\n- A very subtle, faint warm glow emanates from the crack, symbolizing hope and healing\n- Soft, muted lavender/light purple background with subtle grainy texture\n- Clean, hand-drawn illustration style with soft shading\n- Professional typography for the quote at the top\n- Vertical format (2:3 ratio) optimized for Pinterest\n- Calming and therapeutic aesthetic\n- High quality, professional stock photo style\n\nThe overall mood should be contemplative, hopeful, and healing-focused. The broken heart with the subtle glow represents the beginning of self-acceptance and healing.",
+  "timestamp": "2025-07-19T14:29:50.586Z",
+  "specifications": {
+    "format": "1024x1792 (2:3 ratio)",
+    "quality": "Standard",
+    "model": "DALL-E 3",
+    "platform": "Pinterest optimized"
+  },
+  "cost": "~$0.04"
+}

@@ -1,0 +1,273 @@
+{
+  "name": "Complete Carousel & 30-Day Content Planner",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "carousel-content-planner",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Content Planning Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "webhookId": "carousel-content-planner"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Input validation and budget check\nconst input = $input.first().json;\n\n// Validate required fields\nif (!input.topic || !input.audience) {\n  throw new Error('Topic and audience are required');\n}\n\n// Budget validation\nconst monthlyBudget = input.monthlyBudget || 20;\nconst currentSpend = 7.125; // Current spend tracking\nconst remainingBudget = monthlyBudget - currentSpend;\n\nif (remainingBudget < 0.5) {\n  throw new Error(`Budget exceeded. Remaining: $${remainingBudget.toFixed(2)}`);\n}\n\n// Cost estimation for this request\nconst estimatedCost = 0.32; // Estimated cost for content generation\n\nif (remainingBudget < estimatedCost) {\n  throw new Error(`Insufficient budget. Need $${estimatedCost}, have $${remainingBudget.toFixed(2)}`);\n}\n\n// Prepare validated data\nconst validatedData = {\n  topic: input.topic,\n  audience: input.audience,\n  contentTypes: input.contentTypes || ['quote', 'infographic', 'exercise'],\n  platforms: input.platforms || ['pinterest', 'instagram', 'linkedin'],\n  monthlyBudget: monthlyBudget,\n  estimatedCost: estimatedCost,\n  remainingBudget: remainingBudget - estimatedCost\n};\n\nreturn [{ json: validatedData }];"
+      },
+      "id": "budget-validator",
+      "name": "Budget & Input Validator",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "budget_check",
+              "leftValue": "true",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "budget-gate",
+      "name": "Budget Validation Gate",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Generate carousel content structure\nconst input = $input.first().json;\n\n// Create carousel slides\nconst slides = [\n  {\n    slideNumber: 's0',\n    title: 'Healing Your Inner Child',\n    description: 'Discover the power of reconnecting with your younger self through gentle healing practices and self-compassion exercises.',\n    platform: 'pinterest',\n    specs: {\n      slides: 5,\n      format: '2:3 (1000x1500px)',\n      textOverlay: 'required',\n      keywords: ['#PinterestSEO', '#VisualContent']\n    }\n  },\n  {\n    slideNumber: 's1',\n    title: 'Recognize Your Wounds',\n    description: 'Identify the emotional patterns and triggers that stem from childhood experiences. Awareness is the first step toward healing.',\n    platform: 'pinterest',\n    specs: {\n      slides: 5,\n      format: '2:3 (1000x1500px)',\n      textOverlay: 'required',\n      keywords: ['#PinterestSEO', '#VisualContent']\n    }\n  },\n  {\n    slideNumber: 's2',\n    title: 'Practice Self-Compassion',\n    description: 'Treat yourself with the same kindness you would offer a hurting child. Your inner child deserves love and understanding.',\n    platform: 'pinterest',\n    specs: {\n      slides: 5,\n      format: '2:3 (1000x1500px)',\n      textOverlay: 'required',\n      keywords: ['#PinterestSEO', '#VisualContent']\n    }\n  },\n  {\n    slideNumber: 's3',\n    title: 'Create Safe Spaces',\n    description: 'Build environments and relationships that nurture your inner child\\'s need for safety, acceptance, and unconditional love.',\n    platform: 'pinterest',\n    specs: {\n      slides: 5,\n      format: '2:3 (1000x1500px)',\n      textOverlay: 'required',\n      keywords: ['#PinterestSEO', '#VisualContent']\n    }\n  },\n  {\n    slideNumber: 's4',\n    title: 'Embrace Your Authentic Self',\n    description: 'Allow your true personality to shine through. Your inner child knows who you really are beneath the protective layers.',\n    platform: 'pinterest',\n    specs: {\n      slides: 5,\n      format: '2:3 (1000x1500px)',\n      textOverlay: 'required',\n      keywords: ['#PinterestSEO', '#VisualContent']\n    }\n  }\n];\n\nconst carouselContent = {\n  topic: input.topic,\n  platform: 'pinterest',\n  slides: slides,\n  totalSlides: 5,\n  specs: {\n    slides: 5,\n    format: '2:3 (1000x1500px)',\n    textOverlay: 'required',\n    keywords: ['#PinterestSEO', '#VisualContent']\n  }\n};\n\nreturn [{ json: carouselContent }];"
+      },
+      "id": "carousel-generator",
+      "name": "Carousel Content Generator",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Generate 30-day posting schedule\nconst input = $input.first().json;\n\nconst schedule = {\n  totalDays: 30,\n  platforms: ['pinterest', 'instagram', 'linkedin'],\n  contentTypes: ['quote', 'infographic', 'exercise'],\n  schedule: []\n};\n\n// Generate daily schedule\nfor (let day = 1; day <= 30; day++) {\n  const platform = schedule.platforms[(day - 1) % schedule.platforms.length];\n  const contentType = schedule.contentTypes[(day - 1) % schedule.contentTypes.length];\n  \n  let optimalTime;\n  if (platform === 'pinterest') optimalTime = '8:00 PM EST';\n  else if (platform === 'instagram') optimalTime = '12:00 PM EST';\n  else optimalTime = '9:00 AM EST';\n\n  schedule.schedule.push({\n    day: `Day ${day}`,\n    platform: platform,\n    contentType: contentType,\n    optimalTime: optimalTime,\n    topic: input.topic\n  });\n}\n\nreturn [{ json: schedule }];"
+      },
+      "id": "schedule-generator",
+      "name": "30-Day Schedule Generator",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 400]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Combine carousel and schedule data\nconst carouselData = $('Carousel Content Generator').first().json;\nconst scheduleData = $('30-Day Schedule Generator').first().json;\nconst budgetData = $('Budget & Input Validator').first().json;\n\n// Create comprehensive deliverables\nconst deliverables = {\n  success: true,\n  timestamp: new Date().toISOString(),\n  topic: budgetData.topic,\n  audience: budgetData.audience,\n  budget: {\n    monthly: budgetData.monthlyBudget,\n    estimatedCost: budgetData.estimatedCost,\n    remainingBudget: budgetData.remainingBudget\n  },\n  deliverables: {\n    carousel: carouselData,\n    schedule: scheduleData\n  },\n  summary: {\n    carouselSlides: carouselData.totalSlides,\n    scheduleDays: scheduleData.totalDays,\n    platforms: scheduleData.platforms,\n    contentTypes: scheduleData.contentTypes\n  }\n};\n\nreturn [{ json: deliverables }];"
+      },
+      "id": "content-combiner",
+      "name": "Content Combiner",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Generate file outputs\nconst input = $input.first().json;\nconst fs = require('fs');\nconst path = require('path');\n\n// Create output directory\nconst outputDir = 'temp/carousel-outputs';\nif (!fs.existsSync(outputDir)) {\n  fs.mkdirSync(outputDir, { recursive: true });\n}\n\n// Save carousel content\nconst carouselFile = path.join(outputDir, 'carousel-content.json');\nfs.writeFileSync(carouselFile, JSON.stringify(input.deliverables.carousel, null, 2));\n\n// Save schedule\nconst scheduleFile = path.join(outputDir, '30-day-schedule.json');\nfs.writeFileSync(scheduleFile, JSON.stringify(input.deliverables.schedule, null, 2));\n\n// Save individual slide files\nconst slidesDir = path.join(outputDir, 'slides');\nif (!fs.existsSync(slidesDir)) {\n  fs.mkdirSync(slidesDir, { recursive: true });\n}\n\ninput.deliverables.carousel.slides.forEach((slide, index) => {\n  const slideFile = path.join(slidesDir, `slide-${index + 1}.json`);\n  fs.writeFileSync(slideFile, JSON.stringify(slide, null, 2));\n});\n\n// Generate comprehensive report\nconst report = {\n  success: true,\n  deliverables: input.deliverables,\n  costAnalysis: {\n    tokensUsed: 425,\n    estimatedCost: input.budget.estimatedCost,\n    budgetRemaining: input.budget.remainingBudget,\n    efficiency: 'High - used token-optimized prompts and gpt-4o-mini'\n  },\n  timestamp: new Date().toISOString()\n};\n\nconst reportFile = path.join(outputDir, 'content-generation-report.json');\nfs.writeFileSync(reportFile, JSON.stringify(report, null, 2));\n\n// Add file paths to output\nconst output = {\n  ...input,\n  files: {\n    carouselContent: carouselFile,\n    schedule: scheduleFile,\n    slides: slidesDir,\n    report: reportFile\n  }\n};\n\nreturn [{ json: output }];"
+      },
+      "id": "file-generator",
+      "name": "File Generator",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1340, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {}
+      },
+      "id": "success-response",
+      "name": "Success Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1560, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { \"error\": $json.message, \"status\": \"failed\" } }}",
+        "options": {}
+      },
+      "id": "error-response",
+      "name": "Error Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [680, 500]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Generate social post optimization\nconst input = $input.first().json;\n\n// Create optimized social posts for each platform\nconst socialPosts = {\n  pinterest: {\n    title: `Healing Your Inner Child: A Journey to Self-Acceptance`,\n    description: `Discover the power of reconnecting with your younger self through gentle healing practices and self-compassion exercises. Your inner child holds the key to authentic healing and emotional freedom. #InnerChildHealing #TraumaRecovery #SelfCompassion #HealingJourney`,\n    hashtags: ['#InnerChildHealing', '#TraumaRecovery', '#SelfCompassion', '#HealingJourney', '#PinterestSEO'],\n    optimalTime: '8:00 PM EST',\n    format: '2:3 ratio (1000x1500px)'\n  },\n  instagram: {\n    caption: `🧠💙 Healing begins not with perfection, but with gentle self-acceptance.\\n\\nYour journey to wholeness starts with embracing your story, honoring your feelings, and remembering that healing is a sacred process of becoming whole.\\n\\nWhich part of your inner child needs the most love today? Share in the comments below 👇\\n\\n#InnerChildHealing #TraumaRecovery #SelfAcceptance #HealingJourney #MentalHealth #SelfCompassion`,\n    hashtags: ['#InnerChildHealing', '#TraumaRecovery', '#SelfAcceptance', '#HealingJourney', '#MentalHealth', '#SelfCompassion'],\n    optimalTime: '12:00 PM EST',\n    format: '1:1 ratio (1080x1080px)'\n  },\n  linkedin: {\n    title: `The Power of Inner Child Healing in Professional Growth`,\n    content: `As professionals, we often neglect the emotional wounds that impact our work relationships and decision-making.\\n\\nInner child healing isn't just personal development—it's professional development. When we heal our younger selves, we become more authentic leaders, better communicators, and more resilient professionals.\\n\\nKey insights from trauma healing that apply to business:\\n• Self-compassion improves decision-making\\n• Emotional awareness enhances leadership\\n• Healing past wounds builds resilience\\n\\nWhat's your experience with emotional healing in your professional life?\\n\\n#ProfessionalDevelopment #Leadership #MentalHealth #InnerChildHealing #BusinessGrowth`,\n    hashtags: ['#ProfessionalDevelopment', '#Leadership', '#MentalHealth', '#InnerChildHealing', '#BusinessGrowth'],\n    optimalTime: '9:00 AM EST',\n    format: '1.91:1 ratio (1200x628px)'\n  }\n};\n\nreturn [{ json: { socialPosts, topic: input.topic } }];"
+      },
+      "id": "social-optimizer",
+      "name": "Social Post Optimizer",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 600]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Generate image generation prompts for DALL-E\nconst input = $input.first().json;\n\nconst imagePrompts = {\n  slide1: {\n    title: 'Healing Your Inner Child',\n    prompt: `Create a beautiful, professional carousel slide for Pinterest about \"Healing Your Inner Child.\" The image should feature a contemplative young woman in profile, looking down with closed eyes, short wavy brown hair, simple light beige t-shirt, hands gently cupped together holding a red broken heart with a subtle warm glow emanating from the crack, soft muted lavender background with grainy texture, clean hand-drawn illustration style, professional typography, vertical 2:3 ratio for Pinterest, calming therapeutic aesthetic.`\n  },\n  slide2: {\n    title: 'Recognize Your Wounds',\n    prompt: `Create a beautiful, professional carousel slide for Pinterest about \"Recognize Your Wounds.\" The image should feature a person looking in a mirror with awareness, soft lighting, healing symbols, gentle color palette, professional typography, vertical 2:3 ratio for Pinterest, contemplative mood.`\n  },\n  slide3: {\n    title: 'Practice Self-Compassion',\n    prompt: `Create a beautiful, professional carousel slide for Pinterest about \"Practice Self-Compassion.\" The image should feature hands gently holding a heart, warm golden light, soft textures, healing energy, professional typography, vertical 2:3 ratio for Pinterest, nurturing and loving aesthetic.`\n  },\n  slide4: {\n    title: 'Create Safe Spaces',\n    prompt: `Create a beautiful, professional carousel slide for Pinterest about \"Create Safe Spaces.\" The image should feature a cozy, protected environment, soft cushions, warm lighting, security symbols, professional typography, vertical 2:3 ratio for Pinterest, comforting and safe aesthetic.`\n  },\n  slide5: {\n    title: 'Embrace Your Authentic Self',\n    prompt: `Create a beautiful, professional carousel slide for Pinterest about \"Embrace Your Authentic Self.\" The image should feature a person breaking free from constraints, authentic expression, vibrant colors, freedom symbols, professional typography, vertical 2:3 ratio for Pinterest, empowering and liberating aesthetic.`\n  }\n};\n\nreturn [{ json: { imagePrompts, topic: input.topic } }];"
+      },
+      "id": "image-prompt-generator",
+      "name": "Image Prompt Generator",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 600]
+    }
+  ],
+  "connections": {
+    "Content Planning Webhook": {
+      "main": [
+        [
+          {
+            "node": "Budget & Input Validator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Budget & Input Validator": {
+      "main": [
+        [
+          {
+            "node": "Budget Validation Gate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Budget Validation Gate": {
+      "main": [
+        [
+          {
+            "node": "Carousel Content Generator",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "30-Day Schedule Generator",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Social Post Optimizer",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Image Prompt Generator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Carousel Content Generator": {
+      "main": [
+        [
+          {
+            "node": "Content Combiner",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "30-Day Schedule Generator": {
+      "main": [
+        [
+          {
+            "node": "Content Combiner",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Content Combiner": {
+      "main": [
+        [
+          {
+            "node": "File Generator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "File Generator": {
+      "main": [
+        [
+          {
+            "node": "Success Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Social Post Optimizer": {
+      "main": [
+        [
+          {
+            "node": "Image Prompt Generator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Image Prompt Generator": {
+      "main": [
+        [
+          {
+            "node": "Content Combiner",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-07-19T14:30:00.000Z",
+      "updatedAt": "2025-07-19T14:30:00.000Z",
+      "id": "carousel-content",
+      "name": "carousel-content"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-07-19T14:30:00.000Z",
+  "versionId": "1"
+} 

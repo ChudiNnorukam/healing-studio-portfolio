@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Carousel Slide - Inner Child Healing</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .carousel-slide {
+            width: 1000px;
+            height: 1500px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px;
+            box-sizing: border-box;
+        }
+        
+        .slide-number {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: rgba(255,255,255,0.9);
+            color: #667eea;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .icon {
+            font-size: 120px;
+            margin-bottom: 40px;
+            color: #667eea;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .title {
+            font-size: 48px;
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 30px;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .description {
+            font-size: 24px;
+            color: #4a5568;
+            line-height: 1.5;
+            margin-bottom: 40px;
+            max-width: 800px;
+        }
+        
+        .platform-badge {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            background: #e53e3e;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .hashtags {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            color: #667eea;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        .decorative-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.1;
+        }
+        
+        .decorative-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: #667eea;
+        }
+        
+        .circle-1 {
+            width: 200px;
+            height: 200px;
+            top: -100px;
+            right: -100px;
+        }
+        
+        .circle-2 {
+            width: 150px;
+            height: 150px;
+            bottom: -75px;
+            left: -75px;
+        }
+        
+        .circle-3 {
+            width: 100px;
+            height: 100px;
+            top: 50%;
+            right: -50px;
+        }
+        
+        .download-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #667eea;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        
+        .instructions {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.9);
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #4a5568;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <button class="download-btn" onclick="downloadAsImage()">📥 Download JPG</button>
+    
+    <div class="instructions">
+        <strong>Instructions:</strong><br>
+        1. Click "Download JPG" to save the carousel slide<br>
+        2. Use browser's "Save As" or screenshot tools<br>
+        3. This creates a 1000x1500px Pinterest-optimized image
+    </div>
+    
+    <div class="carousel-slide" id="carouselSlide">
+        <div class="slide-number">1/5</div>
+        
+        <div class="decorative-elements">
+            <div class="decorative-circle circle-1"></div>
+            <div class="decorative-circle circle-2"></div>
+            <div class="decorative-circle circle-3"></div>
+        </div>
+        
+        <div class="icon">🧠💙</div>
+        
+        <h1 class="title">Healing Your Inner Child</h1>
+        
+        <p class="description">
+            Discover the power of reconnecting with your younger self through gentle healing practices and self-compassion exercises. Your inner child holds the key to authentic healing and emotional freedom.
+        </p>
+        
+        <div class="platform-badge">Pinterest</div>
+        <div class="hashtags">#InnerChildHealing #TraumaRecovery</div>
+    </div>
+
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script>
+        function downloadAsImage() {
+            const element = document.getElementById('carouselSlide');
+            
+            html2canvas(element, {
+                width: 1000,
+                height: 1500,
+                scale: 2, // Higher quality
+                backgroundColor: null,
+                useCORS: true,
+                allowTaint: true
+            }).then(canvas => {
+                // Convert to blob
+                canvas.toBlob(function(blob) {
+                    // Create download link
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'carousel-slide-1-healing-inner-child.jpg';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                }, 'image/jpeg', 0.9);
+            });
+        }
+        
+        // Auto-download after 2 seconds (optional)
+        // setTimeout(downloadAsImage, 2000);
+    </script>
+</body>
+</html> 

@@ -1,0 +1,8 @@
+{
+  "description": "Core branding, voice, SEO, and platform strategies for Chudi Cursor agent",
+  "globs": [
+    "**/*"
+  ],
+  "alwaysApply": true,
+  "rule": "# Chudi Humanized \u2014 System Instruction\n\n## \ud83d\udc64 Identity\nThis is the voice of someone who survived abandonment...\n\n... (rest of the markdown content truncated for brevity) ...\n"
+}
