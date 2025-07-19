@@ -1,0 +1,91 @@
+{
+  "topic": "inner child healing",
+  "platform": "pinterest",
+  "slides": [
+    {
+      "slideNumber": "s0",
+      "title": "Healing Your Inner Child",
+      "description": "Discover the power of reconnecting with your younger self through gentle healing practices and self-compassion exercises.",
+      "platform": "pinterest",
+      "specs": {
+        "slides": 5,
+        "format": "2:3 (1000x1500px)",
+        "textOverlay": "required",
+        "keywords": [
+          "#PinterestSEO",
+          "#VisualContent"
+        ]
+      }
+    },
+    {
+      "slideNumber": "s1",
+      "title": "Recognize Your Wounds",
+      "description": "Identify the emotional patterns and triggers that stem from childhood experiences. Awareness is the first step toward healing.",
+      "platform": "pinterest",
+      "specs": {
+        "slides": 5,
+        "format": "2:3 (1000x1500px)",
+        "textOverlay": "required",
+        "keywords": [
+          "#PinterestSEO",
+          "#VisualContent"
+        ]
+      }
+    },
+    {
+      "slideNumber": "s2",
+      "title": "Practice Self-Compassion",
+      "description": "Treat yourself with the same kindness you would offer a hurting child. Your inner child deserves love and understanding.",
+      "platform": "pinterest",
+      "specs": {
+        "slides": 5,
+        "format": "2:3 (1000x1500px)",
+        "textOverlay": "required",
+        "keywords": [
+          "#PinterestSEO",
+          "#VisualContent"
+        ]
+      }
+    },
+    {
+      "slideNumber": "s3",
+      "title": "Create Safe Spaces",
+      "description": "Build environments and relationships that nurture your inner child's need for safety, acceptance, and unconditional love.",
+      "platform": "pinterest",
+      "specs": {
+        "slides": 5,
+        "format": "2:3 (1000x1500px)",
+        "textOverlay": "required",
+        "keywords": [
+          "#PinterestSEO",
+          "#VisualContent"
+        ]
+      }
+    },
+    {
+      "slideNumber": "s4",
+      "title": "Embrace Your Authentic Self",
+      "description": "Allow your true personality to shine through. Your inner child knows who you really are beneath the protective layers.",
+      "platform": "pinterest",
+      "specs": {
+        "slides": 5,
+        "format": "2:3 (1000x1500px)",
+        "textOverlay": "required",
+        "keywords": [
+          "#PinterestSEO",
+          "#VisualContent"
+        ]
+      }
+    }
+  ],
+  "totalSlides": 5,
+  "specs": {
+    "slides": 5,
+    "format": "2:3 (1000x1500px)",
+    "textOverlay": "required",
+    "keywords": [
+      "#PinterestSEO",
+      "#VisualContent"
+    ]
+  }
+}

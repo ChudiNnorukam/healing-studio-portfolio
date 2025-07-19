@@ -1,0 +1,46 @@
+{
+  "name": "MCP Server Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "GET",
+        "path": "mcp",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "MCP Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "webhookId": "mcp-webhook"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"status\": \"success\",\n  \"message\": \"MCP Server is running\",\n  \"timestamp\": \"{{ $now }}\",\n  \"tools\": [\n    {\n      \"name\": \"n8n_workflow_trigger\",\n      \"description\": \"Trigger an n8n workflow\",\n      \"parameters\": {\n        \"workflow_id\": \"string\",\n        \"data\": \"object\"\n      }\n    },\n    {\n      \"name\": \"n8n_workflow_status\",\n      \"description\": \"Get workflow execution status\",\n      \"parameters\": {\n        \"execution_id\": \"string\"\n      }\n    }\n  ]\n}"
+      },
+      "id": "response-node",
+      "name": "MCP Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [460, 300]
+    }
+  ],
+  "connections": {
+    "MCP Webhook": {
+      "main": [
+        [
+          {
+            "node": "MCP Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {},
+  "versionId": "1"
+} 

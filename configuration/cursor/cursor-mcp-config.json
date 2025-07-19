@@ -1,0 +1,25 @@
+{
+  "mcpServers": {
+    "chudi-healing-studio": {
+      "command": "node",
+      "args": ["simple-mcp-server.js"],
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    "n8n-webhook-mcp": {
+      "command": "node",
+      "args": ["n8n-webhook-mcp-server.js"],
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    "context7": {
+      "command": "node",
+      "args": ["context7-master/src/index.ts"],
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  }
+} 

@@ -1,0 +1,33 @@
+{
+  "timestamp": "2025-07-18T16:03:40.856Z",
+  "duration": 6666,
+  "summary": {
+    "totalTests": 4,
+    "passedTests": 1,
+    "successRate": 25,
+    "totalTokens": 0,
+    "totalCost": 0
+  },
+  "results": [
+    {
+      "test": "Basic Connection",
+      "status": "FAIL",
+      "error": "429 You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors."
+    },
+    {
+      "test": "Code Generation",
+      "status": "FAIL",
+      "error": "429 You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors."
+    },
+    {
+      "test": "Context Awareness",
+      "status": "FAIL",
+      "error": "429 You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors."
+    },
+    {
+      "test": "Error Handling",
+      "status": "PASS",
+      "error": "404 The model `invalid-model-name` does not exist or you do not have access to it."
+    }
+  ]
+}

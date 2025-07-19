@@ -1,0 +1,13 @@
+{
+  "success": true,
+  "totalImages": 0,
+  "totalCost": "0.00",
+  "images": [],
+  "timestamp": "2025-07-19T07:54:11.947Z",
+  "specifications": {
+    "format": "1024x1792 (2:3 ratio)",
+    "quality": "Standard",
+    "model": "DALL-E 3",
+    "platform": "Pinterest optimized"
+  }
+}

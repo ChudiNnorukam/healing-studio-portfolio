@@ -1,0 +1,225 @@
+{
+  "totalDays": 30,
+  "platforms": [
+    "pinterest",
+    "instagram",
+    "linkedin"
+  ],
+  "contentTypes": [
+    "quote",
+    "infographic",
+    "exercise"
+  ],
+  "schedule": [
+    {
+      "day": "Day 1",
+      "platform": "pinterest",
+      "contentType": "quote",
+      "optimalTime": "8:00 PM EST",
+      "topic": "inner child healing"
+    },
+    {
+      "day": "Day 2",
+      "platform": "instagram",
+      "contentType": "infographic",
+      "optimalTime": "12:00 PM EST",
+      "topic": "inner child healing"
+    },
+    {
+      "day": "Day 3",
+      "platform": "linkedin",
+      "contentType": "exercise",
+      "optimalTime": "9:00 AM EST",
+      "topic": "inner child healing"
+    },
+    {
+      "day": "Day 4",
+      "platform": "pinterest",
+      "contentType": "quote",
+      "optimalTime": "8:00 PM EST",
+      "topic": "inner child healing"
+    },
+    {
+      "day": "Day 5",
+      "platform": "instagram",
+      "contentType": "infographic",
+      "optimalTime": "12:00 PM EST",
+      "topic": "inner child healing"
+    },
+    {
+      "day": "Day 6",
+      "platform": "linkedin",
+      "contentType": "exercise",
+      "optimalTime": "9:00 AM EST",
+      "topic": "inner child healing"
+    },
+    {
+      "day": "Day 7",
+      "platform": "pinterest",
+      "contentType": "quote",
+      "optimalTime": "8:00 PM EST",
+      "topic": "inner child healing"
+    },
+    {
+      "day": "Day 8",
+      "platform": "instagram",
+      "contentType": "infographic",
+      "optimalTime": "12:00 PM EST",
+      "topic": "inner child healing"
+    },
+    {
+      "day": "Day 9",
+      "platform": "linkedin",
+      "contentType": "exercise",
+      "optimalTime": "9:00 AM EST",
+      "topic": "inner child healing"
+    },
+    {
+      "day": "Day 10",
+      "platform": "pinterest",
+      "contentType": "quote",
+      "optimalTime": "8:00 PM EST",
+      "topic": "inner child healing"
+    },
+    {
+      "day": "Day 11",
+      "platform": "instagram",
+      "contentType": "infographic",
+      "optimalTime": "12:00 PM EST",
+      "topic": "inner child healing"
+    },
+    {
+      "day": "Day 12",
+      "platform": "linkedin",
+      "contentType": "exercise",
+      "optimalTime": "9:00 AM EST",
+      "topic": "inner child healing"
+    },
+    {
+      "day": "Day 13",
+      "platform": "pinterest",
+      "contentType": "quote",
+      "optimalTime": "8:00 PM EST",
+      "topic": "inner child healing"
+    },
+    {
+      "day": "Day 14",
+      "platform": "instagram",
+      "contentType": "infographic",
+      "optimalTime": "12:00 PM EST",
+      "topic": "inner child healing"
+    },
+    {
+      "day": "Day 15",
+      "platform": "linkedin",
+      "contentType": "exercise",
+      "optimalTime": "9:00 AM EST",
+      "topic": "inner child healing"
+    },
+    {
+      "day": "Day 16",
+      "platform": "pinterest",
+      "contentType": "quote",
+      "optimalTime": "8:00 PM EST",
+      "topic": "inner child healing"
+    },
+    {
+      "day": "Day 17",
+      "platform": "instagram",
+      "contentType": "infographic",
+      "optimalTime": "12:00 PM EST",
+      "topic": "inner child healing"
+    },
+    {
+      "day": "Day 18",
+      "platform": "linkedin",
+      "contentType": "exercise",
+      "optimalTime": "9:00 AM EST",
+      "topic": "inner child healing"
+    },
+    {
+      "day": "Day 19",
+      "platform": "pinterest",
+      "contentType": "quote",
+      "optimalTime": "8:00 PM EST",
+      "topic": "inner child healing"
+    },
+    {
+      "day": "Day 20",
+      "platform": "instagram",
+      "contentType": "infographic",
+      "optimalTime": "12:00 PM EST",
+      "topic": "inner child healing"
+    },
+    {
+      "day": "Day 21",
+      "platform": "linkedin",
+      "contentType": "exercise",
+      "optimalTime": "9:00 AM EST",
+      "topic": "inner child healing"
+    },
+    {
+      "day": "Day 22",
+      "platform": "pinterest",
+      "contentType": "quote",
+      "optimalTime": "8:00 PM EST",
+      "topic": "inner child healing"
+    },
+    {
+      "day": "Day 23",
+      "platform": "instagram",
+      "contentType": "infographic",
+      "optimalTime": "12:00 PM EST",
+      "topic": "inner child healing"
+    },
+    {
+      "day": "Day 24",
+      "platform": "linkedin",
+      "contentType": "exercise",
+      "optimalTime": "9:00 AM EST",
+      "topic": "inner child healing"
+    },
+    {
+      "day": "Day 25",
+      "platform": "pinterest",
+      "contentType": "quote",
+      "optimalTime": "8:00 PM EST",
+      "topic": "inner child healing"
+    },
+    {
+      "day": "Day 26",
+      "platform": "instagram",
+      "contentType": "infographic",
+      "optimalTime": "12:00 PM EST",
+      "topic": "inner child healing"
+    },
+    {
+      "day": "Day 27",
+      "platform": "linkedin",
+      "contentType": "exercise",
+      "optimalTime": "9:00 AM EST",
+      "topic": "inner child healing"
+    },
+    {
+      "day": "Day 28",
+      "platform": "pinterest",
+      "contentType": "quote",
+      "optimalTime": "8:00 PM EST",
+      "topic": "inner child healing"
+    },
+    {
+      "day": "Day 29",
+      "platform": "instagram",
+      "contentType": "infographic",
+      "optimalTime": "12:00 PM EST",
+      "topic": "inner child healing"
+    },
+    {
+      "day": "Day 30",
+      "platform": "linkedin",
+      "contentType": "exercise",
+      "optimalTime": "9:00 AM EST",
+      "topic": "inner child healing"
+    }
+  ]
+}

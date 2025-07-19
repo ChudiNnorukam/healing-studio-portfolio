@@ -1,0 +1,66 @@
+{
+  "name": "Inner Child Healing Pinterest Optimizer",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "inner-child-healing",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "inner-child-webhook",
+      "name": "Inner Child Content Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "webhookId": "inner-child-healing"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Inner Child Healing Pinterest SEO Optimizer\nconst input = $input.first().json;\nconst content = input.content || '';\nconst contentType = input.type || 'general';\nconst ageGroup = input.ageGroup || 'adult'; // adult, teen, child\n\n// Research-based Inner Child Healing keywords\nconst innerChildKeywords = {\n  primary: ['#InnerChildHealing', '#InnerChildWork', '#ChildhoodTrauma', '#TraumaHealing', '#HealingJourney'],\n  emotional: ['#InnerChildMeditation', '#InnerChildTherapy', '#EmotionalHealing', '#ChildhoodWounds', '#HealingTheChild'],\n  therapeutic: ['#InnerChildExercises', '#ChildhoodRecovery', '#TraumaRecovery', '#TherapyTools', '#SelfCompassion'],\n  growth: ['#PersonalGrowth', '#EmotionalWellness', '#MentalHealthHealing', '#SelfLove', '#HealingAffirmations'],\n  specific: ['#AdultChildrenOfAlcoholics', '#NarcissisticAbuse', '#EmotionalNeglect', '#AttachmentHealing', '#ReparentingYourself']\n};\n\n// Inner Child specific content optimization\nconst innerChildOptimization = {\n  meditation: {\n    title: `Inner Child Meditation: ${content}`,\n    description: `🧘‍♀️ Gentle meditation to connect with and heal your inner child. Perfect for trauma recovery and emotional healing. ${innerChildKeywords.primary.slice(0,2).join(' ')} ${innerChildKeywords.emotional.slice(0,2).join(' ')}`,\n    hashtags: [...innerChildKeywords.primary.slice(0,2), ...innerChildKeywords.emotional.slice(0,3), '#Meditation', '#SelfHealing']\n  },\n  affirmation: {\n    title: `Inner Child Affirmation: ${content.substring(0, 50)}...`,\n    description: `💕 Loving affirmation for your inner child. Speak these words of healing and self-compassion to nurture the child within. ${innerChildKeywords.primary.slice(0,3).join(' ')} ${innerChildKeywords.growth.slice(0,2).join(' ')}`,\n    hashtags: [...innerChildKeywords.primary.slice(0,3), ...innerChildKeywords.growth.slice(0,2), '#HealingAffirmations', '#SelfLove']\n  },\n  exercise: {\n    title: `Inner Child Exercise: ${content}`,\n    description: `🎨 Healing exercise to reconnect with your inner child. Step-by-step guide for trauma recovery and emotional healing. ${innerChildKeywords.therapeutic.slice(0,2).join(' ')} ${innerChildKeywords.emotional.slice(0,2).join(' ')}`,\n    hashtags: [...innerChildKeywords.therapeutic.slice(0,2), ...innerChildKeywords.emotional.slice(0,2), '#HealingExercises', '#TraumaTherapy', '#InnerWork']\n  },\n  worksheet: {\n    title: `Free Inner Child Healing Worksheet: ${content}`,\n    description: `📝 Download this free inner child healing worksheet. Perfect for therapy, self-reflection, and childhood trauma recovery. ${innerChildKeywords.primary.slice(0,2).join(' ')} ${innerChildKeywords.therapeutic.slice(0,2).join(' ')}`,\n    hashtags: [...innerChildKeywords.primary.slice(0,2), ...innerChildKeywords.therapeutic.slice(0,2), '#FreeWorksheet', '#TherapyTools', '#ChildhoodHealing']\n  },\n  journaling: {\n    title: `Inner Child Journal Prompts: ${content}`,\n    description: `✍️ Healing journal prompts to connect with your inner child. Explore childhood memories, emotions, and healing. ${innerChildKeywords.primary.slice(0,2).join(' ')} ${innerChildKeywords.growth.slice(0,2).join(' ')}`,\n    hashtags: [...innerChildKeywords.primary.slice(0,2), ...innerChildKeywords.growth.slice(0,2), '#JournalPrompts', '#HealingJourney', '#SelfReflection']\n  },\n  quote: {\n    title: `Inner Child Healing Quote: ${content.substring(0, 40)}...`,\n    description: `💖 Gentle reminder for your inner child healing journey. Save this loving message for when you need comfort and encouragement. ${innerChildKeywords.primary.slice(0,3).join(' ')}`,\n    hashtags: [...innerChildKeywords.primary.slice(0,3), ...innerChildKeywords.growth.slice(0,2), '#HealingQuotes', '#InnerChildLove']\n  },\n  reparenting: {\n    title: `Reparenting Guide: ${content}`,\n    description: `👨‍👩‍👧‍👦 Learn to reparent your inner child with love and compassion. Healing childhood wounds through self-nurturing. ${innerChildKeywords.specific.slice(-1).join(' ')} ${innerChildKeywords.emotional.slice(0,2).join(' ')}`,\n    hashtags: [...innerChildKeywords.specific.slice(-1), ...innerChildKeywords.emotional.slice(0,2), '#Reparenting', '#SelfNurturing', '#HealingTheChild']\n  },\n  general: {\n    title: `Inner Child Healing: ${content}`,\n    description: `🌟 Support for your inner child healing journey. Gentle resources for childhood trauma recovery and emotional wellness. ${innerChildKeywords.primary.slice(0,3).join(' ')}`,\n    hashtags: [...innerChildKeywords.primary.slice(0,3), ...innerChildKeywords.emotional.slice(0,2), '#InnerChildSupport']\n  }\n};\n\n// Select optimization based on content type\nconst optimization = innerChildOptimization[contentType] || innerChildOptimization.general;\n\n// Inner Child specific Pinterest optimization\nconst innerChildPinterestOptimized = {\n  title: optimization.title,\n  description: optimization.description,\n  hashtags: optimization.hashtags,\n  \n  // Pinterest-specific formatting\n  pinTitle: optimization.title.substring(0, 100),\n  pinDescription: optimization.description.substring(0, 500),\n  \n  // Inner Child specific content suggestions\n  contentSuggestions: {\n    textOverlay: contentType === 'quote' || contentType === 'affirmation' ? content : `INNER CHILD: ${content.substring(0, 25)}...`,\n    boardSuggestions: [\n      'Inner Child Healing Journey',\n      'Childhood Trauma Recovery', \n      'Reparenting Your Inner Child',\n      'Inner Child Meditation',\n      'Healing Childhood Wounds',\n      'Inner Child Affirmations',\n      'Emotional Healing & Growth'\n    ],\n    bestTimes: ['Tuesday-Thursday 8-11pm EST', 'Sunday 2-5pm EST'], // When people seek emotional content\n    imageSpecs: {\n      ratio: '2:3 (1000x1500px)',\n      style: 'Soft pastels (pink, lavender, mint), childlike elements (teddy bears, butterflies, flowers), nurturing imagery',\n      elements: 'Include symbols of childhood, healing hands, hearts, gentle nature scenes, avoid dark or triggering imagery',\n      fonts: 'Gentle, readable fonts - avoid harsh or aggressive styling'\n    }\n  },\n  \n  // Inner Child SEO optimization\n  seo: {\n    primaryKeywords: innerChildKeywords.primary,\n    emotionalKeywords: innerChildKeywords.emotional,\n    therapeuticKeywords: innerChildKeywords.therapeutic,\n    longTailKeywords: [\n      'inner child healing meditation',\n      'how to heal your inner child',\n      'inner child therapy exercises',\n      'reparenting your inner child',\n      'childhood trauma healing affirmations',\n      'inner child healing for adults',\n      'healing childhood emotional wounds'\n    ]\n  },\n  \n  // Age-appropriate content suggestions\n  ageSpecificGuidance: {\n    adult: 'Focus on reparenting, therapy tools, meditation',\n    teen: 'Emphasize self-compassion, identity healing, emotional validation',\n    child: 'Use gentle, age-appropriate language and imagery'\n  },\n  \n  // Performance metrics for inner child content\n  metrics: {\n    trackingGoals: ['Pin saves (expect high save rate)', 'Click-through to resources', 'Board follows', 'Profile engagement'],\n    expectedResults: 'Inner child healing content typically sees 20-30% higher engagement and saves than general mental health content',\n    bestPerformingTypes: ['Affirmations', 'Meditation guides', 'Journal prompts', 'Healing exercises']\n  },\n  \n  // Sensitive content guidelines\n  contentGuidelines: {\n    tone: 'Gentle, nurturing, non-triggering',\n    avoid: ['Harsh imagery', 'Aggressive language', 'Triggering content'],\n    include: ['Hope', 'Compassion', 'Safety', 'Unconditional love'],\n    cta: 'Invite gentle engagement - \"Take what serves you\", \"Be gentle with yourself\"'\n  },\n  \n  timestamp: new Date().toISOString(),\n  contentType: contentType,\n  ageGroup: ageGroup,\n  optimizedFor: 'Pinterest inner child healing niche',\n  specialization: 'Childhood trauma recovery and emotional healing'\n};\n\nreturn [{ json: innerChildPinterestOptimized }];"
+      },
+      "id": "inner-child-seo-optimizer",
+      "name": "Inner Child SEO Optimizer",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "inner-child-response",
+      "name": "Inner Child Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [680, 300]
+    }
+  ],
+  "connections": {
+    "Inner Child Content Trigger": {
+      "main": [
+        [
+          {
+            "node": "Inner Child SEO Optimizer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Inner Child SEO Optimizer": {
+      "main": [
+        [
+          {
+            "node": "Inner Child Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {},
+  "versionId": "1"
+} 

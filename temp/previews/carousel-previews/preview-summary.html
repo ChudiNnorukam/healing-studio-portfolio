@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel Preview Summary</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+        
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .preview-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .preview-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .platform-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .preview-image {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .preview-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 15px 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .preview-links {
+            margin-top: 15px;
+        }
+        
+        .preview-link {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            margin: 5px;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+        
+        .preview-link:hover {
+            background: #0056b3;
+        }
+        
+        .summary-stats {
+            background: #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .stat-item {
+            display: inline-block;
+            margin: 0 20px;
+            font-size: 1.1rem;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Carousel Preview Summary</h1>
+        
+        <div class="summary-stats">
+            <div class="stat-item">
+                <span class="stat-number">2</span>
+                Platforms
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">10</span>
+                Total Slides
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">7/18/2025</span>
+                Generated
+            </div>
+        </div>
+        
+        <div class="preview-grid">
+            
+                <div class="preview-card">
+                    <div class="platform-badge">INSTAGRAM</div>
+                    <img src="carousel-instagram-1752857594831-preview.png" alt="instagram preview" class="preview-image">
+                    <div class="preview-stats">
+                        <span>5 slides</span>
+                        <span>1080x1080</span>
+                    </div>
+                    <div class="preview-links">
+                        <a href="carousel-instagram-1752857594831.html" class="preview-link" target="_blank">Interactive Preview</a>
+                        <a href="carousel-instagram-1752857594831-preview.png" class="preview-link" target="_blank">Screenshot</a>
+                    </div>
+                </div>
+            
+                <div class="preview-card">
+                    <div class="platform-badge">LINKEDIN</div>
+                    <img src="carousel-linkedin-1752857599744-preview.png" alt="linkedin preview" class="preview-image">
+                    <div class="preview-stats">
+                        <span>5 slides</span>
+                        <span>1200x628</span>
+                    </div>
+                    <div class="preview-links">
+                        <a href="carousel-linkedin-1752857599744.html" class="preview-link" target="_blank">Interactive Preview</a>
+                        <a href="carousel-linkedin-1752857599744-preview.png" class="preview-link" target="_blank">Screenshot</a>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+</body>
+</html>

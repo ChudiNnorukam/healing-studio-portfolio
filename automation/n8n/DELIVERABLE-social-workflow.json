@@ -1,0 +1,22 @@
+{
+  "name": "SEO Social Media Poster",
+  "active": true,
+  "nodes": [
+    {
+      "id": "social-webhook",
+      "name": "Social Post Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        240,
+        300
+      ],
+      "webhookId": "social-post",
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "social-post",
+        "responseMode": "responseNode"
+      }
+    }
+  ]
+}

@@ -1,0 +1,257 @@
+{
+  "testInput": {
+    "topic": "inner child healing",
+    "audience": "trauma survivors",
+    "platforms": [
+      "pinterest"
+    ],
+    "contentTypes": [
+      "quote",
+      "infographic",
+      "exercise"
+    ],
+    "monthlyBudget": 50
+  },
+  "planningData": {
+    "success": true,
+    "inputOptimization": {
+      "originalTopic": "inner child healing",
+      "optimizedTopic": "inner child healing",
+      "tokensSaved": "estimated 10-20%"
+    },
+    "contentPlan": {
+      "totalDays": 30,
+      "totalContentPieces": 30,
+      "contentTypes": [
+        "quote",
+        "infographic",
+        "exercise"
+      ],
+      "platforms": [
+        "pinterest"
+      ],
+      "schedule": [
+        {
+          "date": "2025-07-19",
+          "day": 1,
+          "contentType": "quote",
+          "platform": "pinterest",
+          "topic": "inner child healing - quote",
+          "priority": "high"
+        },
+        {
+          "date": "2025-07-20",
+          "day": 2,
+          "contentType": "infographic",
+          "platform": "pinterest",
+          "topic": "inner child healing - infographic",
+          "priority": "high"
+        },
+        {
+          "date": "2025-07-21",
+          "day": 3,
+          "contentType": "exercise",
+          "platform": "pinterest",
+          "topic": "inner child healing - exercise",
+          "priority": "high"
+        },
+        {
+          "date": "2025-07-22",
+          "day": 4,
+          "contentType": "quote",
+          "platform": "pinterest",
+          "topic": "inner child healing - quote",
+          "priority": "medium"
+        },
+        {
+          "date": "2025-07-23",
+          "day": 5,
+          "contentType": "infographic",
+          "platform": "pinterest",
+          "topic": "inner child healing - infographic",
+          "priority": "medium"
+        },
+        {
+          "date": "2025-07-24",
+          "day": 6,
+          "contentType": "exercise",
+          "platform": "pinterest",
+          "topic": "inner child healing - exercise",
+          "priority": "medium"
+        },
+        {
+          "date": "2025-07-25",
+          "day": 7,
+          "contentType": "quote",
+          "platform": "pinterest",
+          "topic": "inner child healing - quote",
+          "priority": "medium"
+        }
+      ]
+    },
+    "costOptimization": {
+      "selectedModel": "gpt-4o-mini",
+      "estimatedTokensPerContent": 300,
+      "batchSize": 30,
+      "estimatedMonthlyCost": "6.75",
+      "withinBudget": true,
+      "potentialSavings": "70-90% vs GPT-4"
+    },
+    "budgetAnalysis": {
+      "monthlyBudget": 50,
+      "currentSpend": 7.13,
+      "remainingBudget": 42.88,
+      "estimatedSpend": "6.75",
+      "canGenerateAll": true
+    }
+  },
+  "carouselData": {
+    "choices": [
+      {
+        "message": {
+          "content": "s0:Understanding Inner Child|Discover the wounded child within and begin your healing journey\ns1:Signs of Inner Child Wounds|Recognize emotional triggers, perfectionism, and people-pleasing patterns\ns2:Healing Through Self-Compassion|Practice gentle self-talk and embrace your inner child with love\ns3:Reparenting Techniques|Learn to provide the care and validation your inner child needs\ns4:Integration and Growth|Merge your inner child with your adult self for wholeness"
+        }
+      }
+    ],
+    "usage": {
+      "total_tokens": 150,
+      "prompt_tokens": 120,
+      "completion_tokens": 30
+    }
+  },
+  "visualData": {
+    "choices": [
+      {
+        "message": {
+          "content": "Slide 1: Visual: Soft pastel background with child silhouette and gentle light rays | Copy: \"Meet your inner child - the part of you that still needs love\" | CTA: \"Take a moment to breathe and connect\"\nSlide 2: Visual: Split screen showing emotional triggers and healing symbols | Copy: \"These patterns protect you, but they also limit you\" | CTA: \"Identify one trigger today\"\nSlide 3: Visual: Warm embrace illustration with heart symbols | Copy: \"Speak to yourself as you would to a beloved child\" | CTA: \"Practice one kind word to yourself\"\nSlide 4: Visual: Adult and child hands reaching toward each other | Copy: \"You have the power to reparent yourself\" | CTA: \"Start with one small act of self-care\"\nSlide 5: Visual: Butterfly emerging from cocoon with growth symbols | Copy: \"Integration brings wholeness and authentic living\" | CTA: \"Celebrate your healing journey\""
+        }
+      }
+    ],
+    "usage": {
+      "total_tokens": 200,
+      "prompt_tokens": 150,
+      "completion_tokens": 50
+    }
+  },
+  "finalResult": {
+    "success": true,
+    "carouselSummary": {
+      "topic": "inner child healing",
+      "platform": "pinterest",
+      "totalSlides": 5,
+      "format": "2:3 (1000x1500px)",
+      "targetAudience": "trauma survivors seeking healing",
+      "estimatedEngagement": "High (trauma healing content performs well)"
+    },
+    "slides": [
+      {
+        "slideNumber": "s0",
+        "title": "Understanding Inner Child",
+        "description": "Discover the wounded child within and begin your healing journey",
+        "platform": "pinterest",
+        "productionReady": true,
+        "productionChecklist": {
+          "content": "Create Understanding Inner Child slide about Discover the wounded child within and begin your healing journey",
+          "visual": "Design slide with pinterest format",
+          "copy": "Write engaging text for Understanding Inner Child",
+          "cta": "Add appropriate call-to-action",
+          "hashtags": "Use pinterest specific hashtags",
+          "schedule": "Post at optimal time for pinterest"
+        }
+      },
+      {
+        "slideNumber": "s1",
+        "title": "Signs of Inner Child Wounds",
+        "description": "Recognize emotional triggers, perfectionism, and people-pleasing patterns",
+        "platform": "pinterest",
+        "productionReady": true,
+        "productionChecklist": {
+          "content": "Create Signs of Inner Child Wounds slide about Recognize emotional triggers, perfectionism, and people-pleasing patterns",
+          "visual": "Design slide with pinterest format",
+          "copy": "Write engaging text for Signs of Inner Child Wounds",
+          "cta": "Add appropriate call-to-action",
+          "hashtags": "Use pinterest specific hashtags",
+          "schedule": "Post at optimal time for pinterest"
+        }
+      },
+      {
+        "slideNumber": "s2",
+        "title": "Healing Through Self-Compassion",
+        "description": "Practice gentle self-talk and embrace your inner child with love",
+        "platform": "pinterest",
+        "productionReady": true,
+        "productionChecklist": {
+          "content": "Create Healing Through Self-Compassion slide about Practice gentle self-talk and embrace your inner child with love",
+          "visual": "Design slide with pinterest format",
+          "copy": "Write engaging text for Healing Through Self-Compassion",
+          "cta": "Add appropriate call-to-action",
+          "hashtags": "Use pinterest specific hashtags",
+          "schedule": "Post at optimal time for pinterest"
+        }
+      },
+      {
+        "slideNumber": "s3",
+        "title": "Reparenting Techniques",
+        "description": "Learn to provide the care and validation your inner child needs",
+        "platform": "pinterest",
+        "productionReady": true,
+        "productionChecklist": {
+          "content": "Create Reparenting Techniques slide about Learn to provide the care and validation your inner child needs",
+          "visual": "Design slide with pinterest format",
+          "copy": "Write engaging text for Reparenting Techniques",
+          "cta": "Add appropriate call-to-action",
+          "hashtags": "Use pinterest specific hashtags",
+          "schedule": "Post at optimal time for pinterest"
+        }
+      },
+      {
+        "slideNumber": "s4",
+        "title": "Integration and Growth",
+        "description": "Merge your inner child with your adult self for wholeness",
+        "platform": "pinterest",
+        "productionReady": true,
+        "productionChecklist": {
+          "content": "Create Integration and Growth slide about Merge your inner child with your adult self for wholeness",
+          "visual": "Design slide with pinterest format",
+          "copy": "Write engaging text for Integration and Growth",
+          "cta": "Add appropriate call-to-action",
+          "hashtags": "Use pinterest specific hashtags",
+          "schedule": "Post at optimal time for pinterest"
+        }
+      }
+    ],
+    "creationGuide": {
+      "totalEstimatedTime": "90 minutes (avg 18 min per slide)",
+      "recommendedOrder": [
+        "1. Review all slide content and visual descriptions",
+        "2. Gather visual assets (photos, icons, brand elements)",
+        "3. Create slides in batch (use consistent design)",
+        "4. Add text overlays with trauma-informed language",
+        "5. Review for accessibility and readability",
+        "6. Export in platform-specific format",
+        "7. Schedule post with optimized hashtags"
+      ]
+    },
+    "costAnalysis": {
+      "tokensUsed": 350,
+      "estimatedCost": "0.2625",
+      "budgetRemaining": "42.62",
+      "efficiency": "Excellent - specialized carousel creation with visual guidance",
+      "costPerSlide": "0.0525"
+    },
+    "qualityChecklist": [
+      "✅ Content is trauma-informed and safe",
+      "✅ Visual descriptions are clear and actionable",
+      "✅ Text is accessible and easy to read",
+      "✅ Platform format specifications met",
+      "✅ Call-to-action is clear and appropriate"
+    ]
+  },
+  "budgetImpact": {
+    "before": 42.88,
+    "cost": 0.2625,
+    "after": 42.62,
+    "percentageUsed": 0.6121735074626866
+  },
+  "timestamp": "2025-07-19T07:17:23.838Z"
+}

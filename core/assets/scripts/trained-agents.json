@@ -1,0 +1,345 @@
+{
+  "contentCreator": {
+    "titlePatterns": [],
+    "keywordPatterns": [
+      [
+        "title",
+        15
+      ]
+    ],
+    "platformPatterns": {
+      "Pinterest": 15
+    }
+  },
+  "portfolioOptimizer": {
+    "performanceThresholds": {
+      "loadTime": 3000,
+      "firstPaint": 262.2999999523163,
+      "healthScore": 100
+    },
+    "optimizationStrategies": []
+  },
+  "trendAnalyzer": {
+    "trendPatterns": [
+      {
+        "keyword": "trauma healing",
+        "interest": "No data available",
+        "related": [],
+        "timestamp": "2025-07-18T04:42:16.603Z"
+      },
+      {
+        "keyword": "inner child work",
+        "interest": "No data available",
+        "related": [],
+        "timestamp": "2025-07-18T04:42:16.603Z"
+      },
+      {
+        "keyword": "resilience building",
+        "interest": "No data available",
+        "related": [],
+        "timestamp": "2025-07-18T04:42:16.603Z"
+      },
+      {
+        "keyword": "emotional healing",
+        "interest": "No data available",
+        "related": [],
+        "timestamp": "2025-07-18T04:42:16.603Z"
+      },
+      {
+        "keyword": "trauma healing",
+        "interest": "No data available",
+        "related": [],
+        "timestamp": "2025-07-18T04:43:35.971Z"
+      },
+      {
+        "keyword": "inner child work",
+        "interest": "No data available",
+        "related": [],
+        "timestamp": "2025-07-18T04:43:35.971Z"
+      },
+      {
+        "keyword": "resilience building",
+        "interest": "No data available",
+        "related": [],
+        "timestamp": "2025-07-18T04:43:35.971Z"
+      },
+      {
+        "keyword": "emotional healing",
+        "interest": "No data available",
+        "related": [],
+        "timestamp": "2025-07-18T04:43:35.971Z"
+      }
+    ],
+    "keywordCorrelations": {
+      "title": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "engagementPredictor": {
+    "engagementFactors": {
+      "titleLength": {
+        "avg": 8,
+        "impact": 0
+      },
+      "platform": {
+        "Instagram": 0,
+        "Pinterest": 0,
+        "LinkedIn": 0
+      },
+      "keywordCount": {
+        "avg": 1,
+        "impact": 0
+      }
+    },
+    "predictionWeights": {
+      "titleLength": 0.3,
+      "platform": 0.4,
+      "keywords": 0.2,
+      "timing": 0.1
+    }
+  },
+  "trainingData": {
+    "contentPatterns": [
+      {
+        "title": "No title",
+        "platform": "Pinterest",
+        "engagement": 0,
+        "keywords": [
+          "title"
+        ],
+        "timestamp": "2025-07-18T04:41:18.492Z"
+      },
+      {
+        "title": "No title",
+        "platform": "Pinterest",
+        "engagement": 0,
+        "keywords": [
+          "title"
+        ],
+        "timestamp": "2025-07-18T04:41:18.492Z"
+      },
+      {
+        "title": "No title",
+        "platform": "Pinterest",
+        "engagement": 0,
+        "keywords": [
+          "title"
+        ],
+        "timestamp": "2025-07-18T04:41:18.492Z"
+      },
+      {
+        "title": "No title",
+        "platform": "Pinterest",
+        "engagement": 0,
+        "keywords": [
+          "title"
+        ],
+        "timestamp": "2025-07-18T04:41:18.492Z"
+      },
+      {
+        "title": "No title",
+        "platform": "Pinterest",
+        "engagement": 0,
+        "keywords": [
+          "title"
+        ],
+        "timestamp": "2025-07-18T04:41:18.492Z"
+      },
+      {
+        "title": "No title",
+        "platform": "Pinterest",
+        "engagement": 0,
+        "keywords": [
+          "title"
+        ],
+        "timestamp": "2025-07-18T04:41:18.492Z"
+      },
+      {
+        "title": "No title",
+        "platform": "Pinterest",
+        "engagement": 0,
+        "keywords": [
+          "title"
+        ],
+        "timestamp": "2025-07-18T04:41:18.492Z"
+      },
+      {
+        "title": "No title",
+        "platform": "Pinterest",
+        "engagement": 0,
+        "keywords": [
+          "title"
+        ],
+        "timestamp": "2025-07-18T04:41:18.492Z"
+      },
+      {
+        "title": "No title",
+        "platform": "Pinterest",
+        "engagement": 0,
+        "keywords": [
+          "title"
+        ],
+        "timestamp": "2025-07-18T04:41:18.492Z"
+      },
+      {
+        "title": "No title",
+        "platform": "Pinterest",
+        "engagement": 0,
+        "keywords": [
+          "title"
+        ],
+        "timestamp": "2025-07-18T04:41:18.492Z"
+      },
+      {
+        "title": "No title",
+        "platform": "Pinterest",
+        "engagement": 0,
+        "keywords": [
+          "title"
+        ],
+        "timestamp": "2025-07-18T04:41:18.492Z"
+      },
+      {
+        "title": "No title",
+        "platform": "Pinterest",
+        "engagement": 0,
+        "keywords": [
+          "title"
+        ],
+        "timestamp": "2025-07-18T04:41:18.492Z"
+      },
+      {
+        "title": "No title",
+        "platform": "Pinterest",
+        "engagement": 0,
+        "keywords": [
+          "title"
+        ],
+        "timestamp": "2025-07-18T04:41:18.492Z"
+      },
+      {
+        "title": "No title",
+        "platform": "Pinterest",
+        "engagement": 0,
+        "keywords": [
+          "title"
+        ],
+        "timestamp": "2025-07-18T04:41:18.492Z"
+      },
+      {
+        "title": "No title",
+        "platform": "Pinterest",
+        "engagement": 0,
+        "keywords": [
+          "title"
+        ],
+        "timestamp": "2025-07-18T04:41:18.492Z"
+      }
+    ],
+    "engagementMetrics": [
+      {
+        "keyword": "trauma healing",
+        "interest": "No data available",
+        "related": [],
+        "timestamp": "2025-07-18T04:42:16.603Z"
+      },
+      {
+        "keyword": "inner child work",
+        "interest": "No data available",
+        "related": [],
+        "timestamp": "2025-07-18T04:42:16.603Z"
+      },
+      {
+        "keyword": "resilience building",
+        "interest": "No data available",
+        "related": [],
+        "timestamp": "2025-07-18T04:42:16.603Z"
+      },
+      {
+        "keyword": "emotional healing",
+        "interest": "No data available",
+        "related": [],
+        "timestamp": "2025-07-18T04:42:16.603Z"
+      },
+      {
+        "keyword": "trauma healing",
+        "interest": "No data available",
+        "related": [],
+        "timestamp": "2025-07-18T04:43:35.971Z"
+      },
+      {
+        "keyword": "inner child work",
+        "interest": "No data available",
+        "related": [],
+        "timestamp": "2025-07-18T04:43:35.971Z"
+      },
+      {
+        "keyword": "resilience building",
+        "interest": "No data available",
+        "related": [],
+        "timestamp": "2025-07-18T04:43:35.971Z"
+      },
+      {
+        "keyword": "emotional healing",
+        "interest": "No data available",
+        "related": [],
+        "timestamp": "2025-07-18T04:43:35.971Z"
+      }
+    ],
+    "platformPerformance": {
+      "loadTime": 0,
+      "firstPaint": 262.2999999523163,
+      "totalResources": 3,
+      "healthScore": 100
+    },
+    "successfulStrategies": [
+      {
+        "keyword": "title",
+        "contentType": "Blog Post",
+        "platform": "LinkedIn",
+        "estimatedEngagement": 1500,
+        "hashtags": [
+          "#healing",
+          "#traumahealing",
+          "#innerchild",
+          "#title",
+          "#mentalhealth",
+          "#selfcare",
+          "#healingjourney"
+        ]
+      },
+      {
+        "keyword": "title",
+        "contentType": "Blog Post",
+        "platform": "LinkedIn",
+        "estimatedEngagement": 1500,
+        "hashtags": [
+          "#healing",
+          "#traumahealing",
+          "#innerchild",
+          "#title",
+          "#mentalhealth",
+          "#selfcare",
+          "#healingjourney"
+        ]
+      }
+    ],
+    "failedStrategies": []
+  },
+  "timestamp": "2025-07-18T04:43:35.973Z"
+}

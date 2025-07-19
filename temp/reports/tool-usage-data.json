@@ -1,0 +1,266 @@
+{
+  "tools": {
+    "mcp_Desktop_Commander_read_file": {
+      "name": "mcp_Desktop_Commander_read_file",
+      "category": "file_operations",
+      "calls": 45,
+      "successfulCalls": 45,
+      "failedCalls": 0,
+      "totalResponseTime": 5021.266568694778,
+      "averageResponseTime": 111.58370152655061,
+      "firstUsed": 1752882163162,
+      "lastUsed": 1752882163167,
+      "errors": []
+    },
+    "mcp_Desktop_Commander_write_file": {
+      "name": "mcp_Desktop_Commander_write_file",
+      "category": "file_operations",
+      "calls": 23,
+      "successfulCalls": 20,
+      "failedCalls": 3,
+      "totalResponseTime": 3723.1884860317523,
+      "averageResponseTime": 161.8777602622501,
+      "firstUsed": 1752882163167,
+      "lastUsed": 1752882163171,
+      "errors": [
+        {
+          "timestamp": 1752882163170,
+          "error": "Error: Demo error for mcp_Desktop_Commander_write_file",
+          "context": "Response time: 111.37124331409686ms"
+        },
+        {
+          "timestamp": 1752882163171,
+          "error": "Error: Demo error for mcp_Desktop_Commander_write_file",
+          "context": "Response time: 172.31224006979107ms"
+        },
+        {
+          "timestamp": 1752882163171,
+          "error": "Error: Demo error for mcp_Desktop_Commander_write_file",
+          "context": "Response time: 134.12653228606325ms"
+        }
+      ]
+    },
+    "mcp_Desktop_Commander_edit_block": {
+      "name": "mcp_Desktop_Commander_edit_block",
+      "category": "file_operations",
+      "calls": 18,
+      "successfulCalls": 18,
+      "failedCalls": 0,
+      "totalResponseTime": 1673.0149596355136,
+      "averageResponseTime": 92.94527553530631,
+      "firstUsed": 1752882163171,
+      "lastUsed": 1752882163174,
+      "errors": []
+    },
+    "mcp_Desktop_Commander_search_files": {
+      "name": "mcp_Desktop_Commander_search_files",
+      "category": "file_operations",
+      "calls": 12,
+      "successfulCalls": 12,
+      "failedCalls": 0,
+      "totalResponseTime": 3142.310199744568,
+      "averageResponseTime": 261.8591833120473,
+      "firstUsed": 1752882163174,
+      "lastUsed": 1752882163175,
+      "errors": []
+    },
+    "mcp_Desktop_Commander_start_process": {
+      "name": "mcp_Desktop_Commander_start_process",
+      "category": "process_management",
+      "calls": 8,
+      "successfulCalls": 8,
+      "failedCalls": 0,
+      "totalResponseTime": 6331.084909498519,
+      "averageResponseTime": 791.3856136873148,
+      "firstUsed": 1752882163175,
+      "lastUsed": 1752882163177,
+      "errors": []
+    },
+    "edit_file": {
+      "name": "edit_file",
+      "category": "file_operations",
+      "calls": 15,
+      "successfulCalls": 15,
+      "failedCalls": 0,
+      "totalResponseTime": 2514.4811362848395,
+      "averageResponseTime": 167.63207575232263,
+      "firstUsed": 1752882163177,
+      "lastUsed": 1752882163180,
+      "errors": []
+    },
+    "run_terminal_cmd": {
+      "name": "run_terminal_cmd",
+      "category": "terminal",
+      "calls": 10,
+      "successfulCalls": 10,
+      "failedCalls": 0,
+      "totalResponseTime": 2917.216692960502,
+      "averageResponseTime": 291.7216692960502,
+      "firstUsed": 1752882163180,
+      "lastUsed": 1752882163183,
+      "errors": []
+    },
+    "read_file": {
+      "name": "read_file",
+      "category": "file_operations",
+      "calls": 8,
+      "successfulCalls": 8,
+      "failedCalls": 0,
+      "totalResponseTime": 629.721979709496,
+      "averageResponseTime": 78.715247463687,
+      "firstUsed": 1752882163183,
+      "lastUsed": 1752882163184,
+      "errors": []
+    },
+    "grep_search": {
+      "name": "grep_search",
+      "category": "search",
+      "calls": 6,
+      "successfulCalls": 6,
+      "failedCalls": 0,
+      "totalResponseTime": 1111.1064589510452,
+      "averageResponseTime": 185.18440982517419,
+      "firstUsed": 1752882163184,
+      "lastUsed": 1752882163185,
+      "errors": []
+    },
+    "mcp_Context7_resolve-library-id": {
+      "name": "mcp_Context7_resolve-library-id",
+      "category": "documentation",
+      "calls": 5,
+      "successfulCalls": 5,
+      "failedCalls": 0,
+      "totalResponseTime": 5884.184602610349,
+      "averageResponseTime": 1176.83692052207,
+      "firstUsed": 1752882163185,
+      "lastUsed": 1752882163186,
+      "errors": []
+    },
+    "mcp_Context7_get-library-docs": {
+      "name": "mcp_Context7_get-library-docs",
+      "category": "documentation",
+      "calls": 4,
+      "successfulCalls": 4,
+      "failedCalls": 0,
+      "totalResponseTime": 6096.068587771753,
+      "averageResponseTime": 1524.0171469429383,
+      "firstUsed": 1752882163187,
+      "lastUsed": 1752882163188,
+      "errors": []
+    },
+    "mcp_n8n-mcp_init-n8n": {
+      "name": "mcp_n8n-mcp_init-n8n",
+      "category": "automation",
+      "calls": 3,
+      "successfulCalls": 2,
+      "failedCalls": 1,
+      "totalResponseTime": 7590.465168220596,
+      "averageResponseTime": 2530.155056073532,
+      "firstUsed": 1752882163188,
+      "lastUsed": 1752882163188,
+      "errors": [
+        {
+          "timestamp": 1752882163188,
+          "error": "Error: Demo error for mcp_n8n-mcp_init-n8n",
+          "context": "Response time: 2532.0430158040153ms"
+        }
+      ]
+    },
+    "mcp_n8n-mcp_list-workflows": {
+      "name": "mcp_n8n-mcp_list-workflows",
+      "category": "automation",
+      "calls": 2,
+      "successfulCalls": 2,
+      "failedCalls": 0,
+      "totalResponseTime": 3547.2001274917884,
+      "averageResponseTime": 1773.6000637458942,
+      "firstUsed": 1752882163188,
+      "lastUsed": 1752882163189,
+      "errors": []
+    },
+    "mcp_n8n-mcp_create-workflow": {
+      "name": "mcp_n8n-mcp_create-workflow",
+      "category": "automation",
+      "calls": 1,
+      "successfulCalls": 0,
+      "failedCalls": 1,
+      "totalResponseTime": 3485.033079719431,
+      "averageResponseTime": 3485.033079719431,
+      "firstUsed": 1752882163189,
+      "lastUsed": 1752882163189,
+      "errors": [
+        {
+          "timestamp": 1752882163189,
+          "error": "Error: Demo error for mcp_n8n-mcp_create-workflow",
+          "context": "Response time: 3485.033079719431ms"
+        }
+      ]
+    },
+    "mcp_n8n-mcp_activate-workflow": {
+      "name": "mcp_n8n-mcp_activate-workflow",
+      "category": "automation",
+      "calls": 1,
+      "successfulCalls": 1,
+      "failedCalls": 0,
+      "totalResponseTime": 1173.9866421065726,
+      "averageResponseTime": 1173.9866421065726,
+      "firstUsed": 1752882163189,
+      "lastUsed": 1752882163189,
+      "errors": []
+    }
+  },
+  "sessions": [
+    {
+      "id": "session_1752882163161",
+      "name": "demo-session",
+      "startTime": 1752882163161,
+      "endTime": 1752882163189,
+      "tools": [],
+      "totalCalls": 0,
+      "errors": 0,
+      "duration": 28
+    }
+  ],
+  "summary": {
+    "totalCalls": 161,
+    "uniqueTools": 15,
+    "mostUsed": [],
+    "leastUsed": [],
+    "categories": {
+      "file_operations": {
+        "calls": 121,
+        "tools": {}
+      },
+      "process_management": {
+        "calls": 8,
+        "tools": {}
+      },
+      "terminal": {
+        "calls": 10,
+        "tools": {}
+      },
+      "search": {
+        "calls": 6,
+        "tools": {}
+      },
+      "documentation": {
+        "calls": 9,
+        "tools": {}
+      },
+      "automation": {
+        "calls": 7,
+        "tools": {}
+      }
+    },
+    "performance": {
+      "averageResponseTime": 0,
+      "totalErrors": 0,
+      "successRate": 0
+    }
+  },
+  "metadata": {
+    "created": 1752882163147,
+    "lastUpdated": 1752882163189,
+    "totalSessions": 1
+  }
+}

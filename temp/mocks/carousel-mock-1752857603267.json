@@ -1,0 +1,560 @@
+{
+  "carousel": {
+    "metadata": {
+      "generatedAt": "2025-07-18T16:53:14.827Z",
+      "totalCost": 1.2,
+      "platforms": [
+        "instagram",
+        "linkedin"
+      ]
+    },
+    "content": {
+      "instagram": {
+        "slides": [
+          {
+            "title": "You've Survived 100% of Your Bad Days",
+            "text": "That's not luck. That's resilience in action.",
+            "visual": "Minimalist design with bold typography showing '100%'",
+            "engagement": "Tag someone who needs to hear this 💪"
+          },
+          {
+            "title": "You Ask for Help When You Need It",
+            "text": "True strength isn't doing everything alone.",
+            "visual": "Hands reaching out to each other in support",
+            "engagement": "Share a time someone helped you through a tough moment"
+          },
+          {
+            "title": "You Celebrate Small Wins",
+            "text": "Progress over perfection every single time.",
+            "visual": "Checklist with completed items and celebration elements",
+            "engagement": "What small win are you celebrating today?"
+          },
+          {
+            "title": "You Learn from Setbacks",
+            "text": "Every failure is data for your next success.",
+            "visual": "Growth chart showing upward trend despite dips",
+            "engagement": "What's one thing you learned from a recent setback?"
+          },
+          {
+            "title": "You Practice Self-Compassion",
+            "text": "You talk to yourself like you would a dear friend.",
+            "visual": "Person giving themselves a gentle hug",
+            "engagement": "How do you practice self-compassion?"
+          }
+        ],
+        "caption": "💪 Resilience isn't about being unbreakable. It's about knowing how to put yourself back together. Which of these signs resonates with you? #Resilience #MentalStrength #SelfCompassion #GrowthMindset #InnerStrength #EmotionalResilience #PersonalGrowth #MentalWellness #SelfCare #Mindfulness #Healing #TraumaRecovery #InnerWork #SelfDiscovery #Empowerment",
+        "hashtags": [
+          "#Resilience",
+          "#MentalStrength",
+          "#SelfCompassion",
+          "#GrowthMindset",
+          "#InnerStrength",
+          "#EmotionalResilience",
+          "#PersonalGrowth",
+          "#MentalWellness",
+          "#SelfCare",
+          "#Mindfulness",
+          "#Healing",
+          "#TraumaRecovery",
+          "#InnerWork",
+          "#SelfDiscovery",
+          "#Empowerment"
+        ]
+      },
+      "linkedin": {
+        "slides": [
+          {
+            "title": "Resilience: The Professional Superpower",
+            "text": "How recognizing your resilience can transform your career.",
+            "visual": "Professional in power pose with confidence",
+            "engagement": "What resilience skill has helped you most in your career?"
+          },
+          {
+            "title": "You Adapt to Change",
+            "text": "Market shifts? New technologies? You figure it out.",
+            "visual": "Person navigating through changing landscape",
+            "engagement": "Share how you've adapted to recent workplace changes"
+          },
+          {
+            "title": "You Build Strong Networks",
+            "text": "You know relationships are your greatest asset.",
+            "visual": "Network of connected professionals",
+            "engagement": "Who in your network has helped you grow?"
+          },
+          {
+            "title": "You Lead with Empathy",
+            "text": "Your emotional intelligence sets you apart.",
+            "visual": "Leader supporting team members",
+            "engagement": "How do you practice empathetic leadership?"
+          },
+          {
+            "title": "You Invest in Continuous Learning",
+            "text": "Your growth mindset keeps you ahead of the curve.",
+            "visual": "Books, courses, and learning resources",
+            "engagement": "What are you learning right now?"
+          }
+        ],
+        "text": "Resilience isn't just about bouncing back—it's about bouncing forward. In today's rapidly changing professional landscape, these five signs indicate you're more resilient than you might realize. Which resonates most with your experience? #Leadership #ProfessionalDevelopment #Resilience #CareerGrowth #EmotionalIntelligence",
+        "hashtags": [
+          "#Leadership",
+          "#ProfessionalDevelopment",
+          "#Resilience",
+          "#CareerGrowth",
+          "#EmotionalIntelligence"
+        ]
+      }
+    },
+    "seo": {
+      "keywords": {
+        "primary": [
+          "resilience signs",
+          "mental strength indicators",
+          "emotional resilience"
+        ],
+        "secondary": [
+          "self-compassion",
+          "growth mindset",
+          "inner strength",
+          "mental wellness"
+        ]
+      },
+      "altText": [
+        "Person showing resilience through challenging times",
+        "Hands reaching out in support and connection",
+        "Celebration of small achievements and progress",
+        "Growth chart showing learning from setbacks",
+        "Self-compassion practice and self-care"
+      ],
+      "metaDescriptions": {
+        "instagram": "Discover 5 surprising signs that prove you're more resilient than you think. Learn how to recognize and strengthen your mental resilience.",
+        "linkedin": "Professional resilience indicators that show you're stronger than you realize. Transform your career with these resilience insights."
+      },
+      "hashtags": {
+        "instagram": [
+          "#Resilience",
+          "#MentalStrength",
+          "#SelfCompassion",
+          "#GrowthMindset",
+          "#InnerStrength",
+          "#EmotionalResilience",
+          "#PersonalGrowth",
+          "#MentalWellness",
+          "#SelfCare",
+          "#Mindfulness",
+          "#Healing",
+          "#TraumaRecovery",
+          "#InnerWork",
+          "#SelfDiscovery",
+          "#Empowerment"
+        ],
+        "linkedin": [
+          "#Leadership",
+          "#ProfessionalDevelopment",
+          "#Resilience",
+          "#CareerGrowth",
+          "#EmotionalIntelligence"
+        ]
+      }
+    },
+    "automation": {
+      "n8n": {
+        "webhook": {
+          "url": "/webhook/carousel-generated",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer ${n8n_webhook_token}"
+          },
+          "body": {
+            "content": {
+              "instagram": {
+                "slides": [
+                  {
+                    "title": "You've Survived 100% of Your Bad Days",
+                    "text": "That's not luck. That's resilience in action.",
+                    "visual": "Minimalist design with bold typography showing '100%'",
+                    "engagement": "Tag someone who needs to hear this 💪"
+                  },
+                  {
+                    "title": "You Ask for Help When You Need It",
+                    "text": "True strength isn't doing everything alone.",
+                    "visual": "Hands reaching out to each other in support",
+                    "engagement": "Share a time someone helped you through a tough moment"
+                  },
+                  {
+                    "title": "You Celebrate Small Wins",
+                    "text": "Progress over perfection every single time.",
+                    "visual": "Checklist with completed items and celebration elements",
+                    "engagement": "What small win are you celebrating today?"
+                  },
+                  {
+                    "title": "You Learn from Setbacks",
+                    "text": "Every failure is data for your next success.",
+                    "visual": "Growth chart showing upward trend despite dips",
+                    "engagement": "What's one thing you learned from a recent setback?"
+                  },
+                  {
+                    "title": "You Practice Self-Compassion",
+                    "text": "You talk to yourself like you would a dear friend.",
+                    "visual": "Person giving themselves a gentle hug",
+                    "engagement": "How do you practice self-compassion?"
+                  }
+                ],
+                "caption": "💪 Resilience isn't about being unbreakable. It's about knowing how to put yourself back together. Which of these signs resonates with you? #Resilience #MentalStrength #SelfCompassion #GrowthMindset #InnerStrength #EmotionalResilience #PersonalGrowth #MentalWellness #SelfCare #Mindfulness #Healing #TraumaRecovery #InnerWork #SelfDiscovery #Empowerment",
+                "hashtags": [
+                  "#Resilience",
+                  "#MentalStrength",
+                  "#SelfCompassion",
+                  "#GrowthMindset",
+                  "#InnerStrength",
+                  "#EmotionalResilience",
+                  "#PersonalGrowth",
+                  "#MentalWellness",
+                  "#SelfCare",
+                  "#Mindfulness",
+                  "#Healing",
+                  "#TraumaRecovery",
+                  "#InnerWork",
+                  "#SelfDiscovery",
+                  "#Empowerment"
+                ]
+              },
+              "linkedin": {
+                "slides": [
+                  {
+                    "title": "Resilience: The Professional Superpower",
+                    "text": "How recognizing your resilience can transform your career.",
+                    "visual": "Professional in power pose with confidence",
+                    "engagement": "What resilience skill has helped you most in your career?"
+                  },
+                  {
+                    "title": "You Adapt to Change",
+                    "text": "Market shifts? New technologies? You figure it out.",
+                    "visual": "Person navigating through changing landscape",
+                    "engagement": "Share how you've adapted to recent workplace changes"
+                  },
+                  {
+                    "title": "You Build Strong Networks",
+                    "text": "You know relationships are your greatest asset.",
+                    "visual": "Network of connected professionals",
+                    "engagement": "Who in your network has helped you grow?"
+                  },
+                  {
+                    "title": "You Lead with Empathy",
+                    "text": "Your emotional intelligence sets you apart.",
+                    "visual": "Leader supporting team members",
+                    "engagement": "How do you practice empathetic leadership?"
+                  },
+                  {
+                    "title": "You Invest in Continuous Learning",
+                    "text": "Your growth mindset keeps you ahead of the curve.",
+                    "visual": "Books, courses, and learning resources",
+                    "engagement": "What are you learning right now?"
+                  }
+                ],
+                "text": "Resilience isn't just about bouncing back—it's about bouncing forward. In today's rapidly changing professional landscape, these five signs indicate you're more resilient than you might realize. Which resonates most with your experience? #Leadership #ProfessionalDevelopment #Resilience #CareerGrowth #EmotionalIntelligence",
+                "hashtags": [
+                  "#Leadership",
+                  "#ProfessionalDevelopment",
+                  "#Resilience",
+                  "#CareerGrowth",
+                  "#EmotionalIntelligence"
+                ]
+              }
+            },
+            "seo": {
+              "keywords": {
+                "primary": [
+                  "resilience signs",
+                  "mental strength indicators",
+                  "emotional resilience"
+                ],
+                "secondary": [
+                  "self-compassion",
+                  "growth mindset",
+                  "inner strength",
+                  "mental wellness"
+                ]
+              },
+              "altText": [
+                "Person showing resilience through challenging times",
+                "Hands reaching out in support and connection",
+                "Celebration of small achievements and progress",
+                "Growth chart showing learning from setbacks",
+                "Self-compassion practice and self-care"
+              ],
+              "metaDescriptions": {
+                "instagram": "Discover 5 surprising signs that prove you're more resilient than you think. Learn how to recognize and strengthen your mental resilience.",
+                "linkedin": "Professional resilience indicators that show you're stronger than you realize. Transform your career with these resilience insights."
+              },
+              "hashtags": {
+                "instagram": [
+                  "#Resilience",
+                  "#MentalStrength",
+                  "#SelfCompassion",
+                  "#GrowthMindset",
+                  "#InnerStrength",
+                  "#EmotionalResilience",
+                  "#PersonalGrowth",
+                  "#MentalWellness",
+                  "#SelfCare",
+                  "#Mindfulness",
+                  "#Healing",
+                  "#TraumaRecovery",
+                  "#InnerWork",
+                  "#SelfDiscovery",
+                  "#Empowerment"
+                ],
+                "linkedin": [
+                  "#Leadership",
+                  "#ProfessionalDevelopment",
+                  "#Resilience",
+                  "#CareerGrowth",
+                  "#EmotionalIntelligence"
+                ]
+              }
+            },
+            "action": "schedule_posts"
+          }
+        },
+        "nodes": [
+          {
+            "name": "parse-content",
+            "type": "function",
+            "code": "return JSON.parse($json.content);"
+          },
+          {
+            "name": "schedule-instagram",
+            "type": "instagram",
+            "config": {
+              "action": "create_carousel",
+              "slides": "{{$json.instagram.slides}}",
+              "caption": "{{$json.instagram.caption}}",
+              "hashtags": "{{$json.instagram.hashtags}}"
+            }
+          },
+          {
+            "name": "schedule-linkedin",
+            "type": "linkedin",
+            "config": {
+              "action": "create_carousel",
+              "slides": "{{$json.linkedin.slides}}",
+              "text": "{{$json.linkedin.text}}",
+              "hashtags": "{{$json.linkedin.hashtags}}"
+            }
+          }
+        ]
+      },
+      "zapier": {
+        "trigger": "webhook",
+        "actions": [
+          {
+            "app": "google_sheets",
+            "action": "add_row",
+            "config": {
+              "spreadsheet": "carousel_content",
+              "worksheet": "generated_content",
+              "data": {
+                "Topic": "{{topic}}",
+                "Platform": "{{platform}}",
+                "Content": "{\"instagram\":{\"slides\":[{\"title\":\"You've Survived 100% of Your Bad Days\",\"text\":\"That's not luck. That's resilience in action.\",\"visual\":\"Minimalist design with bold typography showing '100%'\",\"engagement\":\"Tag someone who needs to hear this 💪\"},{\"title\":\"You Ask for Help When You Need It\",\"text\":\"True strength isn't doing everything alone.\",\"visual\":\"Hands reaching out to each other in support\",\"engagement\":\"Share a time someone helped you through a tough moment\"},{\"title\":\"You Celebrate Small Wins\",\"text\":\"Progress over perfection every single time.\",\"visual\":\"Checklist with completed items and celebration elements\",\"engagement\":\"What small win are you celebrating today?\"},{\"title\":\"You Learn from Setbacks\",\"text\":\"Every failure is data for your next success.\",\"visual\":\"Growth chart showing upward trend despite dips\",\"engagement\":\"What's one thing you learned from a recent setback?\"},{\"title\":\"You Practice Self-Compassion\",\"text\":\"You talk to yourself like you would a dear friend.\",\"visual\":\"Person giving themselves a gentle hug\",\"engagement\":\"How do you practice self-compassion?\"}],\"caption\":\"💪 Resilience isn't about being unbreakable. It's about knowing how to put yourself back together. Which of these signs resonates with you? #Resilience #MentalStrength #SelfCompassion #GrowthMindset #InnerStrength #EmotionalResilience #PersonalGrowth #MentalWellness #SelfCare #Mindfulness #Healing #TraumaRecovery #InnerWork #SelfDiscovery #Empowerment\",\"hashtags\":[\"#Resilience\",\"#MentalStrength\",\"#SelfCompassion\",\"#GrowthMindset\",\"#InnerStrength\",\"#EmotionalResilience\",\"#PersonalGrowth\",\"#MentalWellness\",\"#SelfCare\",\"#Mindfulness\",\"#Healing\",\"#TraumaRecovery\",\"#InnerWork\",\"#SelfDiscovery\",\"#Empowerment\"]},\"linkedin\":{\"slides\":[{\"title\":\"Resilience: The Professional Superpower\",\"text\":\"How recognizing your resilience can transform your career.\",\"visual\":\"Professional in power pose with confidence\",\"engagement\":\"What resilience skill has helped you most in your career?\"},{\"title\":\"You Adapt to Change\",\"text\":\"Market shifts? New technologies? You figure it out.\",\"visual\":\"Person navigating through changing landscape\",\"engagement\":\"Share how you've adapted to recent workplace changes\"},{\"title\":\"You Build Strong Networks\",\"text\":\"You know relationships are your greatest asset.\",\"visual\":\"Network of connected professionals\",\"engagement\":\"Who in your network has helped you grow?\"},{\"title\":\"You Lead with Empathy\",\"text\":\"Your emotional intelligence sets you apart.\",\"visual\":\"Leader supporting team members\",\"engagement\":\"How do you practice empathetic leadership?\"},{\"title\":\"You Invest in Continuous Learning\",\"text\":\"Your growth mindset keeps you ahead of the curve.\",\"visual\":\"Books, courses, and learning resources\",\"engagement\":\"What are you learning right now?\"}],\"text\":\"Resilience isn't just about bouncing back—it's about bouncing forward. In today's rapidly changing professional landscape, these five signs indicate you're more resilient than you might realize. Which resonates most with your experience? #Leadership #ProfessionalDevelopment #Resilience #CareerGrowth #EmotionalIntelligence\",\"hashtags\":[\"#Leadership\",\"#ProfessionalDevelopment\",\"#Resilience\",\"#CareerGrowth\",\"#EmotionalIntelligence\"]}}",
+                "SEO": "{\"keywords\":{\"primary\":[\"resilience signs\",\"mental strength indicators\",\"emotional resilience\"],\"secondary\":[\"self-compassion\",\"growth mindset\",\"inner strength\",\"mental wellness\"]},\"altText\":[\"Person showing resilience through challenging times\",\"Hands reaching out in support and connection\",\"Celebration of small achievements and progress\",\"Growth chart showing learning from setbacks\",\"Self-compassion practice and self-care\"],\"metaDescriptions\":{\"instagram\":\"Discover 5 surprising signs that prove you're more resilient than you think. Learn how to recognize and strengthen your mental resilience.\",\"linkedin\":\"Professional resilience indicators that show you're stronger than you realize. Transform your career with these resilience insights.\"},\"hashtags\":{\"instagram\":[\"#Resilience\",\"#MentalStrength\",\"#SelfCompassion\",\"#GrowthMindset\",\"#InnerStrength\",\"#EmotionalResilience\",\"#PersonalGrowth\",\"#MentalWellness\",\"#SelfCare\",\"#Mindfulness\",\"#Healing\",\"#TraumaRecovery\",\"#InnerWork\",\"#SelfDiscovery\",\"#Empowerment\"],\"linkedin\":[\"#Leadership\",\"#ProfessionalDevelopment\",\"#Resilience\",\"#CareerGrowth\",\"#EmotionalIntelligence\"]}}",
+                "Generated": "{{timestamp}}"
+              }
+            }
+          },
+          {
+            "app": "buffer",
+            "action": "create_post",
+            "config": {
+              "profile": "{{platform}}",
+              "text": "{{content.caption}}",
+              "media": "{{content.slides}}",
+              "scheduled_at": "{{scheduled_time}}"
+            }
+          }
+        ]
+      },
+      "buffer": {
+        "posts": [
+          {
+            "platform": "instagram",
+            "text": "💪 Resilience isn't about being unbreakable. It's about knowing how to put yourself back together. Which of these signs resonates with you? #Resilience #MentalStrength #SelfCompassion #GrowthMindset #InnerStrength #EmotionalResilience #PersonalGrowth #MentalWellness #SelfCare #Mindfulness #Healing #TraumaRecovery #InnerWork #SelfDiscovery #Empowerment",
+            "media": [
+              {
+                "title": "You've Survived 100% of Your Bad Days",
+                "text": "That's not luck. That's resilience in action.",
+                "visual": "Minimalist design with bold typography showing '100%'",
+                "engagement": "Tag someone who needs to hear this 💪"
+              },
+              {
+                "title": "You Ask for Help When You Need It",
+                "text": "True strength isn't doing everything alone.",
+                "visual": "Hands reaching out to each other in support",
+                "engagement": "Share a time someone helped you through a tough moment"
+              },
+              {
+                "title": "You Celebrate Small Wins",
+                "text": "Progress over perfection every single time.",
+                "visual": "Checklist with completed items and celebration elements",
+                "engagement": "What small win are you celebrating today?"
+              },
+              {
+                "title": "You Learn from Setbacks",
+                "text": "Every failure is data for your next success.",
+                "visual": "Growth chart showing upward trend despite dips",
+                "engagement": "What's one thing you learned from a recent setback?"
+              },
+              {
+                "title": "You Practice Self-Compassion",
+                "text": "You talk to yourself like you would a dear friend.",
+                "visual": "Person giving themselves a gentle hug",
+                "engagement": "How do you practice self-compassion?"
+              }
+            ],
+            "scheduled_at": "2025-07-19T19:00:00.000Z",
+            "hashtags": [
+              "#Resilience",
+              "#MentalStrength",
+              "#SelfCompassion",
+              "#GrowthMindset",
+              "#InnerStrength",
+              "#EmotionalResilience",
+              "#PersonalGrowth",
+              "#MentalWellness",
+              "#SelfCare",
+              "#Mindfulness",
+              "#Healing",
+              "#TraumaRecovery",
+              "#InnerWork",
+              "#SelfDiscovery",
+              "#Empowerment"
+            ]
+          },
+          {
+            "platform": "linkedin",
+            "media": [
+              {
+                "title": "Resilience: The Professional Superpower",
+                "text": "How recognizing your resilience can transform your career.",
+                "visual": "Professional in power pose with confidence",
+                "engagement": "What resilience skill has helped you most in your career?"
+              },
+              {
+                "title": "You Adapt to Change",
+                "text": "Market shifts? New technologies? You figure it out.",
+                "visual": "Person navigating through changing landscape",
+                "engagement": "Share how you've adapted to recent workplace changes"
+              },
+              {
+                "title": "You Build Strong Networks",
+                "text": "You know relationships are your greatest asset.",
+                "visual": "Network of connected professionals",
+                "engagement": "Who in your network has helped you grow?"
+              },
+              {
+                "title": "You Lead with Empathy",
+                "text": "Your emotional intelligence sets you apart.",
+                "visual": "Leader supporting team members",
+                "engagement": "How do you practice empathetic leadership?"
+              },
+              {
+                "title": "You Invest in Continuous Learning",
+                "text": "Your growth mindset keeps you ahead of the curve.",
+                "visual": "Books, courses, and learning resources",
+                "engagement": "What are you learning right now?"
+              }
+            ],
+            "scheduled_at": "2025-07-20T00:00:00.000Z",
+            "hashtags": [
+              "#Leadership",
+              "#ProfessionalDevelopment",
+              "#Resilience",
+              "#CareerGrowth",
+              "#EmotionalIntelligence"
+            ]
+          }
+        ],
+        "batch_size": 5,
+        "schedule_interval": "2_hours"
+      }
+    }
+  },
+  "previews": [
+    {
+      "html": "carousel-previews/carousel-instagram-1752857594831.html",
+      "screenshot": "carousel-previews/carousel-instagram-1752857594831-preview.png",
+      "platform": "instagram",
+      "slides": [
+        {
+          "title": "You've Survived 100% of Your Bad Days",
+          "text": "That's not luck. That's resilience in action.",
+          "visual": "Minimalist design with bold typography showing '100%'",
+          "engagement": "Tag someone who needs to hear this 💪"
+        },
+        {
+          "title": "You Ask for Help When You Need It",
+          "text": "True strength isn't doing everything alone.",
+          "visual": "Hands reaching out to each other in support",
+          "engagement": "Share a time someone helped you through a tough moment"
+        },
+        {
+          "title": "You Celebrate Small Wins",
+          "text": "Progress over perfection every single time.",
+          "visual": "Checklist with completed items and celebration elements",
+          "engagement": "What small win are you celebrating today?"
+        },
+        {
+          "title": "You Learn from Setbacks",
+          "text": "Every failure is data for your next success.",
+          "visual": "Growth chart showing upward trend despite dips",
+          "engagement": "What's one thing you learned from a recent setback?"
+        },
+        {
+          "title": "You Practice Self-Compassion",
+          "text": "You talk to yourself like you would a dear friend.",
+          "visual": "Person giving themselves a gentle hug",
+          "engagement": "How do you practice self-compassion?"
+        }
+      ]
+    },
+    {
+      "html": "carousel-previews/carousel-linkedin-1752857599744.html",
+      "screenshot": "carousel-previews/carousel-linkedin-1752857599744-preview.png",
+      "platform": "linkedin",
+      "slides": [
+        {
+          "title": "Resilience: The Professional Superpower",
+          "text": "How recognizing your resilience can transform your career.",
+          "visual": "Professional in power pose with confidence",
+          "engagement": "What resilience skill has helped you most in your career?"
+        },
+        {
+          "title": "You Adapt to Change",
+          "text": "Market shifts? New technologies? You figure it out.",
+          "visual": "Person navigating through changing landscape",
+          "engagement": "Share how you've adapted to recent workplace changes"
+        },
+        {
+          "title": "You Build Strong Networks",
+          "text": "You know relationships are your greatest asset.",
+          "visual": "Network of connected professionals",
+          "engagement": "Who in your network has helped you grow?"
+        },
+        {
+          "title": "You Lead with Empathy",
+          "text": "Your emotional intelligence sets you apart.",
+          "visual": "Leader supporting team members",
+          "engagement": "How do you practice empathetic leadership?"
+        },
+        {
+          "title": "You Invest in Continuous Learning",
+          "text": "Your growth mindset keeps you ahead of the curve.",
+          "visual": "Books, courses, and learning resources",
+          "engagement": "What are you learning right now?"
+        }
+      ]
+    }
+  ],
+  "summaryPath": "carousel-previews/preview-summary.html"
+}

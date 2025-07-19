@@ -250,4 +250,4 @@ curl -X POST http://localhost:5678/webhook/carousel-content-planner \
 
 **YOU NOW HAVE A RESEARCH-BACKED, COST-OPTIMIZED CONTENT GENERATION SYSTEM! 🎉**
 
-*This workflow implements the latest cost optimization techniques and can save you hundreds of dollars monthly while maintaining high-quality content output.* 
+*This workflow implements the latest cost optimization techniques and can save you hundreds of dollars monthly while maintaining high-quality content output.* e

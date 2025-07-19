@@ -1,0 +1,312 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LINKEDIN Carousel Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .carousel-container {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .carousel-frame {
+            width: 1200px;
+            height: 628px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slides-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+        
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .slide-content {
+            max-width: 80%;
+            color: white;
+        }
+        
+        .slide-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .slide-text {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            line-height: 1.4;
+            opacity: 0.9;
+        }
+        
+        .slide-visual {
+            margin: 30px 0;
+        }
+        
+        .visual-placeholder {
+            background: rgba(255,255,255,0.2);
+            border: 2px dashed rgba(255,255,255,0.5);
+            border-radius: 15px;
+            padding: 40px 20px;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.8);
+            font-style: italic;
+        }
+        
+        .slide-engagement {
+            background: rgba(255,255,255,0.2);
+            border-radius: 25px;
+            padding: 15px 25px;
+            margin-top: 20px;
+        }
+        
+        .engagement-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        .slide-number {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        
+        .carousel-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .control-btn {
+            background: rgba(255,255,255,0.9);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .control-btn:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+        
+        .carousel-info {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            z-index: 10;
+        }
+        
+        .hashtags-preview {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            max-width: 200px;
+            z-index: 10;
+        }
+        
+        .hashtag {
+            color: #1da1f2;
+            margin-right: 5px;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .slide {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel-container">
+        <div class="carousel-frame">
+            <div class="carousel-info">
+                📱 LINKEDIN Carousel
+            </div>
+            <div class="hashtags-preview">
+                <strong>Top Hashtags:</strong><br>
+                <span class="hashtag">#Leadership</span> <span class="hashtag">#ProfessionalDevelopment</span> <span class="hashtag">#Resilience</span> <span class="hashtag">#CareerGrowth</span> <span class="hashtag">#EmotionalIntelligence</span>
+            </div>
+            
+            <div class="slides-container" id="slidesContainer">
+                
+      <div class="slide" id="slide-1">
+        <div class="slide-content">
+          <h2 class="slide-title">Resilience: The Professional Superpower</h2>
+          <p class="slide-text">How recognizing your resilience can transform your career.</p>
+          <div class="slide-visual">
+            <div class="visual-placeholder">Professional in power pose with confidence</div>
+          </div>
+          <div class="slide-engagement">
+            <span class="engagement-text">What resilience skill has helped you most in your career?</span>
+          </div>
+        </div>
+        <div class="slide-number">1/5</div>
+      </div>
+    
+      <div class="slide" id="slide-2">
+        <div class="slide-content">
+          <h2 class="slide-title">You Adapt to Change</h2>
+          <p class="slide-text">Market shifts? New technologies? You figure it out.</p>
+          <div class="slide-visual">
+            <div class="visual-placeholder">Person navigating through changing landscape</div>
+          </div>
+          <div class="slide-engagement">
+            <span class="engagement-text">Share how you've adapted to recent workplace changes</span>
+          </div>
+        </div>
+        <div class="slide-number">2/5</div>
+      </div>
+    
+      <div class="slide" id="slide-3">
+        <div class="slide-content">
+          <h2 class="slide-title">You Build Strong Networks</h2>
+          <p class="slide-text">You know relationships are your greatest asset.</p>
+          <div class="slide-visual">
+            <div class="visual-placeholder">Network of connected professionals</div>
+          </div>
+          <div class="slide-engagement">
+            <span class="engagement-text">Who in your network has helped you grow?</span>
+          </div>
+        </div>
+        <div class="slide-number">3/5</div>
+      </div>
+    
+      <div class="slide" id="slide-4">
+        <div class="slide-content">
+          <h2 class="slide-title">You Lead with Empathy</h2>
+          <p class="slide-text">Your emotional intelligence sets you apart.</p>
+          <div class="slide-visual">
+            <div class="visual-placeholder">Leader supporting team members</div>
+          </div>
+          <div class="slide-engagement">
+            <span class="engagement-text">How do you practice empathetic leadership?</span>
+          </div>
+        </div>
+        <div class="slide-number">4/5</div>
+      </div>
+    
+      <div class="slide" id="slide-5">
+        <div class="slide-content">
+          <h2 class="slide-title">You Invest in Continuous Learning</h2>
+          <p class="slide-text">Your growth mindset keeps you ahead of the curve.</p>
+          <div class="slide-visual">
+            <div class="visual-placeholder">Books, courses, and learning resources</div>
+          </div>
+          <div class="slide-engagement">
+            <span class="engagement-text">What are you learning right now?</span>
+          </div>
+        </div>
+        <div class="slide-number">5/5</div>
+      </div>
+    
+            </div>
+            
+            <div class="carousel-controls">
+                <button class="control-btn" onclick="previousSlide()">‹</button>
+                <button class="control-btn" onclick="nextSlide()">›</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        function showSlide(index) {
+            const container = document.getElementById('slidesContainer');
+            container.style.transform = 'translateX(-' + (index * 100) + '%)';
+            currentSlide = index;
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+        
+        function previousSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        }
+        
+        // Auto-advance slides every 3 seconds
+        setInterval(nextSlide, 3000);
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') previousSlide();
+        });
+        
+        // Initialize first slide
+        showSlide(0);
+    </script>
+</body>
+</html>

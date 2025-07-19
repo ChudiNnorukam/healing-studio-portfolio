@@ -1,0 +1,107 @@
+{
+  "timestamp": "2025-07-19T07:35:38.864Z",
+  "n8nStatus": "Running on http://localhost:5678",
+  "workflowsTested": 2,
+  "successfulTests": 2,
+  "failedTests": 0,
+  "results": [
+    {
+      "workflow": "Carousel Content Planner",
+      "status": "SUCCESS",
+      "response": {
+        "error": "Budget exceeded",
+        "currentBudget": 50,
+        "estimatedCost": "6.75",
+        "overage": "-43.25",
+        "solutions": {
+          "reduceBatchSize": {
+            "description": "Generate content in smaller batches",
+            "newBatchSize": 222,
+            "estimatedSavings": "50-70%"
+          },
+          "useTemplates": {
+            "description": "Use pre-defined templates to reduce token usage",
+            "estimatedSavings": "40-60%"
+          },
+          "implementCaching": {
+            "description": "Cache similar content to avoid regeneration",
+            "estimatedSavings": "60-80%"
+          },
+          "adjustContentFrequency": {
+            "description": "Reduce from daily to 3x/week posting",
+            "newCost": "2.90"
+          }
+        },
+        "quickFix": {
+          "action": "Generate only high-priority content (first 7 days)",
+          "cost": "1.55",
+          "withinBudget": true
+        },
+        "freeAlternatives": [
+          "Use ChatGPT web interface for content ideation",
+          "Leverage free Canva templates for carousel design",
+          "Use Google Sheets for content calendar planning",
+          "Implement manual content creation with AI assistance"
+        ],
+        "timestamp": "2025-07-19T07:35:38.843Z"
+      },
+      "analysis": {
+        "issue": "Budget validation issue",
+        "problem": "Workflow is using hardcoded budget instead of input budget",
+        "recommendation": "Fix budget validation logic in Cost-Effective Planning Engine node",
+        "estimatedCost": "6.75",
+        "budget": 50
+      }
+    },
+    {
+      "workflow": "Social Post Optimizer",
+      "status": "SUCCESS",
+      "response": {
+        "original": {
+          "content": "",
+          "link": "",
+          "hashtags": [
+            "#TechInnovation",
+            "#Automation",
+            "#Portfolio"
+          ]
+        },
+        "twitter": {
+          "content": "\n#TechInnovation #Automation #Portfolio",
+          "platform": "twitter",
+          "charCount": 0
+        },
+        "linkedin": {
+          "content": "\n\n#TechInnovation #Automation #Portfolio #ProfessionalDevelopment",
+          "platform": "linkedin",
+          "charCount": 0
+        },
+        "facebook": {
+          "content": "\n\n#TechInnovation #Automation #Portfolio",
+          "platform": "facebook",
+          "charCount": 0
+        },
+        "instagram": {
+          "content": "\n\n#TechInnovation #Automation #Portfolio #VisualContent #Creative",
+          "platform": "instagram",
+          "charCount": 0
+        },
+        "summary": {
+          "optimizedAt": "2025-07-19T07:35:38.862Z",
+          "platforms": [
+            "twitter",
+            "linkedin",
+            "facebook",
+            "instagram"
+          ],
+          "ready": true
+        }
+      },
+      "analysis": {
+        "issue": "Input not processed correctly",
+        "problem": "Content from input payload not being read properly",
+        "recommendation": "Check input mapping in SEO Content Optimizer node"
+      }
+    }
+  ]
+}

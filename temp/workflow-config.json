@@ -1,0 +1,6 @@
+{
+  "n8nUrl": "http://localhost:5678",
+  "webhookUrl": "http://localhost:5678/webhook/carousel-content-planner",
+  "openaiApiKey": "***CONFIGURED***",
+  "timestamp": "2025-07-19T07:24:53.184Z"
+}

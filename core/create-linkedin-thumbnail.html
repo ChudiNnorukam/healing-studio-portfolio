@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Featured Thumbnail - Trauma Healing Content Studio</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .thumbnail-container {
+            width: 1024px;
+            height: 768px;
+            background: linear-gradient(135deg, #F4E4D6 0%, #F5F1EB 50%, #D4C4B7 100%);
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px;
+            box-sizing: border-box;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .main-title {
+            font-size: 48px;
+            font-weight: 700;
+            color: #5D4E37;
+            margin: 0 0 20px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: #8B7355;
+            margin: 0 0 30px 0;
+            font-weight: 500;
+        }
+
+        .icon-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+            color: #9CAF88;
+        }
+
+        .icon-text {
+            font-size: 16px;
+            color: #666666;
+            font-weight: 500;
+            max-width: 120px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid #9CAF88;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 24px;
+            color: #8B7355;
+            margin-bottom: 10px;
+        }
+
+        .feature-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #5D4E37;
+            margin-bottom: 5px;
+        }
+
+        .feature-desc {
+            font-size: 12px;
+            color: #666666;
+            line-height: 1.4;
+        }
+
+        .footer-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .tagline {
+            font-size: 18px;
+            color: #8B7355;
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        .author {
+            font-size: 16px;
+            color: #666666;
+            margin-top: 10px;
+        }
+
+        .decoration {
+            position: absolute;
+            font-size: 120px;
+            color: rgba(156, 175, 136, 0.1);
+            z-index: 0;
+        }
+
+        .decoration.top-left {
+            top: 20px;
+            left: 20px;
+        }
+
+        .decoration.bottom-right {
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .thumbnail-container {
+                box-shadow: none;
+                border: 2px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="thumbnail-container">
+        <div class="decoration top-left">🕊️</div>
+        <div class="decoration bottom-right">✨</div>
+        
+        <div class="content-wrapper">
+            <div class="header-section">
+                <h1 class="main-title">Trauma Healing Content Studio</h1>
+                <p class="subtitle">Professional Portfolio & Dashboard</p>
+            </div>
+
+            <div class="icon-section">
+                <div class="icon-item">
+                    <div class="icon">🕊️</div>
+                    <div class="icon-text">Healing Content</div>
+                </div>
+                <div class="icon-item">
+                    <div class="icon">🤖</div>
+                    <div class="icon-text">AI Humanization</div>
+                </div>
+                <div class="icon-item">
+                    <div class="icon">📊</div>
+                    <div class="icon-text">Analytics Dashboard</div>
+                </div>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🎨</div>
+                    <div class="feature-title">Professional Design</div>
+                    <div class="feature-desc">Warm, therapeutic color palette with responsive layout</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-title">Security Enhanced</div>
+                    <div class="feature-desc">Comprehensive security headers and protection</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <div class="feature-title">Mobile Optimized</div>
+                    <div class="feature-desc">Fully responsive design for all devices</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📈</div>
+                    <div class="feature-title">Analytics Integration</div>
+                    <div class="feature-desc">Google Analytics with enhanced tracking</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-title">Performance Optimized</div>
+                    <div class="feature-desc">Fast loading with optimized assets</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">♿</div>
+                    <div class="feature-title">Accessibility Focused</div>
+                    <div class="feature-desc">Screen reader friendly with ARIA labels</div>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <p class="tagline">"Creating content that heals, one word at a time"</p>
+                <p class="author">— Chudi Nnorukam</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to capture the thumbnail as an image
+        function captureThumbnail() {
+            const container = document.querySelector('.thumbnail-container');
+            
+            // Use html2canvas if available, otherwise provide instructions
+            if (typeof html2canvas !== 'undefined') {
+                html2canvas(container, {
+                    scale: 2,
+                    backgroundColor: null,
+                    width: 1024,
+                    height: 768
+                }).then(canvas => {
+                    const link = document.createElement('a');
+                    link.download = 'linkedin-featured-thumbnail.png';
+                    link.href = canvas.toDataURL();
+                    link.click();
+                });
+            } else {
+                alert('To save this thumbnail:\n1. Right-click on the image\n2. Select "Save image as"\n3. Save as "linkedin-featured-thumbnail.png"\n\nOr use browser print function (Ctrl+P) to save as PDF.');
+            }
+        }
+
+        // Add print functionality
+        function printThumbnail() {
+            window.print();
+        }
+
+        // Add instructions
+        const instructions = document.createElement('div');
+        instructions.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            max-width: 300px;
+            z-index: 1000;
+        `;
+        instructions.innerHTML = `
+            <strong>LinkedIn Featured Thumbnail</strong><br><br>
+            <strong>To save this thumbnail:</strong><br>
+            1. Right-click on the image below<br>
+            2. Select "Save image as"<br>
+            3. Save as "linkedin-featured-thumbnail.png"<br><br>
+            <strong>Or:</strong><br>
+            • Use browser print function (Ctrl+P)<br>
+            • Save as PDF or image<br><br>
+            <strong>Recommended size:</strong> 1024x768 (4:3 ratio)
+        `;
+        document.body.appendChild(instructions);
+    </script>
+</body>
+</html> 

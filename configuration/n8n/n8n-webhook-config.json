@@ -1,0 +1,27 @@
+{
+  "name": "carousel-automation-webhook",
+  "url": "/webhook/carousel-generation",
+  "method": "POST",
+  "authentication": {
+    "type": "bearer",
+    "token": "your-webhook-token"
+  },
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "topic": "{{topic}}",
+    "platform": "{{platform}}",
+    "brand_voice": {
+      "tone": "warm, professional, and empathetic",
+      "style": "conversational yet authoritative",
+      "values": [
+        "authenticity",
+        "expertise",
+        "compassion"
+      ],
+      "targetAudience": "professionals seeking personal growth and healing"
+    },
+    "budget_limit": 0.5
+  }
+}

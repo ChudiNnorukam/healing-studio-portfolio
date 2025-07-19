@@ -1,0 +1,30 @@
+{
+  "name": "custom-agent-system",
+  "version": "1.0.0",
+  "description": "Custom agent system for portfolio auditing and optimization",
+  "main": "start-custom-agent.js",
+  "scripts": {
+    "start": "node start-custom-agent.js",
+    "start-dashboard": "node start-dashboard.js",
+    "dev": "nodemon start-custom-agent.js",
+    "test": "node test-agent.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "chart.js": "^4.4.0",
+    "fs-extra": "^11.1.1",
+    "node-cron": "^3.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": [
+    "agent",
+    "automation",
+    "portfolio",
+    "audit",
+    "optimization"
+  ],
+  "author": "Chudi Norukam",
+  "license": "MIT"
+} 

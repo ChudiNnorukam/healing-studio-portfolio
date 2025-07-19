@@ -1,0 +1,43 @@
+{
+  "brandVoice": {
+    "tone": "warm, professional, and empathetic",
+    "style": "conversational yet authoritative",
+    "values": [
+      "authenticity",
+      "expertise",
+      "compassion"
+    ],
+    "targetAudience": "professionals seeking personal growth and healing"
+  },
+  "platforms": {
+    "instagram": {
+      "format": "1080x1080",
+      "maxSlides": 7,
+      "hashtagCount": 15,
+      "focus": "visual storytelling"
+    },
+    "linkedin": {
+      "format": "1200x628",
+      "maxSlides": 5,
+      "hashtagCount": 5,
+      "focus": "professional insights"
+    },
+    "pinterest": {
+      "format": "1000x1500",
+      "maxSlides": 6,
+      "hashtagCount": 20,
+      "focus": "inspirational content"
+    }
+  },
+  "budget": {
+    "dailyLimit": 0.5,
+    "monthlyLimit": 15,
+    "costPerCarousel": 1.2
+  },
+  "optimizations": {
+    "useGPT35ForOptimization": true,
+    "reduceMaxTokens": true,
+    "implementCaching": true,
+    "batchRequests": true
+  }
+}

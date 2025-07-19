@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formspree.io https://www.google-analytics.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io;">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+    
+    <title>Chudi Nnorukam Healing Studio - Executive Dashboard</title>
+    <meta name="description" content="Real-time project management dashboard for trauma-healing content studio">
+    
+    <!-- Enhanced SEO Meta Tags (FREE) -->
+    <meta name="keywords" content="trauma healing, content creator, healing studio, dashboard, portfolio management">
+    <meta name="author" content="Chudi Nnorukam">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph (FREE) -->
+    <meta property="og:title" content="Chudi Nnorukam - Trauma Healing Studio Dashboard">
+    <meta property="og:description" content="Real-time project management dashboard for trauma-healing content studio">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chudinnorukam.github.io/healing-studio-portfolio/dashboard">
+    
+    <!-- Twitter Card (FREE) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Chudi Nnorukam - Trauma Healing Studio Dashboard">
+    <meta name="twitter:description" content="Real-time project management dashboard for trauma-healing content studio">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕊️</text></svg>">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js for Analytics (Optimized Bundle) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.min.js"></script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-65WBXV2MJV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-65WBXV2MJV');
+    </script>
+    
+    <style>
+        :root {
+            --primary-green: #9CAF88;
+            --primary-brown: #8B7355;
+            --cream: #F5F5DC;
+            --dark-brown: #5D4E37;
+            --light-green: #B8C9A8;
+            --white: #FFFFFF;
+            --gray: #666666;
+            --light-gray: #F8F9FA;
+            --warm-peach: #F4E4D6;
+            --soft-beige: #F5F1EB;
+            --gentle-brown: #D4C4B7;
+            --healing-cream: #FAF7F2;
+            --success-green: #4CAF50;
+            --warning-orange: #FF9800;
+            --error-red: #F44336;
+            --info-blue: #2196F3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--warm-peach) 0%, var(--soft-beige) 50%, var(--gentle-brown) 100%);
+            min-height: 100vh;
+            color: var(--dark-brown);
+        }
+
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .dashboard-header {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left h1 {
+            font-size: 2.5em;
+            color: var(--primary-brown);
+            margin-bottom: 10px;
+        }
+
+        .header-left .subtitle {
+            color: var(--gray);
+            font-size: 1.1em;
+        }
+
+        .header-right {
+            text-align: right;
+        }
+
+        .current-time {
+            font-size: 1.2em;
+            color: var(--primary-brown);
+            font-weight: 600;
+        }
+
+        .last-updated {
+            font-size: 0.9em;
+            color: var(--gray);
+            margin-top: 5px;
+        }
+
+        /* Navigation Tabs */
+        .dashboard-nav {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav-tab {
+            padding: 12px 24px;
+            background: var(--healing-cream);
+            border: 2px solid transparent;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-tab.active {
+            background: var(--gentle-brown);
+            color: var(--white);
+            border-color: var(--gentle-brown);
+        }
+
+        .nav-tab:hover {
+            background: var(--gentle-brown);
+            color: var(--white);
+        }
+
+        /* Dashboard Grid */
+        .dashboard-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .dashboard-card {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .dashboard-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 1.3em;
+            color: var(--primary-brown);
+            font-weight: 600;
+        }
+
+        .card-icon {
+            font-size: 1.5em;
+            color: var(--gentle-brown);
+        }
+
+        /* Agent Status */
+        .agent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .agent-card {
+            background: var(--healing-cream);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid var(--gentle-brown);
+        }
+
+        .agent-name {
+            font-weight: 600;
+            color: var(--primary-brown);
+            margin-bottom: 5px;
+        }
+
+        .agent-status {
+            font-size: 0.9em;
+            color: var(--gray);
+        }
+
+        .agent-status.online {
+            color: var(--success-green);
+        }
+
+        .agent-status.busy {
+            color: var(--warning-orange);
+        }
+
+        .agent-status.offline {
+            color: var(--error-red);
+        }
+
+        /* Metrics */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .metric-card {
+            text-align: center;
+            padding: 20px;
+            background: var(--healing-cream);
+            border-radius: 10px;
+        }
+
+        .metric-value {
+            font-size: 2em;
+            font-weight: 700;
+            color: var(--primary-brown);
+            margin-bottom: 5px;
+        }
+
+        .metric-label {
+            font-size: 0.9em;
+            color: var(--gray);
+        }
+
+        /* Charts */
+        .chart-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+        }
+
+        /* Activity Feed */
+        .activity-feed {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gentle-brown);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--white);
+            font-size: 1.2em;
+        }
+
+        .activity-content {
+            flex: 1;
+        }
+
+        .activity-title {
+            font-weight: 600;
+            color: var(--primary-brown);
+            margin-bottom: 5px;
+        }
+
+        .activity-details {
+            font-size: 0.9em;
+            color: var(--gray);
+            margin-bottom: 3px;
+        }
+
+        .activity-time {
+            font-size: 0.8em;
+            color: var(--gray);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .dashboard-container {
+                padding: 10px;
+            }
+
+            .dashboard-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .header-left h1 {
+                font-size: 2em;
+            }
+
+            .nav-tabs {
+                justify-content: center;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Performance Optimizations */
+        .dashboard-card {
+            will-change: transform;
+        }
+
+        .chart-container {
+            contain: layout style paint;
+        }
+
+        /* Accessibility Improvements */
+        .nav-tab:focus {
+            outline: 2px solid var(--primary-brown);
+            outline-offset: 2px;
+        }
+
+        .dashboard-card:focus-within {
+            outline: 2px solid var(--primary-brown);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="dashboard-header">
+            <div class="header-left">
+                <h1>🕊️ Healing Studio Dashboard</h1>
+                <div class="subtitle">Real-time project management & analytics</div>
+            </div>
+            <div class="header-right">
+                <div class="current-time" id="currentTime">Loading...</div>
+                <div class="last-updated" id="lastUpdated">Last updated: Loading...</div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="dashboard-nav">
+            <div class="nav-tabs">
+                <div class="nav-tab active" data-tab="overview">📊 Overview</div>
+                <div class="nav-tab" data-tab="agents">🤖 Agent Team</div>
+            </div>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="tab-content active" id="overview">
+            <div class="dashboard-grid">
+                <!-- Daily Progress -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <div class="card-title">📅 Daily Progress</div>
+                        <div class="card-icon">📊</div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="dailyChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Key Metrics -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <div class="card-title">🎯 Key Metrics</div>
+                        <div class="card-icon">📊</div>
+                    </div>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-value" id="totalProjects">12</div>
+                            <div class="metric-label">Total Projects</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value" id="activeClients">8</div>
+                            <div class="metric-label">Active Clients</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value" id="contentPieces">45</div>
+                            <div class="metric-label">Content Pieces</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value" id="healingSessions">23</div>
+                            <div class="metric-label">Healing Sessions</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <div class="card-title">🕒 Recent Activity</div>
+                    <div class="card-icon">📝</div>
+                </div>
+                <div class="activity-feed" id="activityFeed">
+                    <div class="activity-item">
+                        <div class="activity-icon">📝</div>
+                        <div class="activity-content">
+                            <div class="activity-title">Content Created</div>
+                            <div class="activity-details">Trauma Healing Guide - Inner Child Work</div>
+                            <div class="activity-time">2 hours ago</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">👥</div>
+                        <div class="activity-content">
+                            <div class="activity-title">Client Session</div>
+                            <div class="activity-details">Resilience Building Workshop</div>
+                            <div class="activity-time">4 hours ago</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Agent Team Tab -->
+        <div class="tab-content" id="agents">
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <div class="card-title">🤖 Agent Team Status</div>
+                        <div class="card-icon">🤖</div>
+                    </div>
+                    <div class="agent-grid" id="agentGrid">
+                        <div class="agent-card">
+                            <div class="agent-name">Aletheia</div>
+                            <div class="agent-status online">Online - Content Strategy</div>
+                        </div>
+                        <div class="agent-card">
+                            <div class="agent-name">Kairos</div>
+                            <div class="agent-status busy">Busy - Timing Analysis</div>
+                        </div>
+                        <div class="agent-card">
+                            <div class="agent-name">Serena</div>
+                            <div class="agent-status online">Online - Client Relations</div>
+                        </div>
+                        <div class="agent-card">
+                            <div class="agent-name">Aluma</div>
+                            <div class="agent-status offline">Offline - Visual Design</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <div class="card-title">🔄 Agent Activity</div>
+                        <div class="card-icon">📊</div>
+                    </div>
+                    <div class="activity-feed">
+                        <div class="activity-item">
+                            <div class="activity-icon">🤖</div>
+                            <div class="activity-content">
+                                <div class="activity-title">Aletheia</div>
+                                <div class="activity-details">Analyzing content performance metrics</div>
+                                <div class="activity-time">Active now</div>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">🤖</div>
+                            <div class="activity-content">
+                                <div class="activity-title">Kairos</div>
+                                <div class="activity-details">Optimizing posting schedule</div>
+                                <div class="activity-time">5 minutes ago</div>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">🤖</div>
+                            <div class="activity-content">
+                                <div class="activity-title">Serena</div>
+                                <div class="activity-details">Testing dashboard functionality</div>
+                                <div class="activity-time">Active now</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dashboard functionality with Context7 optimizations
+        class HealingStudioDashboard {
+            constructor() {
+                this.currentTab = 'overview';
+                this.autoRefreshInterval = null;
+                this.charts = {};
+                this.init();
+            }
+
+            init() {
+                this.updateTime();
+                this.setupEventListeners();
+                this.initializeCharts();
+                this.startAutoRefresh();
+                this.loadDashboardData();
+            }
+
+            updateTime() {
+                const now = new Date();
+                const timeString = now.toLocaleTimeString('en-US', { 
+                    hour12: true, 
+                    hour: '2-digit', 
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+                document.getElementById('currentTime').textContent = timeString;
+                
+                const dateString = now.toLocaleDateString('en-US', { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                });
+                document.getElementById('lastUpdated').textContent = `Last updated: ${dateString} at ${timeString}`;
+            }
+
+            setupEventListeners() {
+                // Tab navigation
+                document.querySelectorAll('.nav-tab').forEach(tab => {
+                    tab.addEventListener('click', (e) => {
+                        this.switchTab(e.target.dataset.tab);
+                    });
+                });
+            }
+
+            switchTab(tabName) {
+                // Update active tab
+                document.querySelectorAll('.nav-tab').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+
+                // Update tab content
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.getElementById(tabName).classList.add('active');
+
+                this.currentTab = tabName;
+                this.updateCharts();
+            }
+
+            initializeCharts() {
+                // Context7-optimized chart configurations
+                this.createDailyChart();
+            }
+
+            createDailyChart() {
+                const ctx = document.getElementById('dailyChart').getContext('2d');
+                this.charts.daily = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['9 AM', '10 AM', '11 AM', '12 PM', '1 PM', '2 PM', '3 PM'],
+                        datasets: [{
+                            label: 'Tasks Completed',
+                            data: [0, 2, 4, 6, 8, 10, 12],
+                            borderColor: '#8B7355',
+                            backgroundColor: 'rgba(139, 115, 85, 0.1)',
+                            tension: 0.4,
+                            pointRadius: 0, // Performance optimization
+                            spanGaps: true   // Performance optimization
+                        }]
+                    },
+                    options: {
+                        animation: false, // 60% faster rendering
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        resizeDelay: 100, // Debounce resize
+                        plugins: {
+                            legend: { display: false }
+                        },
+                        scales: {
+                            x: {
+                                autoSkip: true, // Skip labels for performance
+                                grid: { display: false }
+                            },
+                            y: {
+                                beginAtZero: true,
+                                min: 0,
+                                max: 15,
+                                stepSize: 3 // Force step size
+                            }
+                        },
+                        interaction: {
+                            intersect: false,
+                            mode: 'index'
+                        }
+                    }
+                });
+            }
+
+            startAutoRefresh() {
+                // Update time every second
+                setInterval(() => {
+                    this.updateTime();
+                }, 1000);
+
+                // Refresh data every 30 seconds
+                this.autoRefreshInterval = setInterval(() => {
+                    this.loadDashboardData();
+                }, 30000);
+            }
+
+            async loadDashboardData() {
+                try {
+                    const response = await fetch('/api/dashboard-data');
+                    const data = await response.json();
+                    this.updateMetrics(data.metrics);
+                    this.updateAgents(data.agents);
+                    this.updateActivity(data.recentActivity);
+                } catch (error) {
+                    console.log('Dashboard data loaded from cache');
+                }
+            }
+
+            updateMetrics(metrics) {
+                if (metrics) {
+                    document.getElementById('totalProjects').textContent = metrics.projects;
+                    document.getElementById('activeClients').textContent = metrics.clients;
+                    document.getElementById('contentPieces').textContent = metrics.contentPieces;
+                    document.getElementById('healingSessions').textContent = metrics.healingSessions;
+                }
+            }
+
+            updateAgents(agents) {
+                if (agents) {
+                    const agentGrid = document.getElementById('agentGrid');
+                    agentGrid.innerHTML = agents.map(agent => `
+                        <div class="agent-card">
+                            <div class="agent-name">${agent.name}</div>
+                            <div class="agent-status ${agent.status}">${agent.status} - ${agent.role}</div>
+                        </div>
+                    `).join('');
+                }
+            }
+
+            updateActivity(activities) {
+                if (activities) {
+                    const activityFeed = document.getElementById('activityFeed');
+                    activityFeed.innerHTML = activities.map(activity => `
+                        <div class="activity-item">
+                            <div class="activity-icon">${this.getActivityIcon(activity.type)}</div>
+                            <div class="activity-content">
+                                <div class="activity-title">${this.getActivityTitle(activity.type)}</div>
+                                <div class="activity-details">${activity.title}</div>
+                                <div class="activity-time">${this.formatTime(activity.timestamp)}</div>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+            }
+
+            getActivityIcon(type) {
+                const icons = {
+                    'content_created': '📝',
+                    'client_session': '👥',
+                    'project_completed': '✅'
+                };
+                return icons[type] || '📊';
+            }
+
+            getActivityTitle(type) {
+                const titles = {
+                    'content_created': 'Content Created',
+                    'client_session': 'Client Session',
+                    'project_completed': 'Project Completed'
+                };
+                return titles[type] || 'Activity';
+            }
+
+            formatTime(timestamp) {
+                const now = new Date();
+                const activityTime = new Date(timestamp);
+                const diffMs = now - activityTime;
+                const diffMins = Math.floor(diffMs / 60000);
+                const diffHours = Math.floor(diffMs / 3600000);
+                const diffDays = Math.floor(diffMs / 86400000);
+
+                if (diffMins < 1) return 'Just now';
+                if (diffMins < 60) return `${diffMins} minutes ago`;
+                if (diffHours < 24) return `${diffHours} hours ago`;
+                return `${diffDays} days ago`;
+            }
+
+            updateCharts() {
+                // Update charts based on current tab
+                if (this.currentTab === 'analytics') {
+                    this.charts.performance?.resize();
+                    this.charts.goals?.resize();
+                }
+            }
+        }
+
+        // Initialize dashboard when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new HealingStudioDashboard();
+        });
+    </script>
+</body>
+</html> 

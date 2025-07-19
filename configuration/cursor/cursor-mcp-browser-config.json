@@ -1,0 +1,46 @@
+{
+  "mcpServers": {
+    "enhanced-n8n-browser": {
+      "command": "node",
+      "args": ["automation/n8n/enhanced-n8n-browser-mcp-server.js"],
+      "description": "Enhanced n8n automation with browser control and cost monitoring",
+      "capabilities": [
+        "workflow_automation", 
+        "browser_control", 
+        "cost_tracking",
+        "bulk_deployment"
+      ],
+      "costLimits": {
+        "daily": 0.50,
+        "monthly": 15.00,
+        "alertThreshold": 0.80
+      },
+      "environment": {
+        "NODE_ENV": "production",
+        "PUPPETEER_SKIP_CHROMIUM_DOWNLOAD": "false"
+      }
+    },
+    "n8n-api": {
+      "command": "node", 
+      "args": ["automation/n8n/n8n-mcp-server.js"],
+      "description": "Basic n8n API operations without browser automation",
+      "capabilities": ["api_only"]
+    }
+  },
+  "backgroundAgentSettings": {
+    "maxConcurrentOperations": 3,
+    "costSafetyMode": true,
+    "autoApproveLimit": 0.10,
+    "requireConfirmationAbove": 0.25,
+    "emergencyStopAt": 0.45,
+    "monitoringInterval": 30000,
+    "logLevel": "info"
+  },
+  "cursorSettings": {
+    "enableBackgroundAgents": true,
+    "useCostOptimizedMode": true,
+    "fallbackToManual": true,
+    "cacheResults": true,
+    "validateBeforeExecution": true
+  }
+} 

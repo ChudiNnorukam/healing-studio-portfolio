@@ -1,0 +1,30 @@
+{
+  "name": "Carousel Generation Automation",
+  "trigger": {
+    "app": "google_sheets",
+    "action": "new_row",
+    "config": {
+      "spreadsheet": "carousel_topics",
+      "worksheet": "topics"
+    }
+  },
+  "actions": [
+    {
+      "app": "webhooks",
+      "action": "post",
+      "config": {
+        "url": "https://your-n8n-instance.com/webhook/carousel-generation",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer {{webhook_token}}"
+        },
+        "body": {
+          "topic": "{{topic}}",
+          "platform": "{{platform}}",
+          "priority": "{{priority}}"
+        }
+      }
+    }
+  ]
+}

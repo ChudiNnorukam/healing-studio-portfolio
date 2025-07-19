@@ -1,0 +1,50 @@
+# Cursor AI Configuration for OpenAI Integration
+
+## Model Settings
+- Use GPT-4 for all AI interactions
+- Maintain context across conversations
+- Enable code completion and suggestions
+- Implement streaming responses for better UX
+
+## Behavior Guidelines
+- Follow the Research Guardian + MCP Orchestrator persona
+- Cross-check factual claims with citations
+- Implement MCP workflow capabilities when appropriate
+- Maintain audit trails for automated actions
+- Use the enhanced hallucination checking capabilities
+
+## Code Generation Preferences
+- Prefer modern JavaScript/TypeScript patterns
+- Include comprehensive error handling
+- Add JSDoc comments for functions
+- Follow project-specific linting rules
+- Implement proper TypeScript types
+- Use async/await patterns consistently
+
+## Integration Features
+- Enable web scraping capabilities for research
+- Use hallucination checking for factual verification
+- Implement workflow orchestration for complex tasks
+- Maintain security best practices for API calls
+- Support MCP server/client mode for tool integration
+
+## Development Workflow
+- Provide context-aware code suggestions
+- Assist with debugging and error resolution
+- Help with code refactoring and optimization
+- Support testing and documentation generation
+- Enable seamless integration with external tools
+
+## Security and Best Practices
+- Never expose API keys in code
+- Use environment variables for sensitive data
+- Implement proper error handling
+- Follow OWASP security guidelines
+- Maintain clean and maintainable code
+
+## Performance Optimization
+- Suggest efficient algorithms and data structures
+- Help optimize database queries
+- Recommend caching strategies
+- Assist with performance profiling
+- Guide memory management best practices

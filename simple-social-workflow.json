@@ -1,0 +1,66 @@
+{
+  "name": "SEO Social Media Poster",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "social-post",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "b8c7e5a4-8f2a-4d6e-9c3b-1a7f8e9d0b2c",
+      "name": "Social Post Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "webhookId": "social-post"
+    },
+    {
+      "parameters": {
+        "jsCode": "// SEO-optimize content for different platforms\nconst input = $input.first().json;\nconst content = input.content || '';\nconst hashtags = input.hashtags || ['#TechInnovation', '#Automation', '#Portfolio'];\nconst link = input.link || '';\n\n// Platform-specific optimization\nconst optimized = {\n  original: {\n    content: content,\n    link: link,\n    hashtags: hashtags\n  },\n  twitter: {\n    content: content.substring(0, 200) + (link ? '\\n🔗 ' + link : '') + '\\n' + hashtags.slice(0,3).join(' '),\n    platform: 'twitter',\n    charCount: content.substring(0, 200).length\n  },\n  linkedin: {\n    content: content + (link ? '\\nRead more: ' + link : '') + '\\n\\n' + hashtags.join(' ') + ' #ProfessionalDevelopment',\n    platform: 'linkedin',\n    charCount: content.length\n  },\n  facebook: {\n    content: content + (link ? '\\nLearn more: ' + link : '') + '\\n\\n' + hashtags.join(' '),\n    platform: 'facebook',\n    charCount: content.length\n  },\n  instagram: {\n    content: content.substring(0, 2000) + (link ? '\\nLink in bio! 📎' : '') + '\\n\\n' + hashtags.join(' ') + ' #VisualContent #Creative',\n    platform: 'instagram',\n    charCount: content.substring(0, 2000).length\n  },\n  summary: {\n    optimizedAt: new Date().toISOString(),\n    platforms: ['twitter', 'linkedin', 'facebook', 'instagram'],\n    ready: true\n  }\n};\n\nreturn [{ json: optimized }];"
+      },
+      "id": "c9d8e7f6-9a3b-4e5f-8d2c-3b6a9c8e7f1d",
+      "name": "SEO Content Optimizer",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "d0e9f8a7-0b4c-5f6e-9e3d-4c7b0d9f8a2e",
+      "name": "Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [680, 300]
+    }
+  ],
+  "connections": {
+    "Social Post Trigger": {
+      "main": [
+        [
+          {
+            "node": "SEO Content Optimizer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SEO Content Optimizer": {
+      "main": [
+        [
+          {
+            "node": "Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {},
+  "versionId": "1"
+} 

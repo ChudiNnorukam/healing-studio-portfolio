@@ -1,0 +1,66 @@
+{
+  "name": "Pinterest Trauma Healing Content Optimizer",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "pinterest-trauma-healing",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "pinterest-webhook-trauma",
+      "name": "Pinterest Content Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "webhookId": "pinterest-trauma-healing"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Pinterest SEO Optimizer for Trauma Healing Content\nconst input = $input.first().json;\nconst content = input.content || '';\nconst contentType = input.type || 'general'; // quote, infographic, worksheet, exercise, etc.\nconst targetAudience = input.audience || 'trauma-survivors';\n\n// Research-based Pinterest keywords for trauma healing\nconst traumaKeywords = {\n  primary: ['#TraumaHealing', '#TraumaRecovery', '#InnerChildHealing', '#MentalHealthAwareness', '#HealingJourney'],\n  secondary: ['#SelfCare', '#EmotionalWellness', '#PTSDHealing', '#ChildhoodTrauma', '#TherapyTools'],\n  trending: ['#HealingQuotes', '#TraumaSupport', '#RecoveryJourney', '#MentalHealthMatters', '#HealingProcess'],\n  niche: ['#TraumaSurvivor', '#HealingAffirmations', '#TraumaTherapy', '#RecoveryMilestones', '#EmotionalHealing']\n};\n\n// Content type specific optimization\nconst contentOptimization = {\n  quote: {\n    title: `Healing Quote: ${content.substring(0, 40)}...`,\n    description: `💙 ${content} | Save this healing affirmation for your recovery journey. ${traumaKeywords.primary.slice(0,3).join(' ')} ${traumaKeywords.trending.slice(0,2).join(' ')}`,\n    hashtags: [...traumaKeywords.primary.slice(0,3), ...traumaKeywords.trending.slice(0,2), '#HealingQuotes', '#TraumaAwareness']\n  },\n  infographic: {\n    title: `${content} - Trauma Healing Guide`,\n    description: `📊 Essential trauma healing information to support your recovery. Save & share to help others on their healing journey. ${traumaKeywords.primary.slice(0,2).join(' ')} ${traumaKeywords.secondary.slice(0,3).join(' ')}`,\n    hashtags: [...traumaKeywords.primary.slice(0,2), ...traumaKeywords.secondary.slice(0,3), '#TraumaEducation', '#HealingResources']\n  },\n  worksheet: {\n    title: `Free ${content} - Trauma Recovery Worksheet`,\n    description: `📝 Download this free trauma healing worksheet to support your recovery journey. Perfect for therapy, self-reflection, and healing work. ${traumaKeywords.primary.slice(0,2).join(' ')} ${traumaKeywords.niche.slice(0,2).join(' ')}`,\n    hashtags: [...traumaKeywords.primary.slice(0,2), ...traumaKeywords.niche.slice(0,2), '#FreeWorksheet', '#TherapyTools', '#SelfHelp']\n  },\n  exercise: {\n    title: `${content} - Healing Exercise for Trauma Recovery`,\n    description: `🧘‍♀️ Try this gentle healing exercise designed for trauma survivors. Step-by-step guide to support your emotional wellness. ${traumaKeywords.primary.slice(0,2).join(' ')} ${traumaKeywords.secondary.slice(0,2).join(' ')}`,\n    hashtags: [...traumaKeywords.primary.slice(0,2), ...traumaKeywords.secondary.slice(0,2), '#HealingExercises', '#TraumaTherapy', '#SelfCare']\n  },\n  general: {\n    title: `${content} - Trauma Healing Support`,\n    description: `💜 ${content} | Resources and support for your trauma healing journey. You're not alone in this process. ${traumaKeywords.primary.slice(0,3).join(' ')}`,\n    hashtags: [...traumaKeywords.primary.slice(0,3), ...traumaKeywords.trending.slice(0,2), '#TraumaSupport']\n  }\n};\n\n// Select optimization based on content type\nconst optimization = contentOptimization[contentType] || contentOptimization.general;\n\n// Pinterest best practices for trauma healing\nconst pinterestOptimized = {\n  title: optimization.title,\n  description: optimization.description,\n  hashtags: optimization.hashtags,\n  \n  // Pinterest-specific formatting\n  pinTitle: optimization.title.substring(0, 100), // Pinterest pin title limit\n  pinDescription: optimization.description.substring(0, 500), // Pinterest description limit\n  \n  // Content suggestions based on research\n  contentSuggestions: {\n    textOverlay: contentType === 'quote' ? content : `${contentType.toUpperCase()}: ${content.substring(0, 30)}...`,\n    boardSuggestions: ['Trauma Healing Journey', 'Mental Health Resources', 'Self-Care & Healing', 'Recovery Inspiration', 'Healing Quotes'],\n    bestTimes: ['Tuesday-Thursday 8-11pm EST', 'Saturday-Sunday 12-2pm EST'], // Peak Pinterest times for wellness content\n    imageSpecs: {\n      ratio: '2:3 (1000x1500px)',\n      style: 'Calming colors (soft blues, greens, purples), clean fonts, minimal design',\n      elements: 'Include gentle imagery, avoid triggering visuals, use healing symbols'\n    }\n  },\n  \n  // SEO optimization\n  seo: {\n    primaryKeywords: traumaKeywords.primary,\n    secondaryKeywords: traumaKeywords.secondary,\n    longTailKeywords: [\n      'trauma healing for beginners',\n      'how to heal from childhood trauma',\n      'inner child healing exercises',\n      'trauma recovery affirmations',\n      'PTSD coping strategies'\n    ]\n  },\n  \n  // Performance metrics to track\n  metrics: {\n    trackingGoals: ['Pin saves', 'Click-through rate', 'Profile visits', 'Board follows'],\n    expectedResults: 'Trauma healing content typically sees 15-25% higher engagement than general wellness content'\n  },\n  \n  timestamp: new Date().toISOString(),\n  contentType: contentType,\n  audienceTarget: targetAudience,\n  optimizedFor: 'Pinterest trauma healing niche'\n};\n\nreturn [{ json: pinterestOptimized }];"
+      },
+      "id": "pinterest-seo-optimizer",
+      "name": "Pinterest Trauma Healing SEO",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "pinterest-response",
+      "name": "Pinterest Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [680, 300]
+    }
+  ],
+  "connections": {
+    "Pinterest Content Trigger": {
+      "main": [
+        [
+          {
+            "node": "Pinterest Trauma Healing SEO",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pinterest Trauma Healing SEO": {
+      "main": [
+        [
+          {
+            "node": "Pinterest Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {},
+  "versionId": "1"
+} 
