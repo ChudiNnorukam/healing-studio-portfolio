@@ -1,0 +1,102 @@
+{
+  "summary": {
+    "total": 7,
+    "successful": 7,
+    "failed": 0,
+    "averageLoadTime": 98.42857142857143
+  },
+  "details": [
+    {
+      "url": "https://chudinnorukam.github.io/healing-studio-portfolio/",
+      "timestamp": "2025-07-18T15:06:27.274Z",
+      "status": 200,
+      "statusText": "OK",
+      "loadTime": 122,
+      "contentLength": "8349",
+      "contentType": "text/html; charset=utf-8",
+      "cacheControl": "max-age=600",
+      "etag": "W/\"687a62be-8e2d\"",
+      "lastModified": "Fri, 18 Jul 2025 15:05:34 GMT",
+      "success": true
+    },
+    {
+      "url": "https://chudinnorukam.github.io/healing-studio-portfolio/assets/images/profile-photo.jpg",
+      "timestamp": "2025-07-18T15:06:27.369Z",
+      "status": 200,
+      "statusText": "OK",
+      "loadTime": 95,
+      "contentLength": "1513528",
+      "contentType": "image/jpeg",
+      "cacheControl": "max-age=600",
+      "etag": "\"687a62be-171838\"",
+      "lastModified": "Fri, 18 Jul 2025 15:05:34 GMT",
+      "success": true
+    },
+    {
+      "url": "https://chudinnorukam.github.io/healing-studio-portfolio/assets/scripts/dashboard.js",
+      "timestamp": "2025-07-18T15:06:27.498Z",
+      "status": 200,
+      "statusText": "OK",
+      "loadTime": 129,
+      "contentLength": "38",
+      "contentType": "application/javascript; charset=utf-8",
+      "cacheControl": "max-age=600",
+      "etag": "\"687a62be-26\"",
+      "lastModified": "Fri, 18 Jul 2025 15:05:34 GMT",
+      "success": true
+    },
+    {
+      "url": "https://chudinnorukam.github.io/healing-studio-portfolio/assets/css/main.css",
+      "timestamp": "2025-07-18T15:06:27.603Z",
+      "status": 200,
+      "statusText": "OK",
+      "loadTime": 105,
+      "contentLength": "42",
+      "contentType": "text/css; charset=utf-8",
+      "cacheControl": "max-age=600",
+      "etag": "\"687a62be-2a\"",
+      "lastModified": "Fri, 18 Jul 2025 15:05:34 GMT",
+      "success": true
+    },
+    {
+      "url": "https://chudinnorukam.github.io/healing-studio-portfolio/healing-studio-dashboard.html",
+      "timestamp": "2025-07-18T15:06:27.702Z",
+      "status": 200,
+      "statusText": "OK",
+      "loadTime": 99,
+      "contentLength": "5718",
+      "contentType": "text/html; charset=utf-8",
+      "cacheControl": "max-age=600",
+      "etag": "W/\"687a62be-6a71\"",
+      "lastModified": "Fri, 18 Jul 2025 15:05:34 GMT",
+      "success": true
+    },
+    {
+      "url": "https://chudinnorukam.github.io/healing-studio-portfolio/index.html",
+      "timestamp": "2025-07-18T15:06:27.829Z",
+      "status": 200,
+      "statusText": "OK",
+      "loadTime": 127,
+      "contentLength": "8349",
+      "contentType": "text/html; charset=utf-8",
+      "cacheControl": "max-age=600",
+      "etag": "W/\"687a62be-8e2d\"",
+      "lastModified": "Fri, 18 Jul 2025 15:05:34 GMT",
+      "success": true
+    },
+    {
+      "url": "https://chudinnorukam.github.io/healing-studio-portfolio/",
+      "timestamp": "2025-07-18T15:06:27.842Z",
+      "status": 200,
+      "statusText": "OK",
+      "loadTime": 12,
+      "contentLength": "8349",
+      "contentType": "text/html; charset=utf-8",
+      "cacheControl": "max-age=600",
+      "etag": "W/\"687a62be-8e2d\"",
+      "lastModified": "Fri, 18 Jul 2025 15:05:34 GMT",
+      "success": true
+    }
+  ],
+  "timestamp": "2025-07-18T15:06:27.843Z"
+}

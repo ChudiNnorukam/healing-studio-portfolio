@@ -1,0 +1,35 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5F5DC;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F4E4D6;stop-opacity:1" />
+    </linearGradient>
+    <pattern id="dove" patternUnits="userSpaceOnUse" width="100" height="100">
+      <text x="50" y="50" font-family="Arial, sans-serif" font-size="60" text-anchor="middle" fill="#9CAF88" opacity="0.1">🕊️</text>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  
+  <!-- Pattern background -->
+  <rect width="1200" height="630" fill="url(#dove)"/>
+  
+  <!-- Main content -->
+  <g transform="translate(600, 315)">
+    <!-- Logo -->
+    <text x="0" y="-120" font-family="Arial, sans-serif" font-size="80" text-anchor="middle" fill="#5D4E37">🕊️</text>
+    
+    <!-- Name -->
+    <text x="0" y="-40" font-family="Arial, sans-serif" font-size="48" font-weight="bold" text-anchor="middle" fill="#5D4E37">Chudi Nnorukam</text>
+    
+    <!-- Subtitle -->
+    <text x="0" y="10" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#8B7355">Healing Studio</text>
+    
+    <!-- Tagline -->
+    <text x="0" y="60" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#666666">Trauma Healing Content Specialist</text>
+    
+    <!-- Services -->
+    <text x="0" y="100" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#9CAF88">Inner Child Work • Religious Trauma Recovery • Therapeutic Writing</text>
+  </g>
+</svg>
